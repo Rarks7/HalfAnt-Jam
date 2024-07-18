@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b692aa3d357ebd4fb2d5bab6113c585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runeData: {fileID: 11400000, guid: acd3f74aa3ff69e4c8e7b4cb3dad0ca0, type: 2}
 --- !u!1 &6040784864341841952
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ddaab0a4a57040e4bbae2485d3d5d581, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 554c7604170174f4797770521445c0ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

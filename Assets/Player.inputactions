@@ -15,9 +15,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CastRune",
+                    "name": "CastRune1",
                     "type": "Button",
                     "id": "be9044e6-fd88-4d8e-9052-40d4574ad246",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CastRune2",
+                    "type": "Button",
+                    "id": "a1a5c96e-e0c8-4e86-a738-d0fdb4d0e867",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CastRune3",
+                    "type": "Button",
+                    "id": "8e15d5b1-0de7-4ca4-89d6-87a6b2aa9321",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Summon",
+                    "type": "Button",
+                    "id": "484bac0e-a7fd-40de-bdd6-40de6dd1596a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -87,7 +114,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
-                    "action": "CastRune",
+                    "action": "CastRune1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "033f1d97-ddfa-463f-b0fe-c9f5b4f50959",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard/Mouse",
+                    "action": "CastRune2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4cd7e719-d184-4000-aff1-d2ff5eb0bc7f",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard/Mouse",
+                    "action": "CastRune3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55c582a3-136d-4020-8c5b-5c216d9d9bb9",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard/Mouse",
+                    "action": "Summon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCombat : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
     Rigidbody2D rb;
 
-
+    [NonSerialized]
+    public SummonModule summonModule;
     RuneModule runeModule;
     StatModule statModule;
 
@@ -23,6 +25,8 @@ public class PlayerCombat : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         runeModule = GetComponent<RuneModule>();
         statModule = GetComponent<StatModule>();
+        summonModule = GetComponent<SummonModule>();
+
     }
 
     // Update is called once per frame
@@ -42,18 +46,55 @@ public class PlayerCombat : MonoBehaviour
 
 
 
-    public void CastRune(InputAction.CallbackContext _context)
+    public void CastRune1(InputAction.CallbackContext _context)
     {
 
         if (_context.performed)
         {
 
-            runeModule.Cast();
+            runeModule.Cast(RuneType.Fire);
 
 
         }
 
+    }
 
+    public void CastRune2(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            runeModule.Cast(RuneType.Ice);
+
+
+        }
+
+    }
+
+    public void CastRune3(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            runeModule.Cast(RuneType.Lightning);
+
+
+        }
+
+    }
+
+    public void Summon(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            runeModule.Summon();
+
+
+        }
 
     }
 
