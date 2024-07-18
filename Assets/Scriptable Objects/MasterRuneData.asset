@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03d28b08c3204e4da46a43e2e5ec36f, type: 3}
+  m_Name: MasterRuneData
+  m_EditorClassIdentifier: 
+  emptyRune:
+    sprite: {fileID: 21300000, guid: 554c7604170174f4797770521445c0ae, type: 3}
+  fireRune:
+    sprite: {fileID: 21300000, guid: ddaab0a4a57040e4bbae2485d3d5d581, type: 3}
+  iceRune:
+    sprite: {fileID: 21300000, guid: 50b7daae053567a4dbf6d52ddb96f3b6, type: 3}
+  lightningRune:
+    sprite: {fileID: 21300000, guid: 2e3226bf5339c38479e40e790895bf19, type: 3}
