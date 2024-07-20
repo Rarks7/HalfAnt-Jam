@@ -3,21 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using Pathfinding;
+using Pathfinding.Examples;
 
-public class Summon : Character
+public class Summon : AICharacter
 {
-
-
-    AIDestinationSetter destinationSetter;
-
-    public RuneType enemyType = RuneType.Empty;
+    public RuneType summonType = RuneType.Empty;
     SpriteRenderer spriteRenderer;
-
-    private Vector2 startingPosition;
-    private Vector2 roamPosition;
-
-
-
 
 
 
@@ -25,27 +16,9 @@ public class Summon : Character
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
-
-        destinationSetter = GetComponent<AIDestinationSetter>();
-
-        destinationSetter.target = FindObjectOfType<Enemy>().transform;
+        base.Awake();
     }
 
-
-    private Vector2 GetRoamingPosition()
-    {
-
-        return startingPosition + GetRandDir() * Random.Range(10f, 70f);
-    }
-
-
-    public Vector2 GetRandDir()
-    {
-
-        return new Vector2(Random.Range(-1f, -1f), Random.Range(-1f, -1f)).normalized;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,15 +29,15 @@ public class Summon : Character
     // Update is called once per frame
     void Update()
     {
-        
+        Detect();
     }
 
     public void SetEnemyType(RuneType _type)
     {
 
-        enemyType = _type;
+        summonType = _type;
 
-        switch (enemyType)
+        switch (summonType)
         {
             case RuneType.Empty:
                 break;
@@ -88,8 +61,5 @@ public class Summon : Character
         }
 
     }
-
-
-
 
 }
