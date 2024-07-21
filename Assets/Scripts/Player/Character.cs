@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     protected void Awake()
     {
-
+        rb = GetComponent<Rigidbody2D>();
         statModule = GetComponent<StatModule>();
         statModule.health = statModule.maxHealth;
     }

@@ -38,8 +38,17 @@ public class Player : Character
     {
 
         //Move the player
-        rb.MovePosition(rb.position + moveInput * statModule.moveSpeed * Time.fixedDeltaTime);
+        Move();
 
+
+
+    }
+
+
+    public void Move()
+    {
+        Vector2 force = moveInput * statModule.moveSpeed * Time.deltaTime;
+        rb.AddForce(force);
     }
 
 

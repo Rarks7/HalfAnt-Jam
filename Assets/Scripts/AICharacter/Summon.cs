@@ -27,9 +27,9 @@ public class Summon : AICharacter
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
 
     public void SetEnemyType(RuneType _type)
