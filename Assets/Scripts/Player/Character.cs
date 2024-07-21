@@ -5,25 +5,35 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
 
-
     protected Rigidbody2D rb;
+    protected StatModule statModule;
 
 
-    // Start is called before the first frame update
-    void Start()
+    protected void Awake()
     {
-        
+
+        statModule = GetComponent<StatModule>();
+        statModule.health = statModule.maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int _damage)
     {
-        
+
+        statModule.health -= _damage;
+
+        if (statModule.health <= 0)
+        {
+
+            Die();
+
+        }
+
     }
 
-    public void TakeDamage()
+    public void Die()
     {
 
+        Destroy(gameObject);
 
 
     }

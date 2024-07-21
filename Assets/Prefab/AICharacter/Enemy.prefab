@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720348323996444975}
   - component: {fileID: 2153905253841971885}
+  - component: {fileID: 4030853637233030740}
   - component: {fileID: 4559809283579815470}
   - component: {fileID: 1395216810208645894}
   - component: {fileID: 916025414958851506}
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 5022175761491900051}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2153905253841971885
 MonoBehaviour:
@@ -52,6 +53,21 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 384
+--- !u!114 &4030853637233030740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279438148643352567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f2bc1ce202eba4b8e114cfe419b532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  maxHealth: 20
+  moveSpeed: 10
 --- !u!114 &4559809283579815470
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public enum AIState
 public class AICharacter : Character
 {
     AIDestinationSetter destinationSetter;
+    AIPath AIPath;
+
 
     [SerializeField] LayerMask targetLayerMask;
 
@@ -26,26 +28,30 @@ public class AICharacter : Character
 
     public void Awake()
     {
+        base.Awake();
         destinationSetter = GetComponent<AIDestinationSetter>();
+        AIPath = GetComponent<AIPath>();
+
+        AIPath.maxSpeed = statModule.moveSpeed;
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         Detect();
 
     }
 
-    public void Detect()
+    public void Attack()
     {
 
 
+
+    }
+
+
+    public void Detect()
+    {
 
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, 2.0f, new Vector2(0, 0), 0, targetLayerMask);

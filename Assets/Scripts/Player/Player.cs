@@ -11,7 +11,6 @@ public class Player : Character
     [NonSerialized]
     public SummonModule summonModule;
     RuneModule runeModule;
-    StatModule statModule;
 
 
 

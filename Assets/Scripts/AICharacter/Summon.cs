@@ -14,9 +14,9 @@ public class Summon : AICharacter
 
     private void Awake()
     {
+        base.Awake();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        base.Awake();
     }
 
 
@@ -29,7 +29,7 @@ public class Summon : AICharacter
     // Update is called once per frame
     void Update()
     {
-        Detect();
+        base.Update();
     }
 
     public void SetEnemyType(RuneType _type)
@@ -48,7 +48,7 @@ public class Summon : AICharacter
                 break;
             case RuneType.Ice:
 
-                spriteRenderer.color = Color.white;
+                spriteRenderer.color = Color.cyan;
 
                 break;
             case RuneType.Lightning:
