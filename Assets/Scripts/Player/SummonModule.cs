@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SummonModule : MonoBehaviour
 {
+
+    [SerializeField] GameObject summon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +23,13 @@ public class SummonModule : MonoBehaviour
     public void CreateSummon(int _fire, int _ice, int _lightning)
     {
 
+        GameObject newSummon = Instantiate(summon, transform.position, Quaternion.identity);
+
         if (_fire == 3)
         {
             Debug.Log("Fire, Fire & Fire");
+
+            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Fire);
             
 
         }
@@ -30,11 +37,13 @@ public class SummonModule : MonoBehaviour
         {
             Debug.Log("Ice, Ice & Ice");
 
+            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Ice);
 
         }
         else if (_lightning == 3)
         {
             Debug.Log("Lightning, Lightning & Lightning");
+            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Lightning);
 
 
         }
