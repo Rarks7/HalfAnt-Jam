@@ -87,6 +87,10 @@ public class RuneModule : MonoBehaviour
 
     public void Summon()
     {
+        if (activeRunes.Count == 0)
+        { 
+            return; 
+        }
         ResolveActiveRunes();
         ClearActiveRunes();
     }
@@ -125,7 +129,10 @@ public class RuneModule : MonoBehaviour
 
         }
 
-        player.summonModule.CreateSummon(fireCounter, iceCounter, lightningCounter);
+
+
+
+        player.summonModule.CreateSummon(activeRunes.Count,fireCounter, iceCounter, lightningCounter);
     }
 
     

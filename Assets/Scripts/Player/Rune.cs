@@ -19,16 +19,12 @@ public class Rune : MonoBehaviour
 
     RuneType runeType = RuneType.Empty;
 
-    SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     [SerializeField] RuneData runeData;
 
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-    }
     // Update is called once per frame
     void Update()
     {

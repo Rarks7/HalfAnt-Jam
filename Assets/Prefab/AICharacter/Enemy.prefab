@@ -53,7 +53,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   target: {fileID: 0}
-  nextWaypointDistance: 3
   projectile: {fileID: 9004145259910006715, guid: 58cb8e9c41f59d44e9e1c0dac2cb1f48, type: 3}
 --- !u!114 &4030853637233030740
 MonoBehaviour:
@@ -70,6 +69,11 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 100
+  attackRange: 5
+  detectRange: 10
+  fireInterval: 5
+  damage: 5
+  projectileSpeed: 500
 --- !u!114 &4559809283579815470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +238,8 @@ SpriteRenderer:
   m_SortingLayerID: -1137090535
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 745230784, guid: cba08c787de7dcc408e0cf6330d5e641, type: 3}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Sprite: {fileID: -1550434030, guid: 2eab773c3b298cb46952d4ec92338337, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -255,7 +259,7 @@ Animator:
   m_GameObject: {fileID: 7452282178190615731}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fc88913b531761746b0012ac72c23f1c, type: 2}
+  m_Controller: {fileID: 9100000, guid: c73a629772c50864ea9f2bdcb9ed054f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

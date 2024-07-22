@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class Character : MonoBehaviour
 {
 
     protected Rigidbody2D rb;
-    protected StatModule statModule;
+    [NonSerialized] public StatModule statModule;
 
 
     protected void Awake()

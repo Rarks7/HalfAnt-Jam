@@ -19,17 +19,61 @@ public class SummonModule : MonoBehaviour
         
     }
 
+    public void CreateSummon(int _runeAmount,int _fire, int _ice, int _lightning)
+    {
+        GameObject newSummon = Instantiate(summon, transform.position, Quaternion.identity);
 
-    public void CreateSummon(int _fire, int _ice, int _lightning)
+        SetSummonElement(newSummon, _fire, _ice,_lightning);
+        SetSummonCombatType(newSummon, _runeAmount);
+        SetSummonStats(newSummon, _fire, _ice, _lightning);
+
+    }
+
+    public void SetSummonCombatType(GameObject _newSummon, int _runeAmount)
     {
 
-        GameObject newSummon = Instantiate(summon, transform.position, Quaternion.identity);
+        switch (_runeAmount)
+        {
+            case 1:
+                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Melee);
+                break;
+            case 2:
+                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Range);
+
+                break;
+            case 3:
+                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+
+                break;
+            default:
+                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Empty);
+
+                break;
+        }
+
+
+    }
+    public void SetSummonStats(GameObject _newSummon, int _fire, int _ice, int _lightning)
+    {
+
+
+        _fire *= 3;// Replace with Damage Multiplier
+        _ice *= 7;// Replace with Health Mulitplier
+
+        _newSummon.GetComponent<Summon>().SetStats(_fire, _ice, _lightning);
+
+
+    }
+
+    public void SetSummonElement(GameObject _newSummon, int _fire, int _ice, int _lightning)
+    {
+
 
         if (_fire == 3)
         {
             Debug.Log("Fire, Fire & Fire");
 
-            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Fire);
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
             
 
         }
@@ -37,13 +81,13 @@ public class SummonModule : MonoBehaviour
         {
             Debug.Log("Ice, Ice & Ice");
 
-            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Ice);
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
         }
         else if (_lightning == 3)
         {
             Debug.Log("Lightning, Lightning & Lightning");
-            newSummon.GetComponent<Summon>().SetEnemyType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }

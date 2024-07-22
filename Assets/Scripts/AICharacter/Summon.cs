@@ -5,9 +5,20 @@ using UnityEngine.Animations;
 using Pathfinding;
 using Pathfinding.Examples;
 
+public enum CombatType
+{
+    Empty,
+    Melee,
+    Range,
+    Mage
+
+}
+
+
 public class Summon : AICharacter
 {
-    public RuneType summonType = RuneType.Empty;
+    public RuneType summonElementType = RuneType.Empty;
+    public CombatType summonCombatType = CombatType.Empty;
     SpriteRenderer spriteRenderer;
 
 
@@ -32,12 +43,12 @@ public class Summon : AICharacter
         base.FixedUpdate();
     }
 
-    public void SetEnemyType(RuneType _type)
+    public void SetElementType(RuneType _type)
     {
 
-        summonType = _type;
+        summonElementType = _type;
 
-        switch (summonType)
+        switch (summonElementType)
         {
             case RuneType.Empty:
                 break;
@@ -53,7 +64,7 @@ public class Summon : AICharacter
                 break;
             case RuneType.Lightning:
 
-                spriteRenderer.color = Color.yellow;
+                spriteRenderer.color = Color.magenta;
 
                 break;
             default:
@@ -61,5 +72,39 @@ public class Summon : AICharacter
         }
 
     }
+
+    public void SetCombatType(CombatType _type)
+    {
+
+        summonCombatType = _type;
+
+        switch (summonCombatType)
+        {
+            case CombatType.Empty:
+                break;
+            case CombatType.Melee:
+                break;
+            case CombatType.Range:
+                break;
+            case CombatType.Mage:
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void SetStats(int _damage, int _health,  float _fireInterval)
+    {
+
+        
+        statModule.health += _health;
+        statModule.maxHealth += _health;
+
+        statModule.damage += _damage;
+        statModule.fireInterval = statModule.fireInterval - _fireInterval;
+
+    }
+
 
 }

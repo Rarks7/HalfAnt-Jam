@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5623353596389142915}
   - component: {fileID: 5844910755432838049}
   - component: {fileID: 6016672800380449188}
-  - component: {fileID: 4516342597519210390}
+  - component: {fileID: 6887093314136123641}
   - component: {fileID: 3086729207514758926}
   m_Layer: 8
   m_Name: Summon
@@ -53,9 +53,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   target: {fileID: 0}
-  nextWaypointDistance: 3
   projectile: {fileID: 9004145259910006715, guid: 58cb8e9c41f59d44e9e1c0dac2cb1f48, type: 3}
-  summonType: 0
+  summonElementType: 0
+  summonCombatType: 0
 --- !u!114 &5844910755432838049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +71,11 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 100
+  attackRange: 5
+  detectRange: 10
+  fireInterval: 4
+  damage: 3
+  projectileSpeed: 500
 --- !u!114 &6016672800380449188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +104,8 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!61 &4516342597519210390
-BoxCollider2D:
+--- !u!58 &6887093314136123641
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,18 +137,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.46, y: 0.33}
-    newSize: {x: 0.46, y: 0.33}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!50 &3086729207514758926
 Rigidbody2D:
   serializedVersion: 4
@@ -245,7 +240,7 @@ SpriteRenderer:
   m_SortingLayerID: -1137090535
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -49905929, guid: c004630ddcab65344932c0074863c0d0, type: 3}
+  m_Sprite: {fileID: 745230784, guid: cba08c787de7dcc408e0cf6330d5e641, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

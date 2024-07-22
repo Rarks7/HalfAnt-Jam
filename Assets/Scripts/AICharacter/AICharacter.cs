@@ -20,34 +20,20 @@ public class AICharacter : Character
 {
 
     AIState state = AIState.Chase;
-
-
-    Seeker seeker;
-
     [SerializeField] public LayerMask targetLayerMask;
 
 
+    Seeker seeker;
     public Transform target;
-
-    public float nextWaypointDistance = 3f;
-
-
+    private float nextWaypointDistance = 3f;
     Path path;
     int currentWaypoint = 0;
-
     bool reachedEndofPath = false;
 
 
-
-    private float attackRange = 5;
-    private float detectRange = 10;
-
-    private float fireInterval = 5;
-    private float fireTimer = 5;
-
-
-
     [SerializeField]GameObject projectile;
+
+    private float fireTimer = 5;
 
     public void Awake()
     {
@@ -57,13 +43,10 @@ public class AICharacter : Character
         target = FindObjectOfType<Player>().transform;
         InvokeRepeating("UpdatePath", 0f, 0.5f);
 
-
-
     }
 
     protected void FixedUpdate()
     {
-        Detect();
         HandleState();
 
     }
@@ -78,6 +61,8 @@ public class AICharacter : Character
             case AIState.Follow:
                 break;
             case AIState.Chase:
+                Detect();
+
                 Chase();
                 break;
             case AIState.Attack:
@@ -99,7 +84,7 @@ public class AICharacter : Character
         Move();
 
 
-        if (Vector2.Distance(target.position, (Vector2)transform.position) <= attackRange)
+        if (Vector2.Distance(target.position, (Vector2)transform.position) <= statModule.attackRange)
         {
 
             state = AIState.Attack;
@@ -113,26 +98,52 @@ public class AICharacter : Character
     {
 
 
-
-
-        if (fireTimer <= 0)
-        {
-            GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-            newProjectile.GetComponent<Projectile>().Shoot(target);
-            fireTimer = fireInterval;
-        }
-        else 
-        { 
-        
-            fireTimer -= Time.deltaTime;
-        
-        }
-
-        if (Vector2.Distance(target.position, (Vector2)transform.position) > attackRange)
+        if (target != null)
         {
 
-            state = AIState.Chase;
 
+
+
+            if (fireTimer <= 0)
+            {
+
+                Player targetCheck = target.GetComponent<Player>();
+                if (this is Summon && targetCheck != null)
+                {
+
+                }
+                else
+                {
+
+                    GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+                    newProjectile.GetComponent<Projectile>().SetOwner(this);
+                    newProjectile.GetComponent<Projectile>().Shoot(target);
+                    fireTimer = statModule.fireInterval;
+                }
+            }
+            else
+            {
+
+                fireTimer -= Time.deltaTime;
+
+            }
+        }
+
+        if (target != null)
+        {
+
+
+            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
+            {
+
+                state = AIState.Chase;
+
+            }
+        }
+        else
+        {
+
+            target = FindObjectOfType<Player>().transform;
         }
 
     }
@@ -140,7 +151,7 @@ public class AICharacter : Character
     public void Detect()
     {
 
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, detectRange, new Vector2(0, 0), 0, targetLayerMask);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, statModule.detectRange, new Vector2(0, 0), 0, targetLayerMask);
         
 
         if (hit)
@@ -166,8 +177,11 @@ public class AICharacter : Character
     {
         if (seeker.IsDone())
         {
+            if (target != null)
+            {
+                seeker.StartPath(rb.position, target.position, OnPathComplete);
 
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            }
         }
 
     }
