@@ -11,10 +11,16 @@ public class Player : Character
     [NonSerialized]
     public SummonModule summonModule;
     RuneModule runeModule;
+    StatModule statModule;
+    [SerializeField] Animator ani;
 
 
+    [SerializeField] LayerMask walkLayerMask;
+    float collisionOffset = 0.05f;
 
-    Vector2 moveInput;
+    Vector2 moveInput = new Vector2(0,0);
+    Vector2 lastVelocity = new Vector2(0,0);
+    
 
 
     // Start is called before the first frame update
@@ -30,7 +36,7 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
-        
+        AnimateCharacter();
     }
 
 
@@ -38,20 +44,46 @@ public class Player : Character
     {
 
         //Move the player
-        Move();
-
-
+        MoveCharacter(moveInput);
 
     }
 
-
-    public void Move()
+    private void AnimateCharacter()
     {
-        Vector2 force = moveInput * statModule.moveSpeed * Time.deltaTime;
-        rb.AddForce(force);
+        Vector2 norm = moveInput.normalized;
+
+        ani.SetFloat(Constants.AnimationParameters.f_X, norm.x);
+        ani.SetFloat(Constants.AnimationParameters.f_Y, norm.y);
+        
+        if(norm.magnitude > 0)
+        {
+            if(lastVelocity != norm)
+            {
+                ani.SetTrigger(Constants.AnimationParameters.t_DirectionChange);
+                lastVelocity = norm;
+            }
+            
+            
+            ani.SetBool(Constants.AnimationParameters.b_Walking, true);
+        }
+        else
+        {
+            ani.SetBool(Constants.AnimationParameters.b_Walking, false);
+        }
     }
+    private bool MoveCharacter(Vector2 direction)
+    {
 
-
+        if (!Physics2D.Raycast(rb.position, direction, statModule.moveSpeed * Time.fixedDeltaTime + collisionOffset, walkLayerMask))
+        {
+            rb.MovePosition(rb.position + statModule.moveSpeed * Time.fixedDeltaTime * moveInput);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public void CastRune1(InputAction.CallbackContext _context)
     {
@@ -110,6 +142,25 @@ public class Player : Character
 
         moveInput = _context.ReadValue<Vector2>();
 
+        
+    }
+
+    public void Interact(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+
+        }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        if(moveInput.magnitude > 0)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(rb.position, moveInput * (statModule.moveSpeed * Time.fixedDeltaTime + collisionOffset));
+        }
         
     }
 
