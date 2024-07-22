@@ -12693,6 +12693,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 4e627033-7721-4e15-8ba2-135f8e31bc78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Combat/Interact[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 512413476}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964773277426774365, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6247942158397417843, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -12747,6 +12787,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6247942158397417843, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
   m_PrefabInstance: {fileID: 468801391}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &512413476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4073319335373391488, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+  m_PrefabInstance: {fileID: 468801391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c53f49e43fe2dc43946a650757ffd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636750246
 GameObject:
   m_ObjectHideFlags: 0
@@ -29569,3 +29620,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatBox: {fileID: 1212077770}
+  TestMainText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+    in culpa qui officia deserunt mollit anim id est laborum.

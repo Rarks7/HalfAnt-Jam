@@ -35,4 +35,11 @@ public class EventManager : MonoBehaviour
         OnPlayerPressedDown?.Invoke();
     }
 
+    public static Action<int> OnPlayerMadeOptionSelection;
+    public static void PlayerMadeOptionSelection(int _option)
+    {
+        OnPlayerMadeOptionSelection?.Invoke(_option);
+    }
+
+
 }

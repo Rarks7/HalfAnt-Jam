@@ -10,7 +10,7 @@ public class TextScroller : MonoBehaviour
     private TMP_Text mText;
 
 
-    private const float ScrollDelay = 0.3f;
+    private const float ScrollDelay = 0.05f;
 
     public Action OnScrollComplete;
     Coroutine ScrollingCoro;

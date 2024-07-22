@@ -142,6 +142,30 @@ public class Player : Character
 
         moveInput = _context.ReadValue<Vector2>();
 
+        if(_context.performed)
+        {
+            if (moveInput.x > 0)
+            {
+                EventManager.PlayerPressedRight();
+                Debug.Log("Right Pressed");
+            }
+            else if (moveInput.x < 0)
+            {
+                EventManager.PlayerPressedLeft();
+                Debug.Log("Left Pressed");
+            }
+            else if (moveInput.y > 0)
+            {
+                EventManager.PlayerPressedUp();
+                Debug.Log("Up Pressed");
+            }
+            else if (moveInput.y < 0)
+            {
+                EventManager.PlayerPressedDown();
+                Debug.Log("Down Pressed");
+            }
+        }
+
         
     }
 
@@ -149,7 +173,8 @@ public class Player : Character
     {
         if (_context.performed)
         {
-
+            EventManager.PlayerPressedInteract();
+            Debug.Log("Player Pressed Interact");
         }
     }
 
