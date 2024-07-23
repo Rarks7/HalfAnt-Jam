@@ -12,5 +12,13 @@ public class StatModule : MonoBehaviour
     public float moveSpeed = 10;
 
 
+    [Header("AI ONLY")]
+    public float attackRange = 5;
+    public float detectRange = 10;
 
+    public float fireInterval = 5;
+
+    [Header("Damage")]
+    public int damage = 5;
+    public int projectileSpeed = 500;
 }

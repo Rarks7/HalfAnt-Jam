@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave: 0
-  maxWaves: 0
+  maxWaves: 5
   waveInterval: 10
   waveTimer: 0
   enemiesToSpawn:

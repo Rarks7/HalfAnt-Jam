@@ -15,8 +15,8 @@ MonoBehaviour:
   emptyRune:
     sprite: {fileID: 21300000, guid: 554c7604170174f4797770521445c0ae, type: 3}
   fireRune:
-    sprite: {fileID: 21300000, guid: ddaab0a4a57040e4bbae2485d3d5d581, type: 3}
+    sprite: {fileID: -1328841478, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
   iceRune:
-    sprite: {fileID: 21300000, guid: 50b7daae053567a4dbf6d52ddb96f3b6, type: 3}
+    sprite: {fileID: 706160885, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
   lightningRune:
-    sprite: {fileID: 21300000, guid: 2e3226bf5339c38479e40e790895bf19, type: 3}
+    sprite: {fileID: -1162227424, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
