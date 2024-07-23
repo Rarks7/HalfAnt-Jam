@@ -166,6 +166,10 @@ public class Player : Character
             }
         }
 
+        if(GameManager.Instance.CurrentState == GameState.Chatting)
+        {
+            moveInput = Vector2.zero;
+        }
         
     }
 

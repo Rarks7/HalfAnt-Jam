@@ -41,5 +41,15 @@ public class EventManager : MonoBehaviour
         OnPlayerMadeOptionSelection?.Invoke(_option);
     }
 
+    public static Action<GameState> OnChangeGameState;
+    public static void ChangeGameState(GameState _gameState)
+    {
+        OnChangeGameState?.Invoke(_gameState);
+    }
 
+    public static Action OnRevertToPreviousGameState;
+    public static void RevertToPreviousGameState()
+    {
+        OnRevertToPreviousGameState?.Invoke();
+    }
 }

@@ -81,6 +81,8 @@ public class MainChatBox : MonoBehaviour
     private void PlayMainText()
     {
         DownIndicator.gameObject.SetActive(false);
+
+        EventManager.OnPlayerPressedInteract += SkipTextScrolling;
         
         if (RemainingEntry.Length > CharacterLimit)
         {
@@ -98,8 +100,15 @@ public class MainChatBox : MonoBehaviour
         }
     }
 
+    private void SkipTextScrolling()
+    {
+        Out_MainText.SkipScroll();
+    }
+
     private void DisplayDownIndicator()
     {
+        EventManager.OnPlayerPressedInteract -= SkipTextScrolling;
+
         Out_MainText.OnScrollComplete -= DisplayDownIndicator;
 
         DownIndicator.gameObject.SetActive(true);
@@ -107,6 +116,38 @@ public class MainChatBox : MonoBehaviour
         EventManager.OnPlayerPressedInteract += PlayNextText;
         Debug.Log("Display Down Indicator");
     }
+
+    private void DisplayEntryOptions()
+    {
+        EventManager.OnPlayerPressedInteract -= SkipTextScrolling;
+        Out_MainText.OnScrollComplete -= DisplayEntryOptions;
+
+        if (CurrentEntry.OptionTextOne == null && CurrentEntry.OptionTextTwo == null)
+        {
+            EventManager.OnPlayerPressedInteract += CloseMainText;
+        }
+
+
+        OptionOne.SetOption(CurrentEntry.OptionTextOne, CurrentEntry.OneSelected);
+        if (CurrentEntry.OptionTextOne != "")
+        {
+            NumberOfOptions++;
+        }
+
+
+        OptionTwo.SetOption(CurrentEntry.OptionTextTwo, CurrentEntry.TwoSelected);
+        if (CurrentEntry.OptionTextTwo != "")
+        {
+            NumberOfOptions++;
+        }
+
+
+        EventManager.OnPlayerPressedLeft += MoveSelected;
+        EventManager.OnPlayerPressedRight += MoveSelected;
+
+        EventManager.OnPlayerPressedInteract += MakeSelection;
+    }
+
 
     private void PlayNextText()
     {
@@ -118,35 +159,6 @@ public class MainChatBox : MonoBehaviour
         PlayMainText();
     }
 
-    private void DisplayEntryOptions()
-    {
-        Out_MainText.OnScrollComplete -= DisplayEntryOptions;
-
-        if(CurrentEntry.OptionTextOne == null && CurrentEntry.OptionTextTwo == null)
-        {
-            EventManager.OnPlayerPressedInteract += CloseMainText;
-        }
-
-
-        OptionOne.SetOption(CurrentEntry.OptionTextOne, CurrentEntry.OneSelected);
-        if(CurrentEntry.OptionTextOne != "")
-        {
-            NumberOfOptions++;
-        }
-
-
-        OptionTwo.SetOption(CurrentEntry.OptionTextTwo, CurrentEntry.TwoSelected);
-        if(CurrentEntry.OptionTextTwo != "")
-        {
-            NumberOfOptions++;
-        }
-
-
-        EventManager.OnPlayerPressedLeft += MoveSelected;
-        EventManager.OnPlayerPressedRight += MoveSelected;
-
-        EventManager.OnPlayerPressedInteract += MakeSelection;
-    }
 
     private void MoveSelected()
     {
@@ -173,7 +185,12 @@ public class MainChatBox : MonoBehaviour
 
     private void MakeSelection()
     {
-         EventManager.PlayerMadeOptionSelection(CurrentSelected);
+        EventManager.PlayerMadeOptionSelection(CurrentSelected);
+
+        EventManager.OnPlayerPressedLeft -= MoveSelected;
+        EventManager.OnPlayerPressedRight -= MoveSelected;
+
+        EventManager.OnPlayerPressedInteract -= MakeSelection;
     }
 
     public void CloseMainText()
