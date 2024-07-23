@@ -95,12 +95,14 @@ public class SummonModule : MonoBehaviour
         else if (_fire == 2 && _ice == 1)
         {
             Debug.Log("Fire, Fire & Ice");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
         else if (_fire == 2 && _lightning == 1)
         {
             Debug.Log("Fire, Fire & Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
@@ -108,6 +110,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Ice, Ice & Fire");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
 
         }
@@ -115,6 +118,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Ice, Ice & Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
 
         }
@@ -122,6 +126,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Lightning,Lightning & Fire");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }
@@ -129,6 +134,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Lightning,Lightning & Ice");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }
@@ -136,6 +142,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Fire,Ice & Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
@@ -144,6 +151,7 @@ public class SummonModule : MonoBehaviour
         else if (_fire == 2)
         {
             Debug.Log("Fire & Fire");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
@@ -151,6 +159,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Ice & Ice");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
 
         }
@@ -158,6 +167,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Lightning & Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }
@@ -165,6 +175,7 @@ public class SummonModule : MonoBehaviour
         else if (_fire == 1 && _ice == 1)
         {
             Debug.Log("Fire & Ice");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
@@ -172,6 +183,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Ice & Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
 
         }
@@ -179,6 +191,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Lightning & Fire");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }
@@ -186,6 +199,7 @@ public class SummonModule : MonoBehaviour
         else if (_fire == 1)
         {
             Debug.Log("Fire");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
 
 
         }
@@ -193,6 +207,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Ice");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
 
 
         }
@@ -200,6 +215,7 @@ public class SummonModule : MonoBehaviour
         {
 
             Debug.Log("Lightning");
+            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
 
 
         }

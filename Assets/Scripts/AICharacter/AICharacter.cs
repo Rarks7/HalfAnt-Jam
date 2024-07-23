@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum AIState
 {
 
@@ -15,11 +14,12 @@ public enum AIState
 }
 
 
-
 public class AICharacter : Character
 {
 
-    AIState state = AIState.Chase;
+    Player player;
+
+    public AIState state = AIState.Chase;
     [SerializeField] public LayerMask targetLayerMask;
 
 
@@ -30,8 +30,10 @@ public class AICharacter : Character
     int currentWaypoint = 0;
     bool reachedEndofPath = false;
 
+    [SerializeField] GameObject meleeAttack;
+    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject areaAttack;
 
-    [SerializeField]GameObject projectile;
 
     private float fireTimer = 5;
 
@@ -43,6 +45,7 @@ public class AICharacter : Character
         target = FindObjectOfType<Player>().transform;
         InvokeRepeating("UpdatePath", 0f, 0.5f);
 
+        player = FindObjectOfType<Player>();
     }
 
     protected void FixedUpdate()
@@ -59,6 +62,9 @@ public class AICharacter : Character
             case AIState.Idle:
                 break;
             case AIState.Follow:
+                Detect();
+
+                Follow();
                 break;
             case AIState.Chase:
                 Detect();
@@ -66,7 +72,22 @@ public class AICharacter : Character
                 Chase();
                 break;
             case AIState.Attack:
-                Attack();
+                switch (statModule.combatType)
+                {
+                    case CombatType.Empty:
+                        break;
+                    case CombatType.Melee:
+                        MeleeAttack();
+                        break;
+                    case CombatType.Range:
+                        RangeAttack();
+                        break;
+                    case CombatType.Mage:
+                        AreaAttack();
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
@@ -76,13 +97,32 @@ public class AICharacter : Character
 
     }
 
+    public void Follow()
+    {
+
+        fireTimer = statModule.fireInterval;
+
+        Move();
+
+        if (Vector2.Distance(target.position, (Vector2)transform.position) <= statModule.detectRange )
+        {
+            if (target != player.transform)
+            {
+                state = AIState.Chase;
+
+            }
+
+        }
+
+    }
+
 
     public void Chase()
     {
 
+        fireTimer = statModule.fireInterval;
 
         Move();
-
 
         if (Vector2.Distance(target.position, (Vector2)transform.position) <= statModule.attackRange)
         {
@@ -94,7 +134,62 @@ public class AICharacter : Character
 
     }
 
-    public void Attack()
+
+    public void MeleeAttack()
+    {
+
+
+        if (target != null)
+        {
+
+
+
+
+            if (fireTimer <= 0)
+            {
+
+                Player targetCheck = target.GetComponent<Player>();
+                if (this is Summon && targetCheck != null)
+                {
+
+                }
+                else
+                {
+                    
+                    GameObject newMelee = Instantiate(meleeAttack, target.transform.position, Quaternion.identity);
+                    newMelee.GetComponent<MeleeAttack>().SetOwner(this);
+                    fireTimer = statModule.fireInterval;
+                }
+            }
+            else
+            {
+
+                fireTimer -= Time.deltaTime;
+
+            }
+        }
+
+        if (target != null)
+        {
+
+
+            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
+            {
+
+                state = AIState.Chase;
+
+            }
+        }
+        else
+        {
+
+            Detect();
+
+        }
+
+    }
+
+    public void RangeAttack()
     {
 
 
@@ -143,10 +238,69 @@ public class AICharacter : Character
         else
         {
 
-            target = FindObjectOfType<Player>().transform;
+            Detect();
+
         }
 
     }
+
+
+
+    public void AreaAttack()
+    {
+
+
+        if (target != null)
+        {
+
+
+
+
+            if (fireTimer <= 0)
+            {
+
+                Player targetCheck = target.GetComponent<Player>();
+                if (this is Summon && targetCheck != null)
+                {
+
+                }
+                else
+                {
+
+                    GameObject newAreaAttack = Instantiate(areaAttack, transform.position, Quaternion.identity);
+                    newAreaAttack.GetComponent<AreaAttack>().SetOwner(this);
+                    fireTimer = statModule.fireInterval;
+                }
+            }
+            else
+            {
+
+                fireTimer -= Time.deltaTime;
+
+            }
+        }
+
+        if (target != null)
+        {
+
+
+            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
+            {
+
+                state = AIState.Chase;
+
+            }
+        }
+        else
+        {
+
+            Detect();
+        }
+
+    }
+
+
+    
 
     public void Detect()
     {
@@ -165,8 +319,8 @@ public class AICharacter : Character
         else
         {
 
-
-            target = FindObjectOfType<Player>().transform;
+            target = player.transform;
+            state = AIState.Follow;
         }
 
 

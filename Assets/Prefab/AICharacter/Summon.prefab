@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6247942158397417843}
   - component: {fileID: 5623353596389142915}
   - component: {fileID: 5844910755432838049}
+  - component: {fileID: 3625453293682402108}
   - component: {fileID: 6016672800380449188}
   - component: {fileID: 6887093314136123641}
   - component: {fileID: 3086729207514758926}
@@ -49,13 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ae2334da99aef499521da62297b358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 2
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 512
   target: {fileID: 0}
+  meleeAttack: {fileID: 9004145259910006715, guid: fb92de144be20ca49840f85acc6a9096, type: 3}
   projectile: {fileID: 9004145259910006715, guid: 58cb8e9c41f59d44e9e1c0dac2cb1f48, type: 3}
-  summonElementType: 0
-  summonCombatType: 0
+  areaAttack: {fileID: 1976589313751994967, guid: 5a7c2356fbde5f843b17c77a900117db, type: 3}
 --- !u!114 &5844910755432838049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,11 +73,29 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 100
-  attackRange: 5
+  runeType: 0
+  combatType: 0
+  attackRange: 0
+  rangedAttackRange: 5
+  meleeAttackRange: 2
+  mageAttackRange: 2
   detectRange: 10
   fireInterval: 4
   damage: 3
   projectileSpeed: 500
+--- !u!114 &3625453293682402108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891555977643533669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
 --- !u!114 &6016672800380449188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 8234917590872863151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6247942158397417843}

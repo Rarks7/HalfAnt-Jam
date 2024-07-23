@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4720348323996444975}
   - component: {fileID: 2153905253841971885}
   - component: {fileID: 4030853637233030740}
+  - component: {fileID: 3044287145690943315}
   - component: {fileID: 4559809283579815470}
   - component: {fileID: 2468254259543629261}
   - component: {fileID: 2013271031206547473}
@@ -49,11 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7af708f3470e044b6f492d1476da44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 2
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 384
   target: {fileID: 0}
+  meleeAttack: {fileID: 9004145259910006715, guid: fb92de144be20ca49840f85acc6a9096, type: 3}
   projectile: {fileID: 9004145259910006715, guid: 58cb8e9c41f59d44e9e1c0dac2cb1f48, type: 3}
+  areaAttack: {fileID: 1976589313751994967, guid: 5a7c2356fbde5f843b17c77a900117db, type: 3}
 --- !u!114 &4030853637233030740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,11 +73,29 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 100
+  runeType: 0
+  combatType: 0
   attackRange: 5
+  rangedAttackRange: 1
+  meleeAttackRange: 5
+  mageAttackRange: 2
   detectRange: 10
   fireInterval: 5
   damage: 5
   projectileSpeed: 500
+--- !u!114 &3044287145690943315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279438148643352567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
 --- !u!114 &4559809283579815470
 MonoBehaviour:
   m_ObjectHideFlags: 0

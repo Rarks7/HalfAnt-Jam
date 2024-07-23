@@ -17,8 +17,8 @@ public enum CombatType
 
 public class Summon : AICharacter
 {
-    public RuneType summonElementType = RuneType.Empty;
-    public CombatType summonCombatType = CombatType.Empty;
+
+
     SpriteRenderer spriteRenderer;
 
 
@@ -45,48 +45,32 @@ public class Summon : AICharacter
 
     public void SetElementType(RuneType _type)
     {
+        statModule.runeType = _type;
 
-        summonElementType = _type;
+        vfxModule.SetColor(statModule.runeType);
 
-        switch (summonElementType)
-        {
-            case RuneType.Empty:
-                break;
-            case RuneType.Fire:
-
-                spriteRenderer.color = Color.red;
-
-                break;
-            case RuneType.Ice:
-
-                spriteRenderer.color = Color.cyan;
-
-                break;
-            case RuneType.Lightning:
-
-                spriteRenderer.color = Color.magenta;
-
-                break;
-            default:
-                break;
-        }
 
     }
 
     public void SetCombatType(CombatType _type)
     {
 
-        summonCombatType = _type;
+        statModule.combatType = _type;
 
-        switch (summonCombatType)
+        switch (statModule.combatType)
         {
             case CombatType.Empty:
                 break;
             case CombatType.Melee:
+                statModule.attackRange = statModule.meleeAttackRange;
                 break;
             case CombatType.Range:
+                statModule.attackRange = statModule.rangedAttackRange;
+
                 break;
             case CombatType.Mage:
+                statModule.attackRange = statModule.mageAttackRange;
+
                 break;
             default:
                 break;

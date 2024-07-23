@@ -8,12 +8,15 @@ public class Character : MonoBehaviour
 
     protected Rigidbody2D rb;
     [NonSerialized] public StatModule statModule;
+    [NonSerialized] public VFXModule vfxModule;
 
 
     protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         statModule = GetComponent<StatModule>();
+        vfxModule = GetComponent<VFXModule>();
+
         statModule.health = statModule.maxHealth;
     }
 
@@ -21,6 +24,7 @@ public class Character : MonoBehaviour
     {
 
         statModule.health -= _damage;
+        vfxModule.StartDamageFlash();
 
         if (statModule.health <= 0)
         {

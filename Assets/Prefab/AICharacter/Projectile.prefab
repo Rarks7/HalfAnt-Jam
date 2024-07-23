@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7602217739632554974}
   - component: {fileID: 5128705446280996125}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1137090535
   m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -34009093, guid: 6ded22143eb63af4fbadcaa3e671f19e, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 199097690, guid: 52e39217ff0d68545b1cf4b81076fa5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,7 +135,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7150276600061547045}
   m_Father: {fileID: 0}
