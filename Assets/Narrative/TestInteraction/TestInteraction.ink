@@ -2,7 +2,7 @@
 
 ===origin===
 #end
-*       [A Choice No One Will Ever Make]
+*       [A Choice No One Will Ever Make]#end
 
 
 ->END
@@ -10,10 +10,10 @@
 
 
 ===trash_bin===
-{trash_bin: It continues to stink... | It stinks...}
+{trash_bin: It stinks...| It continues to stink...}
 
-+       Move On ->origin
-*       Search The Bin ->search_bin
++       [Move On] ->origin
+*       [Search] ->search_bin
 
 = search_bin
 Gross... There's something in here...

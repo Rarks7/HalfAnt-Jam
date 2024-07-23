@@ -15,6 +15,13 @@ public class ChatEntry
 
     public string OptionTextTwo;
     public bool TwoSelected;
+
+    public ChatEntry()
+    {
+        MainText = string.Empty;
+    
+    }
+
 }
 
 public enum ChatBoxState
@@ -81,6 +88,8 @@ public class MainChatBox : MonoBehaviour
     private void PlayMainText()
     {
         DownIndicator.gameObject.SetActive(false);
+        OptionOne.Clear();
+        OptionTwo.Clear();
 
         EventManager.OnPlayerPressedInteract += SkipTextScrolling;
         
@@ -125,6 +134,7 @@ public class MainChatBox : MonoBehaviour
         if (CurrentEntry.OptionTextOne == null && CurrentEntry.OptionTextTwo == null)
         {
             EventManager.OnPlayerPressedInteract += CloseMainText;
+            return;
         }
 
 
@@ -196,6 +206,6 @@ public class MainChatBox : MonoBehaviour
     public void CloseMainText()
     {
         EventManager.OnPlayerPressedInteract -= CloseMainText;
-        gameObject.SetActive(false);
+        NarrativeManager.Instance.CloseChatBox();
     }
 }

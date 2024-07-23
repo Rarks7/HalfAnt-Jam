@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void RevertState()
     {
-        StateChange(LastState);
+        StateChange(GameState.Overworld);
     }
 
 
