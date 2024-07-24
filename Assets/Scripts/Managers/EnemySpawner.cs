@@ -57,8 +57,8 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 randomPos = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
                 Enemy enemy = Instantiate(enemiesToSpawn[0], randomPos, Quaternion.identity);
                 enemy.SetElementType( RuneType.Fire);
-                enemy.SetCombatType(CombatType.Range);
-                enemy.SetStats(1,0,1);
+                enemy.SetCombatType(CombatType.Melee);
+                enemy.SetStats(1,0,0);
                 enemiesToSpawn.RemoveAt(0);
                 spawnTimer = spawnInterval;
 

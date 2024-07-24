@@ -161,8 +161,8 @@ MonoBehaviour:
   runeType: 0
   combatType: 0
   attackRange: 5
-  rangedAttackRange: 1
-  meleeAttackRange: 5
+  rangedAttackRange: 5
+  meleeAttackRange: 1
   mageAttackRange: 2
   detectRange: 10
   fireInterval: 5

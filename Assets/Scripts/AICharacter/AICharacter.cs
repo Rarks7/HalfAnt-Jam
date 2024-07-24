@@ -57,6 +57,8 @@ public class AICharacter : Character
 
     protected void FixedUpdate()
     {
+        fireTimer -= Time.deltaTime;
+
         HandleState();
 
     }
@@ -79,6 +81,8 @@ public class AICharacter : Character
                 Chase();
                 break;
             case AIState.Attack:
+                Strafe();
+
                 switch (statModule.combatType)
                 {
                     case CombatType.Empty:
@@ -87,9 +91,12 @@ public class AICharacter : Character
                         MeleeAttack();
                         break;
                     case CombatType.Range:
+                        
                         RangeAttack();
                         break;
                     case CombatType.Mage:
+                        
+
                         AreaAttack();
                         break;
                     default:
@@ -107,7 +114,7 @@ public class AICharacter : Character
     public void Follow()
     {
 
-        fireTimer = statModule.fireInterval;
+       
 
         Move();
 
@@ -127,7 +134,7 @@ public class AICharacter : Character
     public void Chase()
     {
 
-        fireTimer = statModule.fireInterval;
+
 
         Move();
 
@@ -174,18 +181,11 @@ public class AICharacter : Character
                 fireTimer -= Time.deltaTime;
 
             }
-        }
-
-        if (target != null)
-        {
 
 
-            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
-            {
+            CheckDistance();
 
-                state = AIState.Chase;
 
-            }
         }
         else
         {
@@ -204,7 +204,7 @@ public class AICharacter : Character
         {
 
 
-
+            
 
             if (fireTimer <= 0)
             {
@@ -229,24 +229,14 @@ public class AICharacter : Character
                 fireTimer -= Time.deltaTime;
 
             }
+
+            CheckDistance();
+
         }
-
-        if (target != null)
-        {
-
-
-            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
-            {
-
-                state = AIState.Chase;
-
-            }
-        }
-        else
+        else 
         {
 
             Detect();
-
         }
 
     }
@@ -285,18 +275,10 @@ public class AICharacter : Character
                 fireTimer -= Time.deltaTime;
 
             }
-        }
-
-        if (target != null)
-        {
 
 
-            if (Vector2.Distance(target.position, (Vector2)transform.position) > statModule.attackRange)
-            {
+            CheckDistance();
 
-                state = AIState.Chase;
-
-            }
         }
         else
         {
@@ -304,30 +286,97 @@ public class AICharacter : Character
             Detect();
         }
 
+
     }
 
+    bool canBackup = true;
+    float backUpTimer = 0f;
+    float backUpTimeLimit = 1.0f;
 
+    public void CheckDistance()
+    {
+
+        float distanceToTarget = Vector2.Distance(target.position, transform.position);
+
+        float minimumDistance = statModule.attackRange - 1f;
+
+        Debug.Log(distanceToTarget);
+        // Check if the target is too far
+        if (distanceToTarget > statModule.attackRange)
+        {
+            state = AIState.Chase;
+        }
+        // Check if the target is too close
+        else if (distanceToTarget < minimumDistance)
+        {
+
+            if (canBackup)
+            {
+                Backup();
+                backUpTimer += Time.deltaTime;
+                if (backUpTimer >= backUpTimeLimit)
+                {
+                    canBackup = false;
+                }
+            }
+            else 
+            { 
+            
+                backUpTimer -= Time.deltaTime;
+                if (backUpTimer <= 0)
+                {
+                    canBackup = true;
+                }
+
+            }
+        }
+        else
+        {
+            state = AIState.Attack; // Maintain position or another state if needed
+        }
+
+    }
+
+    private void Backup()
+    {
+
+        Vector2 directionToTarget = (target.position - transform.position).normalized;
+        Vector2 backupDirection = -directionToTarget; // Move away from the target
+        Vector2 force = backupDirection * statModule.moveSpeed * Time.deltaTime;
+
+        rb.AddForce(force);
+
+
+    }
     
 
     public void Detect()
     {
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, statModule.detectRange, new Vector2(0, 0), 0, targetLayerMask);
-        
+
+
+        //If Enemy find player/ Overide Follow/ Chase Function
 
         if (hit)
         {
 
+            if (target == null || target == player.transform)
+            {
+                target = hit.transform;
 
-            target = hit.transform;
+            }
 
 
         }
         else
         {
-
-            target = player.transform;
-            state = AIState.Follow;
+            if (target == null)
+            {
+                target = player.transform;
+                state = AIState.Follow;
+            }
+        
         }
 
 
@@ -385,7 +434,6 @@ public class AICharacter : Character
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-
         Vector2 force = direction * statModule.moveSpeed * Time.deltaTime;
         rb.AddForce(force);
 
@@ -399,6 +447,34 @@ public class AICharacter : Character
 
         }
     }
+
+    public void Strafe()
+    {
+
+        if (target == null)
+        {
+            return;
+        }
+
+       // Calculate the direction to the target
+        Vector2 targetDirection = ((Vector2)target.position - rb.position).normalized;
+
+        // Determine the perpendicular direction for strafing
+        Vector2 strafeDirection = new Vector2(-targetDirection.y, targetDirection.x);  // Perpendicular to target direction
+
+        // Alternate the direction to strafe back and forth (use a sine wave or other function)
+        float randomStrafeSpeed = Random.Range(1.0f, 1.1f);
+        float strafeAmount = Mathf.Sin(Time.time * randomStrafeSpeed) * statModule.moveSpeed;
+
+        // Calculate the force to apply
+        Vector2 force = strafeDirection * strafeAmount * Time.deltaTime;
+
+        // Apply the force to the Rigidbody2D
+        rb.AddForce(force);
+
+
+    }
+
 
 
     public void SetElementType(RuneType _type)
