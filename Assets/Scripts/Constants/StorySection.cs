@@ -6,6 +6,7 @@ namespace Constants
 {
     public enum StorySection
     {
+        None,
         TrashBinRandomRune,
 
     }

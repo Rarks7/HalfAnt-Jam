@@ -2,6 +2,7 @@
 using Constants;
 using Ink.Runtime;
 using NaughtyAttributes;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class NarrativeManager : MonoBehaviour
     public Story story;
 
     private bool SectionHasEnded = false;
+
+    private StorySection blockSection = StorySection.None;
 
     private void Awake()
     {
@@ -40,7 +43,11 @@ public class NarrativeManager : MonoBehaviour
 
     public void PlayStorySection(StorySection _section)
     {
+        if (blockSection == _section)
+            return;
+        
         story.ChoosePathString(_section.GetInkKnotString());
+        blockSection = _section;
         PlayCurrentStorySection();
     }
 
@@ -113,6 +120,7 @@ public class NarrativeManager : MonoBehaviour
     public void CloseChatBox()
     {
         chatBox.gameObject.SetActive(false);
+        StartCoroutine(HoldOnClearingSectionBlock());
         EventManager.RevertToPreviousGameState();
     }
 
@@ -136,5 +144,12 @@ public class NarrativeManager : MonoBehaviour
             SectionHasEnded = true;
             return;
         }
+    }
+
+    private IEnumerator HoldOnClearingSectionBlock()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        blockSection = StorySection.None;
     }
 }

@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
         EventManager.OnChangeGameState += StateChange;
         EventManager.OnRevertToPreviousGameState += RevertState;
+
+        CurrentState = GameState.Overworld;
     }
 
     private void OnDestroy()
