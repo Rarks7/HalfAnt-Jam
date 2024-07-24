@@ -27,7 +27,7 @@ public class Summon : AICharacter
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
         base.FixedUpdate();
     }

@@ -55,8 +55,9 @@ public class AICharacter : Character
         player = FindObjectOfType<Player>();
     }
 
-    protected void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         fireTimer -= Time.deltaTime;
 
         HandleState();

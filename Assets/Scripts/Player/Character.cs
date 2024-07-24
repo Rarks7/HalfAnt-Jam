@@ -20,6 +20,8 @@ public class Character : MonoBehaviour
         statModule.health = statModule.maxHealth;
     }
 
+    protected virtual void FixedUpdate(){}
+
     public void TakeDamage(int _damage, RuneType _element)
     {
 

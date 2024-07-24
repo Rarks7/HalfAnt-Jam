@@ -8,7 +8,7 @@ public class Enemy : AICharacter
 
 
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
@@ -21,7 +21,7 @@ public class Enemy : AICharacter
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
 
 
