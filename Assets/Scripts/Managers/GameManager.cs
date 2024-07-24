@@ -1,6 +1,8 @@
+using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -49,6 +51,11 @@ public class GameManager : MonoBehaviour
     private void RevertState()
     {
         StateChange(GameState.Overworld);
+    }
+
+    public void GoToScene(SceneName sceneName)
+    {
+        SceneManager.LoadScene(sceneName.GetSceneNameString());
     }
 
 

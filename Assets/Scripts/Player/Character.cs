@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     [NonSerialized] public StatModule statModule;
 
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         statModule = GetComponent<StatModule>();

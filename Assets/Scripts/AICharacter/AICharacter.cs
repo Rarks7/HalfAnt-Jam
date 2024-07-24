@@ -35,7 +35,7 @@ public class AICharacter : Character
 
     private float fireTimer = 5;
 
-    public void Awake()
+    protected override void Awake()
     {
         base.Awake();
         seeker = GetComponent<Seeker>();

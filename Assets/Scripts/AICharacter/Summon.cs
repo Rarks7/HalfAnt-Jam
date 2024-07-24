@@ -23,7 +23,7 @@ public class Summon : AICharacter
 
 
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();

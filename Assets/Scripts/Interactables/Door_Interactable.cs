@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_Interactable : MonoBehaviour
+public class Door_Interactable : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Constants.SceneName DestinationScene;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
+        if(DestinationScene == Constants.SceneName.None)
+        {
+            Debug.LogWarning("Door_Interactable destination is set to None");
+            return;
+        }
         
+        GameManager.Instance.GoToScene(DestinationScene);
     }
 }
