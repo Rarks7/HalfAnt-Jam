@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5844910755432838049}
   - component: {fileID: 8366209560971972258}
   - component: {fileID: 819067148587643396}
+  - component: {fileID: 743257142186768589}
   - component: {fileID: 4964773277426774365}
   - component: {fileID: 4516342597519210390}
   - component: {fileID: 3086729207514758926}
@@ -41,7 +42,7 @@ Transform:
   - {fileID: 4762755458493926321}
   - {fileID: 5389036028353590714}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4073319335373391488
 MonoBehaviour:
@@ -74,6 +75,16 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 2.5
+  runeType: 0
+  combatType: 0
+  attackRange: 5
+  rangedAttackRange: 1
+  meleeAttackRange: 5
+  mageAttackRange: 2
+  detectRange: 10
+  fireInterval: 5
+  damage: 5
+  projectileSpeed: 500
 --- !u!114 &8366209560971972258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +112,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6aefa36701f1774a85111566082d25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summon: {fileID: 0}
+  summon: {fileID: 2891555977643533669, guid: 816ee416979158a4a898f23e28c63ad6, type: 3}
+--- !u!114 &743257142186768589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891555977643533669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
 --- !u!114 &4964773277426774365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +335,7 @@ Transform:
   m_GameObject: {fileID: 3709177253346847555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6247942158397417843}

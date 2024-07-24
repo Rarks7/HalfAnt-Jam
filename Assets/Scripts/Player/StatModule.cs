@@ -13,10 +13,20 @@ public class StatModule : MonoBehaviour
 
 
     [Header("AI ONLY")]
-    public float attackRange = 5;
+    public RuneType runeType;
+    public CombatType combatType;
+
+    public float attackRange = 0;
+
+    public float rangedAttackRange = 1;
+    public float meleeAttackRange = 5;
+    public float mageAttackRange = 2;
+
     public float detectRange = 10;
 
     public float fireInterval = 5;
+
+
 
     [Header("Damage")]
     public int damage = 5;

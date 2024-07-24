@@ -13,11 +13,25 @@ public enum RuneType
 
 }
 
+public enum RuneSpecial
+{
+    Empty,
+    HealingAura,
+    DamageAura,
+    Bigger,
+    Split,
+    Rapid,
+
+
+
+}
+
 
 public class Rune : MonoBehaviour
 {
 
     RuneType runeType = RuneType.Empty;
+    RuneSpecial runeSpecial = RuneSpecial.Empty;
 
     [SerializeField] SpriteRenderer spriteRenderer;
 

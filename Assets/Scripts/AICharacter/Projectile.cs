@@ -10,9 +10,11 @@ public class Projectile : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Animator animator;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Start is called before the first frame update
@@ -33,6 +35,26 @@ public class Projectile : MonoBehaviour
     {
 
         owner = _AI;
+        switch (owner.statModule.runeType)
+        {
+            case RuneType.Empty:
+                animator.SetTrigger("Fire");
+                break;
+            case RuneType.Fire:
+                animator.SetTrigger("Fire");
+
+                break;
+            case RuneType.Ice:
+                animator.SetTrigger("Ice");
+
+                break;
+            case RuneType.Lightning:
+                animator.SetTrigger("Lightning");
+
+                break;
+            default:
+                break;
+        }
     }
 
     public void Shoot(Transform _target)
@@ -55,7 +77,7 @@ public class Projectile : MonoBehaviour
             // Ensure that the collided object has an AICharacter component
             if (AI != null)
             {
-                AI.TakeDamage(owner.statModule.damage);
+                AI.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
                 Destroy(gameObject);
             }
         }
