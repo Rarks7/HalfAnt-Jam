@@ -78,6 +78,9 @@ MonoBehaviour:
   runeType: 0
   combatType: 0
   attackRange: 5
+  rangedAttackRange: 1
+  meleeAttackRange: 5
+  mageAttackRange: 2
   detectRange: 10
   fireInterval: 5
   damage: 5
@@ -122,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
 --- !u!114 &4964773277426774365
 MonoBehaviour:
   m_ObjectHideFlags: 0

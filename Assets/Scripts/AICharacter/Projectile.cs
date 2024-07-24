@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
             // Ensure that the collided object has an AICharacter component
             if (AI != null)
             {
-                AI.TakeDamage(owner.statModule.damage);
+                AI.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
                 Destroy(gameObject);
             }
         }

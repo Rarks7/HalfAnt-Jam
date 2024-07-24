@@ -13,6 +13,15 @@ public enum RuneType
 
 }
 
+public enum RuneSpecial
+{
+
+    HealingAura,
+    DamageAura,
+
+
+}
+
 
 public class Rune : MonoBehaviour
 {

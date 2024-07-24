@@ -13,7 +13,14 @@ public enum AIState
 
 }
 
+public enum CombatType
+{
+    Empty,
+    Melee,
+    Range,
+    Mage
 
+}
 public class AICharacter : Character
 {
 
@@ -392,5 +399,54 @@ public class AICharacter : Character
 
         }
     }
+
+
+    public void SetElementType(RuneType _type)
+    {
+        statModule.runeType = _type;
+
+        vfxModule.SetColor(statModule.runeType);
+
+
+    }
+
+    public void SetCombatType(CombatType _type)
+    {
+
+        statModule.combatType = _type;
+
+        switch (statModule.combatType)
+        {
+            case CombatType.Empty:
+                break;
+            case CombatType.Melee:
+                statModule.attackRange = statModule.meleeAttackRange;
+                break;
+            case CombatType.Range:
+                statModule.attackRange = statModule.rangedAttackRange;
+
+                break;
+            case CombatType.Mage:
+                statModule.attackRange = statModule.mageAttackRange;
+
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void SetStats(int _damage, int _health, float _fireInterval)
+    {
+
+
+        statModule.health += _health;
+        statModule.maxHealth += _health;
+
+        statModule.damage += _damage;
+        statModule.fireInterval = statModule.fireInterval - _fireInterval;
+
+    }
+
 
 }
