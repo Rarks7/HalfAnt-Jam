@@ -8,6 +8,9 @@ public class Door_Interactable : Interactable
 
     public override void Interact()
     {
+
+        Debug.Log("Door Interact Called");
+
         if(DestinationScene == Constants.SceneName.None)
         {
             Debug.LogWarning("Door_Interactable destination is set to None");

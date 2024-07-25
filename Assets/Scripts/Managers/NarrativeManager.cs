@@ -46,7 +46,7 @@ public class NarrativeManager : MonoBehaviour
         if (blockSection == _section)
             return;
         
-        story.ChoosePathString(_section.GetInkKnotString());
+        story.ChoosePathString(_section.ToString());
         blockSection = _section;
         PlayCurrentStorySection();
     }
@@ -106,7 +106,7 @@ public class NarrativeManager : MonoBehaviour
     public void TestMainTextDisplay()
     {
         
-        PlayStorySection(StorySection.TrashBinRandomRune);
+        PlayStorySection(StorySection.trash_bin);
         
         
     }

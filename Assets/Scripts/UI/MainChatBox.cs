@@ -47,7 +47,7 @@ public class MainChatBox : MonoBehaviour
     private string RemainingEntry = "";
 
 
-    private const int CharacterLimit = 100;
+    private const int CharacterLimit = 99;
 
     private void OnEnable()
     {
@@ -97,6 +97,17 @@ public class MainChatBox : MonoBehaviour
         {
             string playThisTime = string.Join("", RemainingEntry.Take(CharacterLimit));
             RemainingEntry = RemainingEntry.Remove(0, CharacterLimit);
+
+            if (RemainingEntry[0] != '0')
+            {
+                Debug.Log("Found a split word");
+
+                string[] words = RemainingEntry.Split(" ");
+                playThisTime += words[0];
+
+                RemainingEntry = RemainingEntry.Remove(0, words[0].Length);
+            }
+
 
             Out_MainText.OnScrollComplete += DisplayDownIndicator;
             Out_MainText.PlayString(playThisTime);
