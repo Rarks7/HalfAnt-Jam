@@ -49,6 +49,11 @@ public class MainChatBox : MonoBehaviour
 
     private const int CharacterLimit = 99;
 
+    private void Start()
+    {
+        NarrativeManager.Instance.SetChatBox(this);
+    }
+
     private void OnEnable()
     {
         Out_MainText.Clear();

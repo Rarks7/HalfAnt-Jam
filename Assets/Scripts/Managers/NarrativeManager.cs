@@ -10,9 +10,7 @@ using UnityEngine;
 public class NarrativeManager : MonoBehaviour
 {
     public static NarrativeManager Instance;
-    [SerializeField] private MainChatBox chatBox;
-
-    [Multiline] [SerializeField] private string TestMainText;
+    private MainChatBox chatBox;
 
     [SerializeField] private TextAsset inkJSONAsset = null;
     public Story story;
@@ -36,9 +34,13 @@ public class NarrativeManager : MonoBehaviour
 
     private void Start()
     {
-        chatBox.gameObject.SetActive(false);
-
         story = new Story(inkJSONAsset.text);
+    }
+
+    public void SetChatBox(MainChatBox _chatBox)
+    {
+        chatBox = _chatBox;   
+        chatBox.gameObject.SetActive(false);
     }
 
     public void PlayStorySection(StorySection _section)

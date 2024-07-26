@@ -40,6 +40,8 @@ public class Player : Character
         summonModule = GetComponent<SummonModule>();
         interactModule = GetComponent<InteractModule>();
 
+        StartCoroutine(LateStart());
+
     }
 
     // Update is called once per frame
@@ -49,9 +51,9 @@ public class Player : Character
     }
 
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
-
+        //base.FixedUpdate();
         //Move the player
         MoveCharacter(moveInput);
 
@@ -157,22 +159,22 @@ public class Player : Character
             if (moveInput.x > 0)
             {
                 EventManager.PlayerPressedRight();
-                Debug.Log("Right Pressed");
+                //Debug.Log("Right Pressed");
             }
             else if (moveInput.x < 0)
             {
                 EventManager.PlayerPressedLeft();
-                Debug.Log("Left Pressed");
+                //Debug.Log("Left Pressed");
             }
             else if (moveInput.y > 0)
             {
                 EventManager.PlayerPressedUp();
-                Debug.Log("Up Pressed");
+                //Debug.Log("Up Pressed");
             }
             else if (moveInput.y < 0)
             {
                 EventManager.PlayerPressedDown();
-                Debug.Log("Down Pressed");
+                //Debug.Log("Down Pressed");
             }
         }
 
@@ -188,7 +190,7 @@ public class Player : Character
         if (_context.performed)
         {
             EventManager.PlayerPressedInteract();
-            Debug.Log("Player Pressed Interact");
+            //Debug.Log("Player Pressed Interact");
 
             if(GameManager.Instance.CurrentState == GameState.Overworld)
             {
@@ -205,9 +207,21 @@ public class Player : Character
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(rb.position, moveInput * (statModule.moveSpeed * Time.fixedDeltaTime + collisionOffset));
         }
+    }
 
-        
-        
+    private void Spawn()
+    {
+        Vector3 spawnPoint = SceneController.Instance.GetSpawnPoint();
+
+        transform.position = spawnPoint;
+    }
+
+
+    private IEnumerator LateStart()
+    {
+        yield return new WaitForEndOfFrame();
+
+        Spawn();
     }
 
 }
