@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameState CurrentState {  get; private set; }
     private GameState LastState;
 
+    public SceneName PreviousScene;
+    public SceneName CurrentScene;
+
     private void Awake()
     {
         if(Instance == null)
@@ -34,6 +37,13 @@ public class GameManager : MonoBehaviour
         EventManager.OnRevertToPreviousGameState += RevertState;
 
         CurrentState = GameState.Overworld;
+
+        PreviousScene = SceneName.None;
+        Debug.Log("Set Previous Scene to " + PreviousScene);
+
+        CurrentScene = SceneName.None;
+        Debug.Log("Set Current Scene to " + CurrentScene);
+
     }
 
     private void OnDestroy()
@@ -55,8 +65,24 @@ public class GameManager : MonoBehaviour
 
     public void GoToScene(SceneName sceneName)
     {
+        PreviousScene = CurrentScene;
+        Debug.Log("Set Previous Scene to " + PreviousScene);
+
+        CurrentScene = sceneName;
+        Debug.Log("Set Current Scene to " + CurrentScene);
+
         SceneManager.LoadScene(sceneName.GetSceneNameString());
     }
+
+    public void SetOpeningScene(SceneName sceneName)
+    {
+        if (CurrentScene != SceneName.None)
+            return;
+        CurrentScene = sceneName;
+        Debug.Log("Set Current Scene to " + CurrentScene);
+        //PreviousScene = SceneName.None;
+    }
+
 
 
 }

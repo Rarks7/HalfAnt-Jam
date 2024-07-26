@@ -19,7 +19,7 @@ public class InteractModule : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + InteractCheckOffset, attachedPlayer.Facing, InteractCheckDistance, InteractLayer);
 
-        Debug.Log("Try and Interact");
+        //Debug.Log("Try and Interact");
 
         if(hit)
         {

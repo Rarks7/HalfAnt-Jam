@@ -9,18 +9,18 @@ namespace Constants
         None,
         Lobby,
         Overworld,
+        Hallway,
+        TravelHallway,
+        PlayersRoom,
+        NeighboursRoom,
+        MiddleRoom,
     }
 
     public static class SceneNameExtensions
     {
         public static string GetSceneNameString(this SceneName _name)
         {
-            return _name switch
-            {
-                SceneName.Lobby => "Lobby",
-                SceneName.Overworld => "Overworld",
-                _ => "Error",
-            };
+            return _name.ToString();
         }
     }
 }
