@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.WSA;
 
 
-public enum RuneType
+public enum ElementType
 {
     Empty,
     Fire,
     Ice,
-    Lightning
+    Lightning,
+    Earth,
+    Steel,
+    Crystal,
+    Shadow
 
 }
 
 public enum RuneSpecial
 {
     Empty,
-    HealingAura,
-    DamageAura,
     Bigger,
     Split,
     Rapid,
@@ -30,10 +32,13 @@ public enum RuneSpecial
 public class Rune : MonoBehaviour
 {
 
-    RuneType runeType = RuneType.Empty;
+    ElementType runeElementType = ElementType.Empty;
+    CombatType runeCombatType = CombatType.Empty;
     RuneSpecial runeSpecial = RuneSpecial.Empty;
 
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer elementSpriteRenderer;
+    [SerializeField] SpriteRenderer combatSpriteRenderer;
+
 
     [SerializeField] RuneData runeData;
 
@@ -61,19 +66,35 @@ public class Rune : MonoBehaviour
 
     }
 
-    public void SetRuneType(RuneType _type)
+    public void SetRuneElementType(ElementType _type)
     {
 
-        runeType = _type;
+        runeElementType = _type;
 
-        spriteRenderer.sprite = runeData.GetSprite(_type);
+        elementSpriteRenderer.sprite = runeData.GetElementSprite(_type);
 
     }
 
-    public RuneType GetRuneType()
+    public void SetRuneCombatType(CombatType _type)
     {
 
-        return runeType;
+        runeCombatType = _type;
+
+        combatSpriteRenderer.sprite = runeData.GetCombatSprite(_type);
+
+    }
+
+    public ElementType GetRuneElementType()
+    {
+
+        return runeElementType;
+
+    }
+
+    public CombatType GetRuneCombatType()
+    {
+
+        return runeCombatType;
 
     }
 }

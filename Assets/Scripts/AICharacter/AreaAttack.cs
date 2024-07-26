@@ -9,11 +9,13 @@ public class AreaAttack : MonoBehaviour
     AICharacter owner;
 
     Animator animator;
-
+    
+    VFXModule vfxModule;
     private void Awake()
     {
         Destroy(gameObject, 3.0f);
         animator = GetComponentInChildren<Animator>();
+        vfxModule = GetComponentInChildren<VFXModule>();
     }
 
 
@@ -34,27 +36,44 @@ public class AreaAttack : MonoBehaviour
 
         switch (owner.statModule.runeType)
         {
-            case RuneType.Empty:
+            case ElementType.Empty:
+                animator.SetTrigger("Fire");
+                vfxModule.SetColor(owner.statModule.runeType);
+
+                break;
+            case ElementType.Fire:
                 animator.SetTrigger("Fire");
 
                 break;
-            case RuneType.Fire:
-                animator.SetTrigger("Fire");
-
-                break;
-            case RuneType.Ice:
+            case ElementType.Ice:
                 animator.SetTrigger("Ice");
 
                 break;
-            case RuneType.Lightning:
+            case ElementType.Lightning:
                 animator.SetTrigger("Lightning");
+                vfxModule.SetColor(owner.statModule.runeType);
+
+                break;
+            case ElementType.Earth:
+                animator.SetTrigger("Earth");
+
+                break;
+            case ElementType.Steel:
+                animator.SetTrigger("Steel");
+
+                break;
+            case ElementType.Crystal:
+                animator.SetTrigger("Crystal");
+
+                break;
+            case ElementType.Shadow:
+                animator.SetTrigger("Shadow");
 
                 break;
             default:
-                animator.SetTrigger("Fire");
-
                 break;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

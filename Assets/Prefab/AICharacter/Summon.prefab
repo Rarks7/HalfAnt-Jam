@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 2
+  allyLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -96,7 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 1382795102212685265}
+  plainColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 0.9850211, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.93730223, b: 0, a: 1}
+  steelColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  earthColor: {r: 0.20521057, g: 1, b: 0, a: 1}
+  crystalColor: {r: 0.7842768, g: 0, b: 0.8113208, a: 1}
+  shadowColor: {r: 0.18617718, g: 0, b: 0.3301887, a: 1}
 --- !u!114 &6016672800380449188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +273,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 745230784, guid: cba08c787de7dcc408e0cf6330d5e641, type: 3}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.79607844}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

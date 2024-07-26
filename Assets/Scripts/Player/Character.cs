@@ -22,48 +22,10 @@ public class Character : MonoBehaviour
 
     protected virtual void FixedUpdate(){}
 
-    public void TakeDamage(int _damage, RuneType _element)
+    public void TakeDamage(float _damage, ElementType _element)
     {
 
-        switch (_element)
-        {
-            case RuneType.Empty:
-                break;
-            case RuneType.Fire:
-                if (statModule.runeType == RuneType.Ice)
-                {
-                    _damage *= 2;
-                }
-                if (statModule.runeType == RuneType.Lightning)
-                {
-                    _damage /= 2;
-                }
-                break;
-            case RuneType.Ice:
-                if (statModule.runeType == RuneType.Fire)
-                {
-                    _damage /= 2;
-                }
-                if (statModule.runeType == RuneType.Lightning)
-                {
-                    _damage *= 2;
-                }
-                break;
-            case RuneType.Lightning:
-                if (statModule.runeType == RuneType.Ice)
-                {
-                    _damage /= 2;
-                }
-                if (statModule.runeType == RuneType.Fire)
-                {
-                    _damage *= 2;
-                }
-                break;
-            default:
-                break;
-        }
-
-        statModule.health -= _damage;
+        statModule.health -= _damage * statModule.damageResistances[_element];
         vfxModule.StartDamageFlash();
 
         if (statModule.health <= 0)

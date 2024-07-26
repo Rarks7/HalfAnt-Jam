@@ -12560,7 +12560,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.24
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13068,6 +13068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9060350fff8034ba30ab2662b2624b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Skip: 0
 --- !u!1 &800707146
 GameObject:
   m_ObjectHideFlags: 0
@@ -13170,10 +13171,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
       propertyPath: enemiesToSpawn.Array.size
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
       propertyPath: enemiesToSpawn.Array.data[5]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[6]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[7]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[8]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[9]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[10]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[11]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[12]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[13]
+      value: 
+      objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
+    - target: {fileID: 8469646831330662481, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
+      propertyPath: enemiesToSpawn.Array.data[14]
       value: 
       objectReference: {fileID: 2153905253841971885, guid: 72236a0dc7b600946bd3146f49941e22, type: 3}
     - target: {fileID: 8976854453659240131, guid: 9095f0a441caa8d48894b923bba704ba, type: 3}
@@ -29285,7 +29322,7 @@ MonoBehaviour:
   m_Follow: {fileID: 468801392}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.24
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -29812,6 +29849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatBox: {fileID: 1212077770}
+  TestMainText: 
+  inkJSONAsset: {fileID: 0}
 --- !u!1001 &6068500139906589588
 PrefabInstance:
   m_ObjectHideFlags: 0

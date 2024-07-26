@@ -19,36 +19,173 @@ public class SummonModule : MonoBehaviour
         
     }
 
-    public void CreateSummon(int _runeAmount,int _fire, int _ice, int _lightning)
+    public void CreateSummon(int _fire, int _ice, int _lightning, int _melee, int _range, int _mage)
     {
         GameObject newSummon = Instantiate(summon, transform.position, Quaternion.identity);
 
         SetSummonElement(newSummon, _fire, _ice,_lightning);
-        SetSummonCombatType(newSummon, _runeAmount);
+        SetSummonCombatType(newSummon, _melee, _range, _mage);
         SetSummonStats(newSummon, _fire, _ice, _lightning);
 
     }
 
-    public void SetSummonCombatType(GameObject _newSummon, int _runeAmount)
+    public void SetSummonCombatType(GameObject _newSummon, int _melee, int _range, int _mage)
     {
 
-        switch (_runeAmount)
+        if (_melee == 3)
         {
-            case 1:
-                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Melee);
-                break;
-            case 2:
-                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Range);
 
-                break;
-            case 3:
-                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
 
-                break;
-            default:
-                _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Empty);
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Fighter);
 
-                break;
+
+        }
+        else if (_range == 3)
+        {
+
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Ranger);
+
+
+        }
+        else if (_mage == 3)
+        {
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+
+
+
+        }
+
+        else if (_melee == 2 && _range == 1)
+        {
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Tank);
+
+
+
+        }
+        else if (_melee == 2 && _mage == 1)
+        {
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Enchanter);
+
+
+
+        }
+        else if (_range == 2 && _melee == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Tank);
+
+
+
+        }
+        else if (_range == 2 && _mage == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Thief);
+
+
+
+        }
+        else if (_mage == 2 && _melee == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Enchanter);
+
+
+
+        }
+        else if (_mage == 2 && _range == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Thief);
+
+
+
+        }
+        else if (_melee == 1 && _range == 1 && _mage == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Healer);
+
+
+
+        }
+
+
+        else if (_melee == 2)
+        {
+
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+
+
+
+        }
+        else if (_range == 2)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Ranger);
+
+
+
+        }
+        else if (_mage == 2)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+
+
+
+        }
+
+        else if (_melee == 1 && _range == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Tank);
+
+
+
+        }
+        else if (_range == 1 && _mage == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Thief);
+
+
+
+        }
+        else if (_mage == 1 && _melee == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Enchanter);
+
+
+
+        }
+
+        else if (_melee == 1)
+        {
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Fighter);
+
+
+
+        }
+        else if (_range == 1)
+        {
+
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Ranger);
+
+
+
+        }
+        else if (_mage == 1)
+        {
+
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+
+
+
         }
 
 
@@ -71,78 +208,70 @@ public class SummonModule : MonoBehaviour
 
         if (_fire == 3)
         {
-            Debug.Log("Fire, Fire & Fire");
 
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Fire);
             
 
         }
         else if (_ice == 3)
         {
-            Debug.Log("Ice, Ice & Ice");
 
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Ice);
 
         }
         else if (_lightning == 3)
         {
-            Debug.Log("Lightning, Lightning & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Lightning);
 
 
         }
 
         else if (_fire == 2 && _ice == 1)
         {
-            Debug.Log("Fire, Fire & Ice");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Crystal);
 
 
         }
         else if (_fire == 2 && _lightning == 1)
         {
-            Debug.Log("Fire, Fire & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Earth);
 
 
         }
         else if (_ice == 2 && _fire == 1)
         {
 
-            Debug.Log("Ice, Ice & Fire");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Crystal);
 
 
         }
         else if (_ice == 2 && _lightning == 1)
         {
 
-            Debug.Log("Ice, Ice & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Steel);
 
 
         }
         else if (_lightning == 2 && _fire == 1)
         {
 
-            Debug.Log("Lightning,Lightning & Fire");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Earth);
 
 
         }
         else if (_lightning == 2 && _ice == 1)
         {
 
-            Debug.Log("Lightning,Lightning & Ice");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Steel);
 
 
         }
         else if (_fire == 1 && _ice == 1 && _lightning == 1)
         {
 
-            Debug.Log("Fire,Ice & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Shadow);
 
 
         }
@@ -150,72 +279,67 @@ public class SummonModule : MonoBehaviour
 
         else if (_fire == 2)
         {
-            Debug.Log("Fire & Fire");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+
+
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Fire);
 
 
         }
         else if (_ice == 2)
         {
 
-            Debug.Log("Ice & Ice");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Ice);
 
 
         }
         else if (_lightning == 2)
         {
 
-            Debug.Log("Lightning & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Lightning);
 
 
         }
 
         else if (_fire == 1 && _ice == 1)
         {
-            Debug.Log("Fire & Ice");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Crystal);
 
 
         }
         else if (_ice == 1 && _lightning == 1)
         {
 
-            Debug.Log("Ice & Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Steel);
 
 
         }
         else if (_lightning == 1 && _fire == 1)
         {
 
-            Debug.Log("Lightning & Fire");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Earth);
 
 
         }
 
         else if (_fire == 1)
-        {
-            Debug.Log("Fire");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Fire);
+        { 
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Fire);
 
 
         }
         else if (_ice == 1)
         {
 
-            Debug.Log("Ice");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Ice);
+
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Ice);
 
 
         }
         else if (_lightning == 1)
         {
 
-            Debug.Log("Lightning");
-            _newSummon.GetComponent<Summon>().SetElementType(RuneType.Lightning);
+            _newSummon.GetComponent<Summon>().SetElementType(ElementType.Lightning);
 
 
         }

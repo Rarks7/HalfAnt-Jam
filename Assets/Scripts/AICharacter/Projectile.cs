@@ -11,10 +11,14 @@ public class Projectile : MonoBehaviour
     Rigidbody2D rb;
 
     Animator animator;
+
+    VFXModule vfxModule;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        vfxModule = GetComponentInChildren<VFXModule>();
     }
 
     // Start is called before the first frame update
@@ -35,21 +39,40 @@ public class Projectile : MonoBehaviour
     {
 
         owner = _AI;
+
+
+
         switch (owner.statModule.runeType)
         {
-            case RuneType.Empty:
+            case ElementType.Empty:
                 animator.SetTrigger("Fire");
                 break;
-            case RuneType.Fire:
+            case ElementType.Fire:
                 animator.SetTrigger("Fire");
 
                 break;
-            case RuneType.Ice:
+            case ElementType.Ice:
                 animator.SetTrigger("Ice");
 
                 break;
-            case RuneType.Lightning:
+            case ElementType.Lightning:
                 animator.SetTrigger("Lightning");
+                vfxModule.SetColor(owner.statModule.runeType);
+                break;
+            case ElementType.Earth:
+                animator.SetTrigger("Earth");
+
+                break;
+            case ElementType.Steel:
+                animator.SetTrigger("Steel");
+
+                break;
+            case ElementType.Crystal:
+                animator.SetTrigger("Crystal");
+
+                break;
+            case ElementType.Shadow:
+                animator.SetTrigger("Shadow");
 
                 break;
             default:

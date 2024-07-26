@@ -16,17 +16,25 @@ public enum AIState
 public enum CombatType
 {
     Empty,
-    Melee,
-    Range,
-    Mage
+    Fighter,
+    Ranger,
+    Mage,
+    Enchanter,
+    Thief,
+    Tank,
+    Healer
 
 }
+
 public class AICharacter : Character
 {
 
     Player player;
 
     public AIState state = AIState.Chase;
+
+    [SerializeField] public LayerMask allyLayerMask;
+
     [SerializeField] public LayerMask targetLayerMask;
 
 
@@ -43,6 +51,11 @@ public class AICharacter : Character
 
 
     private float fireTimer = 5;
+
+    //Backing Up
+    private bool canBackup = true;
+    private float backUpTimer = 0f;
+    private float backUpTimeLimit = 1.0f;
 
     protected override void Awake()
     {
@@ -70,41 +83,23 @@ public class AICharacter : Character
         switch (state)
         {
             case AIState.Idle:
+                Detect();
+
                 break;
             case AIState.Follow:
                 Detect();
-
                 Follow();
+
                 break;
             case AIState.Chase:
                 Detect();
-
                 Chase();
+
                 break;
             case AIState.Attack:
                 Strafe();
+                Attack();
 
-                switch (statModule.combatType)
-                {
-                    case CombatType.Empty:
-                        break;
-                    case CombatType.Melee:
-                        MeleeAttack();
-                        break;
-                    case CombatType.Range:
-                        
-                        RangeAttack();
-                        break;
-                    case CombatType.Mage:
-                        
-
-                        AreaAttack();
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            default:
                 break;
         }
 
@@ -150,7 +145,7 @@ public class AICharacter : Character
     }
 
 
-    public void MeleeAttack()
+    public void Attack()
     {
 
 
@@ -162,7 +157,6 @@ public class AICharacter : Character
 
             if (fireTimer <= 0)
             {
-
                 Player targetCheck = target.GetComponent<Player>();
                 if (this is Summon && targetCheck != null)
                 {
@@ -170,11 +164,57 @@ public class AICharacter : Character
                 }
                 else
                 {
-                    
-                    GameObject newMelee = Instantiate(meleeAttack, target.transform.position, Quaternion.identity);
-                    newMelee.GetComponent<MeleeAttack>().SetOwner(this);
+                    switch (statModule.combatType)
+                    {
+                        case CombatType.Empty:
+                            break;
+                        case CombatType.Fighter:
+
+
+
+                            GameObject newMelee = Instantiate(meleeAttack, target.transform.position, Quaternion.identity);
+                            newMelee.GetComponent<MeleeAttack>().SetOwner(this);
+
+
+
+                            break;
+                        case CombatType.Ranger:
+                            GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+                            newProjectile.GetComponent<Projectile>().SetOwner(this);
+                            newProjectile.GetComponent<Projectile>().Shoot(target);
+
+
+                            break;
+                        case CombatType.Mage:
+                            GameObject newAreaAttack = Instantiate(areaAttack, transform.position, Quaternion.identity);
+                            newAreaAttack.GetComponent<AreaAttack>().SetOwner(this);
+
+
+                            break;
+                        case CombatType.Enchanter:
+
+                            break;
+                        case CombatType.Thief:
+
+                            break;
+                        case CombatType.Tank:
+
+                            break;
+                        case CombatType.Healer:
+                            Heal();
+
+                            break;
+                        default:
+                            break;
+                    }
                     fireTimer = statModule.fireInterval;
+
                 }
+
+
+
+
+
             }
             else
             {
@@ -191,108 +231,23 @@ public class AICharacter : Character
         else
         {
 
-            Detect();
+            Detect();jk
 
         }
 
     }
 
-    public void RangeAttack()
+
+    public void Heal()
     {
 
+        target.GetComponent<Character>().statModule.health += statModule.damage;
 
-        if (target != null)
-        {
-
-
-            
-
-            if (fireTimer <= 0)
-            {
-
-                Player targetCheck = target.GetComponent<Player>();
-                if (this is Summon && targetCheck != null)
-                {
-
-                }
-                else
-                {
-
-                    GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-                    newProjectile.GetComponent<Projectile>().SetOwner(this);
-                    newProjectile.GetComponent<Projectile>().Shoot(target);
-                    fireTimer = statModule.fireInterval;
-                }
-            }
-            else
-            {
-
-                fireTimer -= Time.deltaTime;
-
-            }
-
-            CheckDistance();
-
-        }
-        else 
-        {
-
-            Detect();
-        }
+        
 
     }
 
 
-
-    public void AreaAttack()
-    {
-
-
-        if (target != null)
-        {
-
-
-
-
-            if (fireTimer <= 0)
-            {
-
-                Player targetCheck = target.GetComponent<Player>();
-                if (this is Summon && targetCheck != null)
-                {
-
-                }
-                else
-                {
-
-                    GameObject newAreaAttack = Instantiate(areaAttack, transform.position, Quaternion.identity);
-                    newAreaAttack.GetComponent<AreaAttack>().SetOwner(this);
-                    fireTimer = statModule.fireInterval;
-                }
-            }
-            else
-            {
-
-                fireTimer -= Time.deltaTime;
-
-            }
-
-
-            CheckDistance();
-
-        }
-        else
-        {
-
-            Detect();
-        }
-
-
-    }
-
-    bool canBackup = true;
-    float backUpTimer = 0f;
-    float backUpTimeLimit = 1.0f;
 
     public void CheckDistance()
     {
@@ -301,7 +256,7 @@ public class AICharacter : Character
 
         float minimumDistance = statModule.attackRange - 1f;
 
-        Debug.Log(distanceToTarget);
+
         // Check if the target is too far
         if (distanceToTarget > statModule.attackRange)
         {
@@ -353,8 +308,48 @@ public class AICharacter : Character
 
     public void Detect()
     {
+        LayerMask activeLayerMask = 0;
 
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, statModule.detectRange, new Vector2(0, 0), 0, targetLayerMask);
+
+
+        switch (statModule.combatType)
+        {
+            case CombatType.Empty:
+                break;
+            case CombatType.Fighter:
+                activeLayerMask = targetLayerMask;
+
+                break;
+            case CombatType.Ranger:
+                activeLayerMask = targetLayerMask;
+
+                break;
+            case CombatType.Mage:
+                activeLayerMask = targetLayerMask;
+
+                break;
+            case CombatType.Enchanter:
+                activeLayerMask = allyLayerMask;
+
+                break;
+            case CombatType.Thief:
+                activeLayerMask = targetLayerMask;
+
+                break;
+            case CombatType.Tank:
+                activeLayerMask = allyLayerMask;
+
+                break;
+            case CombatType.Healer:
+                activeLayerMask = allyLayerMask;
+
+                break;
+            default:
+                break;
+        }
+
+
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, statModule.detectRange, new Vector2(0, 0), 0, activeLayerMask);
 
 
         //If Enemy find player/ Overide Follow/ Chase Function
@@ -364,7 +359,12 @@ public class AICharacter : Character
 
             if (target == null || target == player.transform)
             {
-                target = hit.transform;
+
+                if (hit.transform != transform)
+                {
+                    target = hit.transform;
+
+                }
 
             }
 
@@ -478,9 +478,86 @@ public class AICharacter : Character
 
 
 
-    public void SetElementType(RuneType _type)
+    public void SetElementType(ElementType _type)
     {
         statModule.runeType = _type;
+
+        switch (_type)
+        {
+            case ElementType.Empty:
+                break;
+            case ElementType.Fire:
+                //Resist
+                statModule.damageResistances[ElementType.Ice] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Lightning] = 2.0f;
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+                break;
+            case ElementType.Ice:
+                //Resist
+                statModule.damageResistances[ElementType.Lightning] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Fire] = 2.0f;
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+
+                break;
+            case ElementType.Lightning:
+                //Resist
+                statModule.damageResistances[ElementType.Fire] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Ice] = 2.0f;
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+                break;
+            case ElementType.Earth:
+                //Resist
+                statModule.damageResistances[ElementType.Steel] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Crystal] = 2.0f;
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+                break;
+            case ElementType.Steel:
+                //Resist
+                statModule.damageResistances[ElementType.Crystal] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Earth] = 2.0f;
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+                break;
+            case ElementType.Crystal:
+                //Resist
+                statModule.damageResistances[ElementType.Earth] = 0.5f;
+
+                //Take Extra Damage
+                statModule.damageResistances[ElementType.Steel] = 2.0f;
+
+                statModule.damageResistances[ElementType.Shadow] = 1.25f;
+
+
+                break;
+            case ElementType.Shadow:
+                //Resist
+                statModule.damageResistances[ElementType.Fire] = 0.75f;
+                statModule.damageResistances[ElementType.Ice] = 0.75f;
+                statModule.damageResistances[ElementType.Lightning] = 0.75f;
+                statModule.damageResistances[ElementType.Earth] = 0.75f;
+                statModule.damageResistances[ElementType.Steel] = 0.75f;
+                statModule.damageResistances[ElementType.Crystal] = 0.75f;
+
+
+                break;
+            default:
+                break;
+        }
+
 
         vfxModule.SetColor(statModule.runeType);
 
@@ -492,18 +569,37 @@ public class AICharacter : Character
 
         statModule.combatType = _type;
 
+
         switch (statModule.combatType)
         {
             case CombatType.Empty:
                 break;
-            case CombatType.Melee:
+            case CombatType.Fighter:
                 statModule.attackRange = statModule.meleeAttackRange;
+
                 break;
-            case CombatType.Range:
+            case CombatType.Ranger:
                 statModule.attackRange = statModule.rangedAttackRange;
 
                 break;
             case CombatType.Mage:
+                statModule.attackRange = statModule.mageAttackRange;
+
+                break;
+            case CombatType.Enchanter:
+                statModule.attackRange = statModule.rangedAttackRange;
+
+
+                break;
+            case CombatType.Thief:
+                statModule.attackRange = statModule.meleeAttackRange;
+
+                break;
+            case CombatType.Tank:
+                statModule.attackRange = statModule.meleeAttackRange;
+
+                break;
+            case CombatType.Healer:
                 statModule.attackRange = statModule.mageAttackRange;
 
                 break;

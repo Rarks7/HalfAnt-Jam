@@ -8,7 +8,9 @@ public struct RuneDataStruct
 {
 
 
-    public Sprite sprite;
+    public Sprite elementSprite;
+    public Sprite combatSprite;
+
 
 
 
@@ -28,21 +30,35 @@ public class RuneData : ScriptableObject
     [SerializeField] RuneDataStruct lightningRune;
 
 
-    public Sprite GetSprite(RuneType _type)
+
+
+
+    public Sprite GetElementSprite(ElementType _type)
     {
         return _type switch
         {
 
-            RuneType.Empty => emptyRune.sprite,
-            RuneType.Fire => fireRune.sprite,
-            RuneType.Ice => iceRune.sprite,
-            RuneType.Lightning => lightningRune.sprite,
+            ElementType.Empty => emptyRune.elementSprite,
+            ElementType.Fire => fireRune.elementSprite,
+            ElementType.Ice => iceRune.elementSprite,
+            ElementType.Lightning => lightningRune.elementSprite,
 
             _ => throw new ArgumentOutOfRangeException(nameof(_type), _type, null)
         };
     }
 
+    public Sprite GetCombatSprite(CombatType _type)
+    {
+        return _type switch
+        {
 
+            CombatType.Empty => emptyRune.elementSprite,
+            CombatType.Fighter => fireRune.combatSprite,
+            CombatType.Ranger => iceRune.combatSprite,
+            CombatType.Mage => lightningRune.combatSprite,
 
+            _ => throw new ArgumentOutOfRangeException(nameof(_type), _type, null)
+        };
+    }
 
 }

@@ -101,7 +101,9 @@ public class Player : Character
         if (_context.performed)
         {
 
-            runeModule.Cast(RuneType.Fire);
+            runeModule.Cast(ElementType.Fire, CombatType.Fighter);
+
+
 
 
         }
@@ -114,7 +116,7 @@ public class Player : Character
         if (_context.performed)
         {
 
-            runeModule.Cast(RuneType.Ice);
+            runeModule.Cast(ElementType.Ice, CombatType.Ranger);
 
 
         }
@@ -127,7 +129,7 @@ public class Player : Character
         if (_context.performed)
         {
 
-            runeModule.Cast(RuneType.Lightning);
+            runeModule.Cast(ElementType.Lightning, CombatType.Mage);
 
 
         }

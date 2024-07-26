@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 3896785237484119308}
   - component: {fileID: 3767792136321238701}
   - component: {fileID: 2384973807233238340}
+  - component: {fileID: 8427257021522783640}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -183,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: -1137090535
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2095575471, guid: 52e39217ff0d68545b1cf4b81076fa5d, type: 3}
+  m_Sprite: {fileID: 190010777, guid: 672327d5d75b8334b9f18e2f4b7eb68b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,3 +216,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8427257021522783640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940806016135235431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3767792136321238701}
+  plainColor: {r: 1, g: 1, b: 1, a: 1}
+  fireColor: {r: 1, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 0.9850211, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.93730223, b: 0, a: 1}
+  steelColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  earthColor: {r: 0.20521057, g: 1, b: 0, a: 1}
+  crystalColor: {r: 0.7842768, g: 0, b: 0.8113208, a: 1}
+  shadowColor: {r: 0.18617718, g: 0, b: 0.3301887, a: 1}

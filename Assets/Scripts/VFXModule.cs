@@ -10,6 +10,19 @@ public class VFXModule : MonoBehaviour
     Color originalColor;
     Color damageColor = Color.red;
 
+    [SerializeField] Color plainColor = Color.white;
+    [SerializeField] Color fireColor = Color.red;
+    [SerializeField] Color iceColor = Color.cyan;
+    [SerializeField] Color lightningColor = Color.magenta;
+    [SerializeField] Color steelColor = Color.grey;
+    [SerializeField] Color earthColor = Color.green;
+    [SerializeField] Color crystalColor = Color.blue;
+    [SerializeField] Color shadowColor = Color.black;
+
+
+
+
+
 
     float damageFlashDuration = 0.1f;
 
@@ -33,27 +46,47 @@ public class VFXModule : MonoBehaviour
     }
 
 
-    public void SetColor(RuneType _color)
+    public void SetColor(ElementType _color)
     {
+
         switch (_color)
         {
-            case RuneType.Empty:
-                spriteRenderer.color = Color.white;
-                
-                break;
-            case RuneType.Fire:
-                spriteRenderer.color = Color.red;
+            case ElementType.Empty:
+                spriteRenderer.color = plainColor;
 
                 break;
-            case RuneType.Ice:
-                spriteRenderer.color = Color.cyan;
+            case ElementType.Fire:
+                spriteRenderer.color = fireColor;
 
                 break;
-            case RuneType.Lightning:
-                spriteRenderer.color = Color.magenta;
+            case ElementType.Ice:
+                spriteRenderer.color = iceColor;
+
+                break;
+            case ElementType.Lightning:
+                spriteRenderer.color = lightningColor;
+
+
+                break;
+            case ElementType.Earth:
+                spriteRenderer.color = earthColor;
+
+                break;
+            case ElementType.Steel:
+                spriteRenderer.color = steelColor;
+
+                break;
+            case ElementType.Crystal:
+                spriteRenderer.color = crystalColor;
+
+                break;
+            case ElementType.Shadow:
+                spriteRenderer.color = shadowColor;
 
                 break;
             default:
+                spriteRenderer.color = plainColor;
+
                 break;
         }
 
