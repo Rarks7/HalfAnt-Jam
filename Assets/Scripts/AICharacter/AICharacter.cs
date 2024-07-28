@@ -231,7 +231,7 @@ public class AICharacter : Character
         else
         {
 
-            Detect();jk
+            Detect();
 
         }
 
