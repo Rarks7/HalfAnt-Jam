@@ -57,8 +57,8 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 randomPos = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
                 Enemy enemy = Instantiate(enemiesToSpawn[0], randomPos, Quaternion.identity);
 
-                enemy.SetElementType( ElementType.Ice);
-                enemy.SetCombatType(CombatType.Fighter);
+                enemy.SetElementType( ElementType.Earth);
+                enemy.SetCombatType(CombatType.Mage);
                 enemy.SetStats(1,0,0);
                 enemiesToSpawn.RemoveAt(0);
                 spawnTimer = spawnInterval;

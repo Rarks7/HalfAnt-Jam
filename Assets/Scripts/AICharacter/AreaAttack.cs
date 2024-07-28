@@ -88,7 +88,7 @@ public class AreaAttack : MonoBehaviour
             if (AI != null)
             {
                 AI.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
-                //Destroy(gameObject);
+
             }
         }
 

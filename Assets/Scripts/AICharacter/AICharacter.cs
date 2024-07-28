@@ -48,6 +48,15 @@ public class AICharacter : Character
     [SerializeField] GameObject meleeAttack;
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject areaAttack;
+    [SerializeField] GameObject heal;
+    [SerializeField] GameObject enchant;
+    [SerializeField] GameObject stun;
+    [SerializeField] GameObject shield;
+
+
+
+    bool enchantIsActive = false;
+
 
 
     private float fireTimer = 5;
@@ -73,8 +82,16 @@ public class AICharacter : Character
         base.FixedUpdate();
         fireTimer -= Time.deltaTime;
 
-        HandleState();
 
+
+
+        if (!isStunned)
+        {
+            HandleState();
+
+        }
+        StunTimer();
+        ShieldTimer();
     }
 
     private void HandleState()
@@ -192,16 +209,38 @@ public class AICharacter : Character
 
                             break;
                         case CombatType.Enchanter:
+                            Chase();
+
+                            if (!enchantIsActive)
+                            {
+                                GameObject newEnchant = Instantiate(enchant, transform.position, Quaternion.identity);
+                                newEnchant.GetComponent<Enchant>().SetOwner(this);
+                                newEnchant.transform.parent = transform;
+                                enchantIsActive = true;
+                            }
+ 
+
 
                             break;
                         case CombatType.Thief:
-
+                            GameObject newStun = Instantiate(stun, target.transform.position, Quaternion.identity);
+                            newStun.GetComponent<Stun>().SetOwner(this);
                             break;
                         case CombatType.Tank:
-
+                            GameObject newShield = Instantiate(shield, target.transform.position, Quaternion.identity);
+                            newShield.GetComponent<Shield>().SetOwner(this);
                             break;
                         case CombatType.Healer:
-                            Heal();
+
+                            if (target != null)
+                            {
+                                GameObject newHeal = Instantiate(heal, target.transform.position, Quaternion.identity);
+                                newHeal.GetComponent<Heal>().SetOwner(this);
+                            }
+                            else
+                            {
+                                Detect();
+                            }
 
                             break;
                         default:
@@ -237,15 +276,6 @@ public class AICharacter : Character
 
     }
 
-
-    public void Heal()
-    {
-
-        target.GetComponent<Character>().statModule.health += statModule.damage;
-
-        
-
-    }
 
 
 
@@ -587,7 +617,7 @@ public class AICharacter : Character
 
                 break;
             case CombatType.Enchanter:
-                statModule.attackRange = statModule.rangedAttackRange;
+                statModule.attackRange = statModule.meleeAttackRange;
 
 
                 break;
@@ -596,7 +626,7 @@ public class AICharacter : Character
 
                 break;
             case CombatType.Tank:
-                statModule.attackRange = statModule.meleeAttackRange;
+                statModule.attackRange = statModule.mageAttackRange;
 
                 break;
             case CombatType.Healer:
@@ -618,6 +648,79 @@ public class AICharacter : Character
 
         statModule.damage += _damage;
         statModule.fireInterval = statModule.fireInterval - _fireInterval;
+
+    }
+
+    bool isStunned = false;
+    float stunDuration = 5;
+    float stunTimer = 0;
+
+
+    float shieldDuration = 5;
+    float shieldTimer = 0;
+
+
+    public void Stun()
+    {
+
+
+
+
+        stunTimer = stunDuration;
+
+        isStunned = true;
+
+
+    }
+
+    public void StunTimer()
+    {
+
+        if (isStunned) 
+        { 
+            shieldTimer -= Time.deltaTime;
+
+            if (stunTimer <= 0)
+            {
+                vfxModule.StunnedVFX(false);
+
+                isStunned = false;
+
+            }
+
+        }
+
+
+    }
+
+    public void Shield()
+    {
+
+
+        shieldTimer = shieldDuration;
+
+        isShielded = true;
+
+    }
+
+
+    public void ShieldTimer()
+    {
+
+
+        if (isShielded)
+        {
+            shieldTimer -= Time.deltaTime;
+
+            if (shieldTimer <= 0)
+            {
+                vfxModule.ShieldVFX(false);
+
+                isShielded = false;
+
+            }
+
+        }
 
     }
 

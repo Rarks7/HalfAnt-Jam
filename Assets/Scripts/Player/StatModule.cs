@@ -32,6 +32,11 @@ public class StatModule : MonoBehaviour
     public float damage = 5;
     public float projectileSpeed = 500;
 
+    [Header("Buffs")]
+    public float healAmount = 5;
+    public float enchantAmount = 5;
+
+
 
     public Dictionary<ElementType, float> damageResistances;
 

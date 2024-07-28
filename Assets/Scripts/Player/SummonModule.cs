@@ -27,6 +27,7 @@ public class SummonModule : MonoBehaviour
         SetSummonCombatType(newSummon, _melee, _range, _mage);
         SetSummonStats(newSummon, _fire, _ice, _lightning);
 
+        AIManager.Instance.activeSummons.Add(newSummon.GetComponent<Summon>());
     }
 
     public void SetSummonCombatType(GameObject _newSummon, int _melee, int _range, int _mage)
@@ -116,7 +117,7 @@ public class SummonModule : MonoBehaviour
         {
 
 
-            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Mage);
+            _newSummon.GetComponent<Summon>().SetCombatType(CombatType.Fighter);
 
 
 
