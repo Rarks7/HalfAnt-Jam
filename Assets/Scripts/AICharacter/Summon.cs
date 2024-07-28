@@ -5,9 +5,6 @@ using UnityEngine.Animations;
 using Pathfinding;
 using Pathfinding.Examples;
 
-
-
-
 public class Summon : AICharacter
 {
 

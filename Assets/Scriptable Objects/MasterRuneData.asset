@@ -17,10 +17,10 @@ MonoBehaviour:
     combatSprite: {fileID: 0}
   fireRune:
     elementSprite: {fileID: -749597241, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
-    combatSprite: {fileID: 2084342635, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    combatSprite: {fileID: 21300000, guid: 3ee85959855978e4ba766bc902798eda, type: 3}
   iceRune:
     elementSprite: {fileID: 759522276, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
-    combatSprite: {fileID: -1709416906, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    combatSprite: {fileID: 21300000, guid: 9524a9020dcab1b4d9ed40ae225cdac0, type: 3}
   lightningRune:
     elementSprite: {fileID: -1204442707, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
-    combatSprite: {fileID: -921929883, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    combatSprite: {fileID: 21300000, guid: fd92facda0fe50a4a8780d8c9c31b9a1, type: 3}

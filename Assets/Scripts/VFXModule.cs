@@ -20,11 +20,13 @@ public class VFXModule : MonoBehaviour
     [SerializeField] Color shadowColor = Color.black;
 
 
-
-
-
-
     float damageFlashDuration = 0.1f;
+
+
+    [SerializeField] GameObject floatingText;
+    [SerializeField] GameObject stunnedVFX;
+    [SerializeField] GameObject shieldVFX;
+
 
     private void Awake()
     {
@@ -109,4 +111,28 @@ public class VFXModule : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
+
+    public void CreateFloatingText(Transform transform, string _string, TextType _type)
+    {
+        GameObject newFloatingText = Instantiate(floatingText, transform.position + new Vector3(0,0.5f,0), Quaternion.identity);
+
+        newFloatingText.GetComponentInChildren<FloatingText>().SetText(_string, _type);
+        newFloatingText.transform.parent = transform;
+    }
+
+    public void StunnedVFX(bool _show)
+    {
+
+
+        stunnedVFX.SetActive(_show);
+
+    }
+
+    public void ShieldVFX(bool _show)
+    {
+
+
+        shieldVFX.SetActive(_show);
+
+    }
 }

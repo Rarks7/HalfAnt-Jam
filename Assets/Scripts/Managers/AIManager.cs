@@ -9,6 +9,8 @@ public class AIManager : MonoBehaviour
 
 
     public List<Enemy> activeEnemies = new List<Enemy>();
+    public List<Summon> activeSummons = new List<Summon>();
+
 
 
     private void Awake()
@@ -21,6 +23,7 @@ public class AIManager : MonoBehaviour
         {
             Instance = this;
         }
+
 
     }
 
