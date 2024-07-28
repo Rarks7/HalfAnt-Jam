@@ -9,6 +9,7 @@ namespace Constants
         public const string End = "end";
         public const string Wait = "wait";
         public const string Give = "give";
+        public const string Activate = "activate";
     }
 
     public static class InkGiveItemCodes

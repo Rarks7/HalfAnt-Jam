@@ -60,3 +60,13 @@ Wow close one, really wouldn't to make such a moral dip this early.
 -> origin
 
 
+===the_void_book===
+It's a very spooky book, to go with this very spooky room. Maybe later this will be a puzzle room, but for right now... Would You Kindly Activate the Ritual and Become A Slime Wizard?
+
+* Yes! -> do_it
+* yes -> do_it
+
+= do_it
+#activate 
+Woah I wouldn't have done that.
+-> origin

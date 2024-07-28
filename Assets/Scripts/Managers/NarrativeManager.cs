@@ -2,6 +2,7 @@
 using Constants;
 using Ink.Runtime;
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -142,9 +143,13 @@ public class NarrativeManager : MonoBehaviour
     {
         if (story.currentTags.Contains(InkTags.End))
         {
-  
             SectionHasEnded = true;
             return;
+        }
+
+        if(story.currentTags.Contains(InkTags.Activate))
+        {
+            EventManager.ChatActivateTag();
         }
     }
 
