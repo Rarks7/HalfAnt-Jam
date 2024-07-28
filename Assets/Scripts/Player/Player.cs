@@ -11,6 +11,7 @@ public class Player : Character
     [NonSerialized]
     public SummonModule summonModule;
     RuneModule runeModule;
+    DeckModule deckModule;
     StatModule statModule;
     [SerializeField] Animator ani;
 
@@ -38,6 +39,9 @@ public class Player : Character
         runeModule = GetComponent<RuneModule>();
         statModule = GetComponent<StatModule>();
         summonModule = GetComponent<SummonModule>();
+        deckModule = GetComponent<DeckModule>();
+
+
         interactModule = GetComponent<InteractModule>();
 
         StartCoroutine(LateStart());
@@ -102,10 +106,18 @@ public class Player : Character
 
         if (_context.performed)
         {
+            if (!RuneDeckUI.Instance.runeHandUI[0].selected && runeModule.activeRunes.Count < 3)
+            {
+                runeModule.Cast(deckModule.runeHand[0]);
+                RuneDeckUI.Instance.runeHandUI[0].Select();
 
-            runeModule.Cast(ElementType.Fire, CombatType.Fighter);
+            }
+            else
+            {
+                RuneDeckUI.Instance.runeHandUI[0].StartCantSelect();
 
 
+            }
 
 
         }
@@ -117,8 +129,18 @@ public class Player : Character
 
         if (_context.performed)
         {
+            if (!RuneDeckUI.Instance.runeHandUI[1].selected && runeModule.activeRunes.Count < 3)
+            {
+                runeModule.Cast(deckModule.runeHand[1]);
+                RuneDeckUI.Instance.runeHandUI[1].Select();
 
-            runeModule.Cast(ElementType.Ice, CombatType.Ranger);
+            }
+            else
+            {
+                RuneDeckUI.Instance.runeHandUI[1].StartCantSelect();
+
+
+            }
 
 
         }
@@ -130,8 +152,68 @@ public class Player : Character
 
         if (_context.performed)
         {
+            if (!RuneDeckUI.Instance.runeHandUI[2].selected && runeModule.activeRunes.Count < 3)
+            {
+                runeModule.Cast(deckModule.runeHand[2]);
+                RuneDeckUI.Instance.runeHandUI[2].Select();
 
-            runeModule.Cast(ElementType.Lightning, CombatType.Mage);
+            }
+            else
+            {
+                RuneDeckUI.Instance.runeHandUI[2].StartCantSelect();
+
+
+            }
+
+
+
+        }
+
+    }
+
+    public void CastRune4(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+            if (!RuneDeckUI.Instance.runeHandUI[3].selected && runeModule.activeRunes.Count < 3)
+            {
+                runeModule.Cast(deckModule.runeHand[3]);
+                RuneDeckUI.Instance.runeHandUI[3].Select();
+
+            }
+            else
+            {
+                RuneDeckUI.Instance.runeHandUI[3].StartCantSelect();
+
+
+            }
+
+
+        }
+
+    }
+
+    public void CastRune5(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+
+
+            if (!RuneDeckUI.Instance.runeHandUI[4].selected && runeModule.activeRunes.Count < 3)
+            {
+                runeModule.Cast(deckModule.runeHand[4]);
+                RuneDeckUI.Instance.runeHandUI[4].Select();
+
+            }
+            else
+            {
+                RuneDeckUI.Instance.runeHandUI[4].StartCantSelect();
+
+
+            }
 
 
         }

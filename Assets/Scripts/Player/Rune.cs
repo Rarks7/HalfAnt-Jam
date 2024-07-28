@@ -29,18 +29,16 @@ public enum RuneSpecial
 }
 
 
-public class Rune : MonoBehaviour
+public class Rune
 {
 
     ElementType runeElementType = ElementType.Empty;
     CombatType runeCombatType = CombatType.Empty;
     RuneSpecial runeSpecial = RuneSpecial.Empty;
 
-    [SerializeField] SpriteRenderer elementSpriteRenderer;
-    [SerializeField] SpriteRenderer combatSpriteRenderer;
+    
 
 
-    [SerializeField] RuneData runeData;
 
 
 
@@ -51,27 +49,12 @@ public class Rune : MonoBehaviour
     }
 
 
-    public void Activate()
-    {
-
-        gameObject.SetActive(true);
-
-    }
-
-    public void Deactivate()
-    {
-
-        gameObject.SetActive(false);
-
-
-    }
-
     public void SetRuneElementType(ElementType _type)
     {
 
         runeElementType = _type;
 
-        elementSpriteRenderer.sprite = runeData.GetElementSprite(_type);
+
 
     }
 
@@ -80,7 +63,6 @@ public class Rune : MonoBehaviour
 
         runeCombatType = _type;
 
-        combatSpriteRenderer.sprite = runeData.GetCombatSprite(_type);
 
     }
 
