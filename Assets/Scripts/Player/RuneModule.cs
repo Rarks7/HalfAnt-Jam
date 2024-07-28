@@ -19,11 +19,11 @@ public class RuneModule : MonoBehaviour
 
     CastCombo combo = CastCombo.First;
     
-    [SerializeField] Rune rune1;
-    [SerializeField] Rune rune2;
-    [SerializeField] Rune rune3;
+    [SerializeField] RuneHolder rune1;
+    [SerializeField] RuneHolder rune2;
+    [SerializeField] RuneHolder rune3;
 
-    List<Rune> activeRunes;
+    public List<Rune> activeRunes;
 
 
     private float runeResetTimerLimit = 3;
@@ -52,7 +52,7 @@ public class RuneModule : MonoBehaviour
 
 
 
-    public void Cast(ElementType _element, CombatType _combatType)
+    public void Cast(Rune _rune)
     {
         runeResetTimerIsRunning = true;
         runeResetTimer = 0;
@@ -60,25 +60,23 @@ public class RuneModule : MonoBehaviour
         switch (combo)
         {
             case CastCombo.First:
-                rune1.Activate();
-                activeRunes.Add(rune1);
-                rune1.SetRuneElementType(_element);
-                rune1.SetRuneCombatType(_combatType);
+
+               
+                rune1.IngestRune(_rune);
+                activeRunes.Add(_rune);
 
 
                 break;
             case CastCombo.Second:
-                rune2.Activate();
-                activeRunes.Add(rune2);
-                rune2.SetRuneElementType(_element);
-                rune2.SetRuneCombatType(_combatType);
+                rune2.IngestRune(_rune);
+                activeRunes.Add(_rune);
+
 
                 break;
             case CastCombo.Third:
-                rune3.Activate();
-                activeRunes.Add(rune3);
-                rune3.SetRuneElementType(_element);
-                rune3.SetRuneCombatType(_combatType);
+                rune3.IngestRune(_rune);
+                activeRunes.Add(_rune);
+
 
                 break;
             default:
@@ -170,6 +168,11 @@ public class RuneModule : MonoBehaviour
         rune3.Deactivate();
 
         activeRunes.Clear();
+        for (int i = 0; i < RuneDeckUI.Instance.runeHandUI.Count; i++)
+        {
+            RuneDeckUI.Instance.runeHandUI[i].Deselect();
+
+        }
 
     }
 

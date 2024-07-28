@@ -42,6 +42,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "CastRune4",
+                    "type": "Button",
+                    "id": "26cac874-999f-42c5-a4c8-99de743f122d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CastRune5",
+                    "type": "Button",
+                    "id": "e327b51e-faf2-4cd7-9458-ac4b664e2863",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Summon",
                     "type": "Button",
                     "id": "484bac0e-a7fd-40de-bdd6-40de6dd1596a",
@@ -75,7 +93,7 @@
                 {
                     "name": "up",
                     "id": "5c7a40c2-3778-45eb-86b0-6f29c59b6b89",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -86,7 +104,7 @@
                 {
                     "name": "down",
                     "id": "f4c9b307-a276-4c49-a5a6-0012888ed086",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -97,7 +115,7 @@
                 {
                     "name": "left",
                     "id": "785dccaf-2d2f-45ef-a013-9c81a4e588c2",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -108,7 +126,7 @@
                 {
                     "name": "right",
                     "id": "26bc751a-906a-4020-b179-250896f12e62",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -119,7 +137,7 @@
                 {
                     "name": "",
                     "id": "f773cf51-8890-435e-9c2b-9b71b1363bd5",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -130,7 +148,7 @@
                 {
                     "name": "",
                     "id": "033f1d97-ddfa-463f-b0fe-c9f5b4f50959",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -141,7 +159,7 @@
                 {
                     "name": "",
                     "id": "4cd7e719-d184-4000-aff1-d2ff5eb0bc7f",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -152,7 +170,7 @@
                 {
                     "name": "",
                     "id": "55c582a3-136d-4020-8c5b-5c216d9d9bb9",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard/Mouse",
@@ -163,11 +181,33 @@
                 {
                     "name": "",
                     "id": "a3a7cf85-1963-4472-b919-d8c0ccc8ccd1",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbec23cf-ad97-4b6d-a990-eb5f18d02492",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard/Mouse",
+                    "action": "CastRune4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9087f019-be40-49b1-86bc-d26ac6a4da5d",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard/Mouse",
+                    "action": "CastRune5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
