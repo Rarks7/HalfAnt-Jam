@@ -10,7 +10,7 @@ namespace Constants
         Lobby,
         Overworld,
         Hallway,
-        TravelHallway,
+        VoidHallway,
         PlayersRoom,
         NeighboursRoom,
         MiddleRoom,
