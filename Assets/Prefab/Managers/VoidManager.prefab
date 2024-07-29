@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c521d75aec7644786bea406e47e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfLevelsInARun: 0
-  VoidLevelsFirstRun: 
-  AllVoidLevels: 
+  NumberOfLevelsInARun: 10
+  VoidLevelsFirstRun: 090000000a000000
+  AllVoidLevels: 090000000a000000

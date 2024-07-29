@@ -37,6 +37,7 @@ public class VoidManager : MonoBehaviour
     private void Start()
     {
         HasEnteredTheVoidBefore = GameManager.Instance.GetSavedBool(enteredTheVoidSaveString);
+        VoidLevelsActiveRun = new List<SceneName>();
     }
 
     private void GenerateRandomRun()

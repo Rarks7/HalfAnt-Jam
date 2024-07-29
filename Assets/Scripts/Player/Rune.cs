@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.WSA;
+
 
 
 public enum ElementType
@@ -39,14 +36,6 @@ public class Rune
     
 
 
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     public void SetRuneElementType(ElementType _type)

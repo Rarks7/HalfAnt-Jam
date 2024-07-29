@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: d736e885bc27e93499ad7d8344e30dd4
-  - enabled: 1
     path: Assets/Scenes/OverworldScenes/Overworld.unity
     guid: 74cc24decf365f744b89dce023c584e7
+  - enabled: 1
+    path: Assets/Scenes/OverworldScenes/Lobby.unity
+    guid: 59104ed67e7c82947a32604fa45e9cc7
+  - enabled: 1
+    path: Assets/Scenes/OverworldScenes/PlayersRoom.unity
+    guid: 811701b721510c2439c52ea3035411b8
+  - enabled: 1
+    path: Assets/Scenes/OverworldScenes/VoidStartRoom.unity
+    guid: 32144181d14a46742aa973c5abb9fabf
+  - enabled: 1
+    path: Assets/Scenes/OverworldScenes/Hallway.unity
+    guid: c0c5ca0afcf97de4ea85540ca1785df0
+  - enabled: 1
+    path: Assets/Scenes/VoidScenes/Void_Apartment.unity
+    guid: 87a1e070656935741b7d36ca076e8abf
+  - enabled: 1
+    path: Assets/Scenes/VoidScenes/VoidHallway.unity
+    guid: 4af6200d16b1e584a840120d0524a983
   m_configObjects: {}

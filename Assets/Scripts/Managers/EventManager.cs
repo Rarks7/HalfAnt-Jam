@@ -59,4 +59,10 @@ public class EventManager : MonoBehaviour
     {
         OnChatActivateTag?.Invoke();
     }
+
+    public static Action OnActivateVoidDoor;
+    public static void ActivateVoidDoor()
+    {
+        OnActivateVoidDoor?.Invoke();
+    }
 }

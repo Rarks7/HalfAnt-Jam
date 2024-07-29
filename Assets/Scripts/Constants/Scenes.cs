@@ -12,9 +12,14 @@ namespace Constants
         Hallway,
         VoidHallway,
         PlayersRoom,
-        NeighboursRoom,
+        VoidStartRoom,
         MiddleRoom,
         VoidLevel,
+
+        Void_Apartment,
+        Void_LogCabin,
+        Void_Hallway,
+        
     }
 
     public static class SceneNameExtensions

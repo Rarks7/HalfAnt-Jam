@@ -18,6 +18,13 @@ public class VoidDoor : Activatable
     {
         doorAnimator = GetComponent<Animator>();
         DoorPoint.SetActive(false);
+
+        EventManager.OnActivateVoidDoor += Activate;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnActivateVoidDoor -= Activate;
     }
 
     public override void Activate()
@@ -38,8 +45,6 @@ public class VoidDoor : Activatable
         doorAnimator.SetTrigger(TransformDoorString);
 
         DoorPoint.SetActive(true);
-
-
     }
 
 

@@ -7,22 +7,22 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
 
-    [SerializeField] private SceneName ThisScene;
+    [SerializeField] protected SceneName ThisScene;
 
-    [SerializeField] private List<Door_Interactable> Doors;
+    [SerializeField] protected List<Door_Interactable> Doors;
 
-    [SerializeField] private Transform DefaultSpawn;
+    [SerializeField] protected Transform DefaultSpawn;
 
-    private bool openingScene;
+    protected bool openingScene;
     
-    private void Awake()
+    protected virtual void Awake()
     {
         openingScene = (Instance == null);
         
         Instance = this;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         GameManager.Instance.SetOpeningScene(ThisScene);
     }
