@@ -6,12 +6,17 @@ using UnityEngine;
 public class DeckModule : MonoBehaviour
 {
 
-
+    [SerializeField]
     public List<Rune> runeHand;
+
+    [SerializeField]
 
     public List<Rune> runeDeck;
 
+    [SerializeField]
     public List<Rune> activeRunes;
+
+    
 
 
     int runeHandSize = 5;
@@ -90,14 +95,75 @@ public class DeckModule : MonoBehaviour
 
     }
 
-    public void CastRunes()
+    public void Cast(List<RuneHolder> _runeHolderHand)
     {
 
 
+        Deal();
+        foreach (var rune in _runeHolderHand)
+        {
+
+            if (!rune.selected)
+            {
 
 
+                AddToDeck(rune.rune);
+
+            }
+
+        }
+        
+    }
+
+    public void AddToDeck(Rune _rune) 
+    {
+        if (_rune.GetRuneElementType() != ElementType.Empty)
+        {
+            runeDeck.Add(_rune);
+
+        }
 
     }
 
+    public void Deal()
+    {
+        int trueHandSize = 0;
+
+        runeHand.Clear();
+
+
+        for (int i = 0; i < runeHandSize; i++)
+        {
+            if (runeDeck.Count > i)
+            {
+
+                trueHandSize++;
+
+
+                runeHand.Add(runeDeck[i]);
+
+
+
+            }
+            else
+            {
+
+                Rune emptyRune = new Rune();
+                emptyRune.SetRuneElementType(0);
+                emptyRune.SetRuneCombatType(0);
+
+
+                runeHand.Add(emptyRune);
+
+            }
+
+
+        }
+
+        runeDeck.RemoveRange(0, trueHandSize);
+
+        RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
+
+    }
 
 }

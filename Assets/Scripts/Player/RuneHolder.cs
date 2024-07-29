@@ -5,7 +5,7 @@ using UnityEngine;
 public class RuneHolder : MonoBehaviour
 {
 
-    Rune rune;
+    public Rune rune;
 
     [SerializeField] SpriteRenderer bgSpriteRenderer;
     [SerializeField] SpriteRenderer elementSpriteRenderer;
@@ -31,11 +31,11 @@ public class RuneHolder : MonoBehaviour
     }
 
 
-    public void IngestRune(Rune rune)
+    public void IngestRune(Rune _rune)
     {
-
-        elementSpriteRenderer.sprite = runeData.GetElementSprite(rune.GetRuneElementType());
-        combatSpriteRenderer.sprite = runeData.GetCombatSprite(rune.GetRuneCombatType());
+        rune = _rune;
+        elementSpriteRenderer.sprite = runeData.GetElementSprite(_rune.GetRuneElementType());
+        combatSpriteRenderer.sprite = runeData.GetCombatSprite(_rune.GetRuneCombatType());
         Activate();
 
     }
