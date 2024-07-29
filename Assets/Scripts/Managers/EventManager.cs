@@ -52,4 +52,17 @@ public class EventManager : MonoBehaviour
     {
         OnRevertToPreviousGameState?.Invoke();
     }
+
+    public static Action OnChatActivateTag;
+
+    public static void ChatActivateTag()
+    {
+        OnChatActivateTag?.Invoke();
+    }
+
+    public static Action OnActivateVoidDoor;
+    public static void ActivateVoidDoor()
+    {
+        OnActivateVoidDoor?.Invoke();
+    }
 }

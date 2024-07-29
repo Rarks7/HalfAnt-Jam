@@ -60,3 +60,30 @@ Wow close one, really wouldn't to make such a moral dip this early.
 -> origin
 
 
+===the_void_book===
+It's a very spooky book, to go with this very spooky room, it reads: "Maybe later this will be a puzzle room, but for right now... Would You Kindly Activate the Ritual and Become A Slime Wizard?"
+
+* [Yes!] -> do_it
+* [yes] -> do_it
+
+= do_it
+#activate 
+Wow look at that! Theres more writing in the book: "Woah I wouldn't have done that. Anyway go drink from that bowl now!"
+-> origin
+
+===the_slime_bowl===
+It pulses with power, same as the pillars around, this is crazy. This is the bowl the book said I should drink out of, it's full of a slimey liquid. Should I drink it?
+* [Drink] -> drink
+* [Yuck] -> yuck
+
+= drink
+#activate
+Its disgusting, hard to drink, feels very odd like yogurt or something *gulp*... Woah I'm pulsing with power now as well!! Is that a door?
+-> origin
+
+= yuck
+For complex and unknown Game Jam reasons I'm gonna drink it anyway
+-> drink
+
+
+

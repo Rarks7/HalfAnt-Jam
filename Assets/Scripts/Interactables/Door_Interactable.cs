@@ -7,11 +7,15 @@ public class Door_Interactable : Interactable
     [SerializeField] private Constants.SceneName DestinationScene;
 
     [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private bool Locked;
 
     public override void Interact()
     {
 
         Debug.Log("Door Interact Called");
+
+        if (Locked)
+            return;
 
         if(DestinationScene == Constants.SceneName.None)
         {

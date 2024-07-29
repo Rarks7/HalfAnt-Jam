@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Chat_Interactable : Interactable
 {
-    [SerializeField] private StorySection storySection;
+    [SerializeField] protected StorySection storySection;
     
     public override void Interact()
     {

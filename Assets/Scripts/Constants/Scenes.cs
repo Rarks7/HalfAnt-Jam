@@ -10,10 +10,16 @@ namespace Constants
         Lobby,
         Overworld,
         Hallway,
-        TravelHallway,
+        VoidHallway,
         PlayersRoom,
-        NeighboursRoom,
+        VoidStartRoom,
         MiddleRoom,
+        VoidLevel,
+
+        Void_Apartment,
+        Void_LogCabin,
+        Void_Hallway,
+        
     }
 
     public static class SceneNameExtensions
