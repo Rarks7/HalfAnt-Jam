@@ -14,6 +14,7 @@ namespace Constants
         PlayersRoom,
         NeighboursRoom,
         MiddleRoom,
+        VoidLevel,
     }
 
     public static class SceneNameExtensions

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public SceneName PreviousScene;
     public SceneName CurrentScene;
 
+    
+
     private void Awake()
     {
         if(Instance == null)
@@ -68,10 +70,23 @@ public class GameManager : MonoBehaviour
         PreviousScene = CurrentScene;
         Debug.Log("Set Previous Scene to " + PreviousScene);
 
+        if(sceneName == SceneName.VoidLevel)
+        {
+            GoToVoidLevel();
+            return;
+        }
+
+
         CurrentScene = sceneName;
         Debug.Log("Set Current Scene to " + CurrentScene);
 
         SceneManager.LoadScene(sceneName.GetSceneNameString());
+    }
+
+
+    private void GoToVoidLevel()
+    {
+
     }
 
     public void SetOpeningScene(SceneName sceneName)

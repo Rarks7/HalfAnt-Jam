@@ -13,6 +13,8 @@ namespace Constants
         trash_bin,
         my_mail_box,
         not_my_mail_box,
+        the_void_book,
+        the_slime_bowl,
     }
 
     //public static class StorySectionExtensions
