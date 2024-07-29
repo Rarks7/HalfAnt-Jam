@@ -70,15 +70,14 @@ public class GameManager : MonoBehaviour
         PreviousScene = CurrentScene;
         Debug.Log("Set Previous Scene to " + PreviousScene);
 
-        if(sceneName == SceneName.VoidLevel)
+        CurrentScene = sceneName;
+        Debug.Log("Set Current Scene to " + CurrentScene);
+
+        if (sceneName == SceneName.VoidLevel)
         {
             GoToVoidLevel();
             return;
         }
-
-
-        CurrentScene = sceneName;
-        Debug.Log("Set Current Scene to " + CurrentScene);
 
         SceneManager.LoadScene(sceneName.GetSceneNameString());
     }
@@ -98,6 +97,43 @@ public class GameManager : MonoBehaviour
         //PreviousScene = SceneName.None;
     }
 
+    public void SaveBool(string _saveKey, bool _bool)
+    {
+        PlayerPrefs.SetInt(_saveKey, _bool ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 
+    public bool GetSavedBool(string _saveKey)
+    {
+        if(!PlayerPrefs.HasKey(_saveKey))
+        {
+            PlayerPrefs.SetInt(_saveKey, 0);
+            return false;
+        }
+        
+        int savedBool = PlayerPrefs.GetInt(_saveKey);
+
+        return savedBool != 0;
+    }
+
+    public void SaveFloat(string _saveKey, float _float)
+    {
+        PlayerPrefs.SetFloat(_saveKey, _float);
+    }
+
+    public float GetSavedFloat(string _saveKey)
+    {
+        return PlayerPrefs.GetFloat(_saveKey);
+    }
+
+    public void SaveString(string _saveKey, string _string)
+    {
+        PlayerPrefs.SetString(_saveKey, _string);
+    }
+
+    public string GetSavedString(string _saveKey)
+    {
+        return PlayerPrefs.GetString(_saveKey);
+    }
 
 }
