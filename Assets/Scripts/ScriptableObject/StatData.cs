@@ -39,7 +39,8 @@ public class StatData : ScriptableObject
     [Header("Buffs")]
     public float healAmount = 5;
     public float enchantAmount = 5;
-
+    public float stunDuration = 5;
+    public float shieldDuration = 5;
 
 
     public Dictionary<ElementType, float> damageResistances;

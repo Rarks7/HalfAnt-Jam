@@ -14,6 +14,7 @@ public class Player : Character
     public DeckModule deckModule;
     StatModule statModule;
     [SerializeField] Animator ani;
+    PlayerUI playerUI;
 
     [NonSerialized] public InteractModule interactModule;
 
@@ -48,8 +49,8 @@ public class Player : Character
         statModule = GetComponent<StatModule>();
         summonModule = GetComponent<SummonModule>();
         deckModule = GetComponent<DeckModule>();
-
-
+        playerUI = FindObjectOfType<PlayerUI>();
+        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
         interactModule = GetComponent<InteractModule>();
 
         trailRenderer = GetComponentInChildren<TrailRenderer>();
@@ -63,6 +64,9 @@ public class Player : Character
         DashTimer();
         RecallTimer();
         AnimateCharacter();
+        playerUI.SetHealthText(statModule.health);
+        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+
     }
 
 

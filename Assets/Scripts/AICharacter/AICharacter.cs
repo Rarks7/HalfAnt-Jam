@@ -55,16 +55,25 @@ public class AICharacter : Character
 
 
 
-    bool enchantIsActive = false;
 
 
-
+    //Attack
     private float fireTimer = 5;
 
     //Backing Up
     private bool canBackup = true;
     private float backUpTimer = 0f;
     private float backUpTimeLimit = 1.0f;
+
+    //Stun
+    bool isStunned = false;
+    float stunTimer = 0;
+
+    //Shield
+    float shieldTimer = 0;
+
+    //Enchant
+    bool enchantIsActive = false;
 
     protected override void Awake()
     {
@@ -614,22 +623,16 @@ public class AICharacter : Character
 
     }
 
-    bool isStunned = false;
-    float stunDuration = 5;
-    float stunTimer = 0;
+    
 
 
-    float shieldDuration = 5;
-    float shieldTimer = 0;
-
-
-    public void Stun()
+    public void Stun(float _duration)
     {
 
 
 
 
-        stunTimer = stunDuration;
+        stunTimer = _duration;
 
         isStunned = true;
 
@@ -641,7 +644,7 @@ public class AICharacter : Character
 
         if (isStunned) 
         { 
-            shieldTimer -= Time.deltaTime;
+            stunTimer -= Time.deltaTime;
 
             if (stunTimer <= 0)
             {
@@ -656,11 +659,11 @@ public class AICharacter : Character
 
     }
 
-    public void Shield()
+    public void Shield(float _duration)
     {
 
 
-        shieldTimer = shieldDuration;
+        shieldTimer = _duration;
 
         isShielded = true;
 

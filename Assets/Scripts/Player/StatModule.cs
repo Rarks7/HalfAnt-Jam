@@ -34,6 +34,9 @@ public class StatModule : MonoBehaviour
     [Header("Buffs")]
     public float healAmount = 5;
     public float enchantAmount = 5;
+    public float stunDuration = 5;
+    public float shieldDuration = 5;
+
 
 
 
@@ -85,6 +88,8 @@ public class StatModule : MonoBehaviour
 
         healAmount = _data.healAmount;
         enchantAmount = _data.enchantAmount;
+        stunDuration = _data.stunDuration;
+        shieldDuration  = _data.shieldDuration;
 
     }
 

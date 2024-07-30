@@ -26,3 +26,5 @@ MonoBehaviour:
   projectileSpeed: 500
   healAmount: 5
   enchantAmount: 5
+  stunDuration: 3
+  shieldDuration: 3
