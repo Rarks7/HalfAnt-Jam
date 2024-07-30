@@ -14,6 +14,7 @@ public class Heal : MonoBehaviour
     {
         Destroy(gameObject, 3.0f);
         animator = GetComponentInChildren<Animator>();
+        AudioManager.instance.Play("Heal");
     }
 
 

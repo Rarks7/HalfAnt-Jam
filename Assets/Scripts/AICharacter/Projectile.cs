@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         vfxModule = GetComponentInChildren<VFXModule>();
+        AudioManager.instance.Play("RangeAttack");
     }
 
     // Start is called before the first frame update

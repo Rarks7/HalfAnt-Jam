@@ -11,17 +11,16 @@ public class StatModule : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 10;
+    public float dashCooldown;
 
+    [Header("Recall")]
+    public float recallCooldown = 5.0f;
 
     [Header("AI ONLY")]
     public ElementType runeType;
     public CombatType combatType;
 
     public float attackRange = 0;
-
-    public float rangedAttackRange = 1;
-    public float meleeAttackRange = 5;
-    public float mageAttackRange = 2;
 
     public float detectRange = 10;
 
@@ -59,7 +58,41 @@ public class StatModule : MonoBehaviour
 
     }
 
+    public void IngestStats(StatData _data)
+    {
+
+
+        health = _data.health;
+        maxHealth = _data.maxHealth;
+
+
+        moveSpeed = _data.moveSpeed;
+        dashCooldown = _data.dashCooldown;
+
+        recallCooldown = _data.recallCooldown;
+
+
+        combatType = _data.combatType;
+
+        attackRange = _data.attackRange;
+
+        detectRange = _data.detectRange;
+
+        fireInterval = _data.fireInterval;
+
+        damage = _data.damage;
+        projectileSpeed = _data.projectileSpeed;
+
+        healAmount = _data.healAmount;
+        enchantAmount = _data.enchantAmount;
+
+    }
+
+        
 
 
 
-}
+ }
+
+
+

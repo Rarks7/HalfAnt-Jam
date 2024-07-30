@@ -39,35 +39,42 @@ public class AreaAttack : MonoBehaviour
             case ElementType.Empty:
                 animator.SetTrigger("Fire");
                 vfxModule.SetColor(owner.statModule.runeType);
-
+                AudioManager.instance.Play("FireArea");
                 break;
             case ElementType.Fire:
                 animator.SetTrigger("Fire");
+                AudioManager.instance.Play("FireArea");
 
                 break;
             case ElementType.Ice:
                 animator.SetTrigger("Ice");
+                AudioManager.instance.Play("IceArea");
 
                 break;
             case ElementType.Lightning:
                 animator.SetTrigger("Lightning");
                 vfxModule.SetColor(owner.statModule.runeType);
+                AudioManager.instance.Play("LightningArea");
 
                 break;
             case ElementType.Earth:
                 animator.SetTrigger("Earth");
+                AudioManager.instance.Play("EarthArea");
 
                 break;
             case ElementType.Steel:
                 animator.SetTrigger("Steel");
+                AudioManager.instance.Play("SteelArea");
 
                 break;
             case ElementType.Crystal:
                 animator.SetTrigger("Crystal");
+                AudioManager.instance.Play("CrystalArea");
 
                 break;
             case ElementType.Shadow:
                 animator.SetTrigger("Shadow");
+                AudioManager.instance.Play("ShadowArea");
 
                 break;
             default:
@@ -88,6 +95,8 @@ public class AreaAttack : MonoBehaviour
             if (AI != null)
             {
                 AI.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
+
+
 
             }
         }

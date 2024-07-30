@@ -47,6 +47,7 @@ public class Shield : MonoBehaviour
                 AI.Shield();
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Shield);
                 AI.vfxModule.ShieldVFX(true);
+                AudioManager.instance.Play("Shield");
 
             }
         }

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public SceneName PreviousScene;
     public SceneName CurrentScene;
 
+
+    public MasterStatData masterStatData;
     
 
     private void Awake()

@@ -32,6 +32,17 @@ public class Character : MonoBehaviour
             statModule.health -= _damage * statModule.damageResistances[_element];
             vfxModule.CreateFloatingText(transform, (_damage * statModule.damageResistances[_element]).ToString(), TextType.Damage);
             vfxModule.StartDamageFlash();
+            if (this is Summon)
+            {
+
+                AudioManager.instance.Play("SummonTakeDamage");
+
+            }
+            else if(this is Enemy)
+            {
+                AudioManager.instance.Play("EnemyTakeDamage");
+
+            }
         }
         else
         {
@@ -46,10 +57,16 @@ public class Character : MonoBehaviour
         if (statModule.health <= 0)
         {
 
-            Die();
-            if (this is Summon)
+            if (this is Summon summon)
             {
                 AIManager.Instance.activeSummons.Remove(this as Summon);
+
+                foreach (var rune in summon.runes)
+                {
+                    Player player = FindAnyObjectByType<Player>();
+                        player.deckModule.AddToDeck(rune);
+
+                }
             }
             else if (this is Enemy)
             {
@@ -59,6 +76,7 @@ public class Character : MonoBehaviour
 
 
             }
+            Die();
 
         }
 

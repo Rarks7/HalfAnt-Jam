@@ -11,7 +11,7 @@ public class Player : Character
     [NonSerialized]
     public SummonModule summonModule;
     RuneModule runeModule;
-    DeckModule deckModule;
+    public DeckModule deckModule;
     StatModule statModule;
     [SerializeField] Animator ani;
 
@@ -27,8 +27,16 @@ public class Player : Character
     public Vector2 Facing { get; private set; } = new Vector2(0,1);
 
     private BoxCollider2D coll;
-    
-    
+
+    //Dash
+    float dashTimer;
+    bool canDash;
+    TrailRenderer trailRenderer;
+
+    //Recall
+    float recallTimer;
+    bool canRecall;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +52,16 @@ public class Player : Character
 
         interactModule = GetComponent<InteractModule>();
 
-        StartCoroutine(LateStart());
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
 
+        StartCoroutine(LateStart());
     }
 
     // Update is called once per frame
     void Update()
     {
+        DashTimer();
+        RecallTimer();
         AnimateCharacter();
     }
 
@@ -238,6 +249,39 @@ public class Player : Character
 
     }
 
+    public void Dash(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            StartCoroutine(Dash());
+
+
+
+        }
+
+    }
+
+    public void Recall(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            if (canRecall)
+            {
+                summonModule.RecallSummon();
+                canRecall = false;
+            }
+
+
+
+        }
+
+    }
+
+
     public void Move(InputAction.CallbackContext _context)
     {
 
@@ -273,6 +317,68 @@ public class Player : Character
         }
         
     }
+
+
+
+
+    public void DashTimer()
+    {
+
+        if (!canDash)
+        {
+
+            dashTimer -= Time.deltaTime;
+
+
+        }
+
+        if (dashTimer <=0)
+        {
+            canDash = true;
+            dashTimer = statModule.dashCooldown;
+        }
+
+    }
+
+    IEnumerator Dash()
+    {
+        if (canDash)
+        {
+
+            canDash = false;
+            statModule.moveSpeed += 10;
+            trailRenderer.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+
+            statModule.moveSpeed -= 10;
+            trailRenderer.enabled = false;
+
+        }
+    }
+
+
+    
+
+
+    public void RecallTimer()
+    {
+
+        if (!canRecall)
+        {
+
+            recallTimer -= Time.deltaTime;
+
+
+        }
+
+        if (recallTimer <= 0)
+        {
+            canRecall = true;
+            recallTimer = statModule.recallCooldown;
+        }
+
+    }
+
 
     public void Interact(InputAction.CallbackContext _context)
     {
