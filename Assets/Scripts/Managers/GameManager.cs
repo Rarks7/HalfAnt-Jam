@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
 
     public MasterStatData masterStatData;
+
+    public bool VoidRoomActivated = false;
+    public bool FirstRunCompleted = false;
     
 
     private void Awake()

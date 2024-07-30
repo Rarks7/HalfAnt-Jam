@@ -277,8 +277,8 @@ MonoBehaviour:
   combatType: 0
   attackRange: 5
   rangedAttackRange: 5
-  meleeAttackRange: 1
-  mageAttackRange: 2
+  meleeAttackRange: 2
+  mageAttackRange: 3
   detectRange: 10
   fireInterval: 5
   damage: 5
@@ -297,15 +297,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfdbc3e596f72645989da4fce5170fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 444444033670624094}
   plainColor: {r: 1, g: 1, b: 1, a: 1}
   fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0, b: 1, a: 1}
-  steelColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  earthColor: {r: 0, g: 1, b: 0, a: 1}
-  crystalColor: {r: 0, g: 0, b: 1, a: 1}
-  shadowColor: {r: 0, g: 0, b: 0, a: 1}
+  iceColor: {r: 0, g: 0.9850211, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.93730223, b: 0, a: 1}
+  steelColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  earthColor: {r: 0.20521057, g: 1, b: 0, a: 1}
+  crystalColor: {r: 0.7842768, g: 0, b: 0.8113208, a: 1}
+  shadowColor: {r: 0.18617718, g: 0, b: 0.3301887, a: 1}
   floatingText: {fileID: 5924928741871832189, guid: 7a3a0e37bb130ee42a58afa6ca31e8cb, type: 3}
   stunnedVFX: {fileID: 6738824526860974060}
   shieldVFX: {fileID: 1728498953270269216}
