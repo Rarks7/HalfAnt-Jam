@@ -12805,10 +12805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5343604728483154392, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
-      propertyPath: blankRune
-      value: 
-      objectReference: {fileID: 7512405357151551162, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+    - target: {fileID: 5844910755432838049, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: recallCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6247942158397417843, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
       propertyPath: m_RootOrder
       value: 9

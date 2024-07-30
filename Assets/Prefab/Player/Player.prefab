@@ -44,7 +44,7 @@ Transform:
   - {fileID: 5389036028353590714}
   - {fileID: 4229790276639720686}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4073319335373391488
 MonoBehaviour:
@@ -79,7 +79,7 @@ MonoBehaviour:
   maxHealth: 20
   moveSpeed: 2.5
   dashCooldown: 1
-  recallCooldown: 0
+  recallCooldown: 3
   runeType: 0
   combatType: 0
   attackRange: 5
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   summon: {fileID: 2891555977643533669, guid: 816ee416979158a4a898f23e28c63ad6, type: 3}
+  recall: {fileID: 9004145259910006715, guid: 2e132dadc70335d47b1eab2d7a420c81, type: 3}
 --- !u!114 &5343604728483154392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +586,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3988461080297032296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

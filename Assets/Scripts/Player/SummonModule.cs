@@ -7,6 +7,8 @@ public class SummonModule : MonoBehaviour
 
     [SerializeField] GameObject summon;
 
+    [SerializeField] GameObject recall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class SummonModule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     public void CreateSummon(List<Rune> _runes, int _fire, int _ice, int _lightning, int _melee, int _range, int _mage)
@@ -31,6 +33,19 @@ public class SummonModule : MonoBehaviour
 
         AIManager.Instance.activeSummons.Add(newSummon.GetComponent<Summon>());
     }
+
+    public void RecallSummon()
+    {
+
+
+        GameObject newRecall = Instantiate(recall, transform.position, Quaternion.identity);
+
+
+    }
+
+
+
+
 
     public void SetSummonCombatType(GameObject _newSummon, int _melee, int _range, int _mage)
     {

@@ -14,7 +14,7 @@ public class StatModule : MonoBehaviour
     public float dashCooldown;
 
     [Header("Recall")]
-    public float recallCooldown = 1.0f;
+    public float recallCooldown = 5.0f;
 
 
     [Header("AI ONLY")]

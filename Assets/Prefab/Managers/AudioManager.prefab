@@ -195,3 +195,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Recall
+    clip: {fileID: 8300000, guid: 0d449c27cde00a84c9b13af0702e7969, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

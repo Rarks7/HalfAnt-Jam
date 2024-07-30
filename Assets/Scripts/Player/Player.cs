@@ -33,6 +33,11 @@ public class Player : Character
     bool canDash;
     TrailRenderer trailRenderer;
 
+    //Recall
+    float recallTimer;
+    bool canRecall;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +61,7 @@ public class Player : Character
     void Update()
     {
         DashTimer();
+        RecallTimer();
         AnimateCharacter();
     }
 
@@ -263,7 +269,11 @@ public class Player : Character
         if (_context.performed)
         {
 
-            Recall();
+            if (canRecall)
+            {
+                summonModule.RecallSummon();
+                canRecall = false;
+            }
 
 
 
@@ -346,13 +356,29 @@ public class Player : Character
         }
     }
 
-    public void Recall()
+
+    
+
+
+    public void RecallTimer()
     {
 
+        if (!canRecall)
+        {
+
+            recallTimer -= Time.deltaTime;
 
 
+        }
+
+        if (recallTimer <= 0)
+        {
+            canRecall = true;
+            recallTimer = statModule.recallCooldown;
+        }
 
     }
+
 
     public void Interact(InputAction.CallbackContext _context)
     {
