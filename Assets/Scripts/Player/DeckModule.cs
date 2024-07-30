@@ -98,8 +98,8 @@ public class DeckModule : MonoBehaviour
     public void Cast(List<RuneHolder> _runeHolderHand)
     {
 
-
         Deal();
+
         foreach (var rune in _runeHolderHand)
         {
 
@@ -108,6 +108,7 @@ public class DeckModule : MonoBehaviour
 
 
                 AddToDeck(rune.rune);
+
 
             }
 

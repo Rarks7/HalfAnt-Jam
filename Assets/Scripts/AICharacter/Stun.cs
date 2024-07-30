@@ -50,6 +50,7 @@ public class Stun : MonoBehaviour
                 AI.Stun();
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Stun);
                 AI.vfxModule.StunnedVFX(true);
+                AudioManager.instance.Play("Stun");
 
             }
         }

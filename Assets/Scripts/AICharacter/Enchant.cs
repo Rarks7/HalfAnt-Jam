@@ -44,6 +44,7 @@ public class Enchant : MonoBehaviour
             {
                 AI.statModule.damage = AI.statModule.damage + owner.statModule.enchantAmount;
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Buff);
+                AudioManager.instance.Play("Buff");
 
 
 
@@ -67,6 +68,7 @@ public class Enchant : MonoBehaviour
             {
                 AI.statModule.damage = AI.statModule.damage - owner.statModule.enchantAmount;
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Debuff);
+                AudioManager.instance.Play("Debuff");
 
 
 

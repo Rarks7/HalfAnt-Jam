@@ -18,7 +18,7 @@ public class MeleeAttack : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
 
         vfxModule = GetComponentInChildren<VFXModule>();
-
+        AudioManager.instance.Play("MeleeAttack");
     }
 
 

@@ -11,7 +11,7 @@ public class Player : Character
     [NonSerialized]
     public SummonModule summonModule;
     RuneModule runeModule;
-    DeckModule deckModule;
+    public DeckModule deckModule;
     StatModule statModule;
     [SerializeField] Animator ani;
 

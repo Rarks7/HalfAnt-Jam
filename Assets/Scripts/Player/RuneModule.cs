@@ -56,7 +56,7 @@ public class RuneModule : MonoBehaviour
     {
         runeResetTimerIsRunning = true;
         runeResetTimer = 0;
-
+        AudioManager.instance.Play("CastRune");
         switch (combo)
         {
             case CastCombo.First:
@@ -93,6 +93,7 @@ public class RuneModule : MonoBehaviour
         { 
             return; 
         }
+        AudioManager.instance.Play("Summon");
         ResolveActiveRunes();
         ClearActiveRunes();
     }
@@ -154,7 +155,7 @@ public class RuneModule : MonoBehaviour
 
 
 
-        player.summonModule.CreateSummon(fireCounter, iceCounter, lightningCounter, meleeCounter, rangeCounter, mageCounter);
+        player.summonModule.CreateSummon(activeRunes, fireCounter, iceCounter, lightningCounter, meleeCounter, rangeCounter, mageCounter);
     }
 
     

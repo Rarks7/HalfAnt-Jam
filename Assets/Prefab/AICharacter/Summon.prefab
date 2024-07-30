@@ -68,6 +68,7 @@ MonoBehaviour:
   enchant: {fileID: 1976589313751994967, guid: c4fd587246637ae499ccd6db4f7fc5e9, type: 3}
   stun: {fileID: 1976589313751994967, guid: 188af9f7d2b206449bf9da9998de196d, type: 3}
   shield: {fileID: 9004145259910006715, guid: b780861fb1cbd714d83cac85608cc468, type: 3}
+  runes: []
 --- !u!114 &5844910755432838049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +88,8 @@ MonoBehaviour:
   combatType: 0
   attackRange: 0
   rangedAttackRange: 5
-  meleeAttackRange: 1
-  mageAttackRange: 2
+  meleeAttackRange: 2
+  mageAttackRange: 3
   detectRange: 10
   fireInterval: 4
   damage: 3

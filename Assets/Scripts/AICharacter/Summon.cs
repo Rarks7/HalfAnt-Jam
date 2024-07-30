@@ -8,12 +8,12 @@ using Pathfinding.Examples;
 public class Summon : AICharacter
 {
 
-
+    public List<Rune> runes;
 
     protected override void Awake()
     {
         base.Awake();
-
+        runes = new List<Rune>();
     }
 
 
@@ -29,7 +29,14 @@ public class Summon : AICharacter
         base.FixedUpdate();
     }
 
-    
+    public void SetRunes(List<Rune> _runes) 
+    {
+        foreach (var rune in _runes)
+        {
+            runes.Add(rune);
+        }
+        
+    }
 
 
 }

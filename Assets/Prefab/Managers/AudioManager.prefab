@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5805405490340242979
 MonoBehaviour:
@@ -44,4 +44,154 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19354077aa7960c4798ff9339a6f2d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Heal
+    clip: {fileID: 8300000, guid: 4851939fe03065641878bc2d90af7f01, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Buff
+    clip: {fileID: 8300000, guid: e82981be7d637e3448c35781058a1af1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Debuff
+    clip: {fileID: 8300000, guid: b92bec933dc76d5459eb2b3396c6f4e9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shield
+    clip: {fileID: 8300000, guid: 55e7ef0f0d9fd1147bb00c83afd0a2b8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Stun
+    clip: {fileID: 8300000, guid: 7687f585ab4a32640937c86ce2faf9a0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireArea
+    clip: {fileID: 8300000, guid: 514b966301a76814486c9bd909cf7f91, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IceArea
+    clip: {fileID: 8300000, guid: 398e369d32232584ab0ae4f451a66cb9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LightningArea
+    clip: {fileID: 8300000, guid: fd76652fa3e00f549ac80107c8ad835c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalArea
+    clip: {fileID: 8300000, guid: 9e70d96a524590f4e8fb432efc1daa25, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SteelArea
+    clip: {fileID: 8300000, guid: 2cdb82b64b9730744a4b731607fe006a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EarthArea
+    clip: {fileID: 8300000, guid: 4a80ef5633af2724ebd75f51c40f9c26, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShadowArea
+    clip: {fileID: 8300000, guid: 9672b973a23f0d74290a1cbee61f7cd5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Summon
+    clip: {fileID: 8300000, guid: 31a7b78d43a671144988426a0402f5c5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CastRune
+    clip: {fileID: 8300000, guid: 718c229eaad058541bae40ea0d14c3bf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyTakeDamage
+    clip: {fileID: 8300000, guid: 59768d599891c30439fbc78b5957155a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SummonTakeDamage
+    clip: {fileID: 8300000, guid: c6e2ec67bce65284eae8d3e5ff416a71, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MeleeAttack
+    clip: {fileID: 8300000, guid: ffeb8e1d535397147a0ff2b53980ed3d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RangeAttack
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireImpact
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: IceImpact
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LightningImpact
+    clip: {fileID: 8300000, guid: fd76652fa3e00f549ac80107c8ad835c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EarthImpact
+    clip: {fileID: 8300000, guid: 39d2157d2d3f2294689378bfc47087fc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalImpact
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SteelImpact
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShadowImpact
+    clip: {fileID: 8300000, guid: 29ff7b6674a4eff439fc80c12bc20c77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
