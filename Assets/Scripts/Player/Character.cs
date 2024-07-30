@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
 
     protected bool isShielded = false;
 
+    public bool isDead { get; protected set; }
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,7 +83,7 @@ public class Character : MonoBehaviour
     {
 
         Destroy(gameObject);
-
+        isDead = true;
 
     }
 

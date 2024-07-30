@@ -65,4 +65,22 @@ public class EventManager : MonoBehaviour
     {
         OnActivateVoidDoor?.Invoke();
     }
+
+    public static Action<int> OnStartCombat;
+    public static void StartCombat(int _roomNumber)
+    {
+        OnStartCombat?.Invoke(_roomNumber);
+    }
+
+    public static Action OnCombatCompleted;
+    public static void CombatCompleted()
+    {
+        OnCombatCompleted?.Invoke();
+    }
+
+    public static Action OnPlayerCharacterDied;
+    public static void PlayerCharacterDied()
+    {
+        OnPlayerCharacterDied?.Invoke();
+    }
 }

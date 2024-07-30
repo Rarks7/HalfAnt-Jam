@@ -5,16 +5,22 @@ using UnityEngine;
 
 public class VoidSceneController : SceneController
 {
-    
+    public static int RoomCount = 0;
     
     protected override void Awake()
     {
         base.Awake();
+
+        EventManager.OnCombatCompleted += RoomIsComplete;
+        EventManager.OnPlayerCharacterDied += PlayerDied;
+        RoomCount++;
     }
 
     protected override void Start()
     {
         base.Start();
+        EventManager.OnCombatCompleted -= RoomIsComplete;
+        EventManager.OnPlayerCharacterDied -= PlayerDied;
     }
 
     [Button]
@@ -26,6 +32,12 @@ public class VoidSceneController : SceneController
     [Button]
     public void CombatBegin()
     {
+        EventManager.StartCombat(RoomCount);
+    }
 
+    private void PlayerDied()
+    {
+        RoomCount = 0;
+        GameManager.Instance.GoToScene(Constants.SceneName.PlayersRoom);
     }
 }
