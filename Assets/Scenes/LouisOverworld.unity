@@ -12805,10 +12805,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5844910755432838049, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
-      propertyPath: recallCooldown
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6247942158397417843, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -29290,6 +29286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2925687157347463161, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4659817477225306634, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -29372,6 +29372,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4659817477225306634, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908256158143930517, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

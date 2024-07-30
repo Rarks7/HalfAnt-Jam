@@ -17,8 +17,10 @@ public class StatData : ScriptableObject
     public float moveSpeed = 10;
     public float dashCooldown = 1;
 
-    [Header("Recall")]
+    [Header("Abilities")]
     public float recallCooldown = 3.0f;
+    public float shuffleCooldown = 3.0f;
+
 
 
     [Header("AI ONLY")]

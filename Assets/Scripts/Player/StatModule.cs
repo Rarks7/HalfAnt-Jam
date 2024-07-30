@@ -11,10 +11,14 @@ public class StatModule : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 10;
-    public float dashCooldown;
+    public float dashCooldown = 1.0f;
 
-    [Header("Recall")]
+
+
+    [Header("Abilities")]
     public float recallCooldown = 5.0f;
+    public float shuffleCooldown = 5.0f;
+
 
     [Header("AI ONLY")]
     public ElementType runeType;
@@ -73,6 +77,7 @@ public class StatModule : MonoBehaviour
         dashCooldown = _data.dashCooldown;
 
         recallCooldown = _data.recallCooldown;
+        shuffleCooldown = _data.shuffleCooldown;
 
 
         combatType = _data.combatType;

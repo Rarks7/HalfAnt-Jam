@@ -119,7 +119,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Summon
     clip: {fileID: 8300000, guid: 31a7b78d43a671144988426a0402f5c5, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -198,6 +198,18 @@ MonoBehaviour:
   - name: Recall
     clip: {fileID: 8300000, guid: 0d449c27cde00a84c9b13af0702e7969, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: c269716c7b30ed4429b99ff107c0e09c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shuffle
+    clip: {fileID: 8300000, guid: ef624a7c22f6ee64683c41d7e32bd1bf, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
