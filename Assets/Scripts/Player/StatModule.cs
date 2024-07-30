@@ -11,6 +11,10 @@ public class StatModule : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 10;
+    public float dashCooldown;
+
+    [Header("Recall")]
+    public float recallCooldown = 1.0f;
 
 
     [Header("AI ONLY")]

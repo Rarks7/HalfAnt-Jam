@@ -27,8 +27,11 @@ public class Player : Character
     public Vector2 Facing { get; private set; } = new Vector2(0,1);
 
     private BoxCollider2D coll;
-    
-    
+
+    //Dash
+    float dashTimer;
+    bool canDash;
+    TrailRenderer trailRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +47,15 @@ public class Player : Character
 
         interactModule = GetComponent<InteractModule>();
 
-        StartCoroutine(LateStart());
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
 
+        StartCoroutine(LateStart());
     }
 
     // Update is called once per frame
     void Update()
     {
+        DashTimer();
         AnimateCharacter();
     }
 
@@ -238,6 +243,35 @@ public class Player : Character
 
     }
 
+    public void Dash(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            StartCoroutine(Dash());
+
+
+
+        }
+
+    }
+
+    public void Recall(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+
+            Recall();
+
+
+
+        }
+
+    }
+
+
     public void Move(InputAction.CallbackContext _context)
     {
 
@@ -272,6 +306,52 @@ public class Player : Character
             moveInput = Vector2.zero;
         }
         
+    }
+
+
+
+
+    public void DashTimer()
+    {
+
+        if (!canDash)
+        {
+
+            dashTimer -= Time.deltaTime;
+
+
+        }
+
+        if (dashTimer <=0)
+        {
+            canDash = true;
+            dashTimer = statModule.dashCooldown;
+        }
+
+    }
+
+    IEnumerator Dash()
+    {
+        if (canDash)
+        {
+
+            canDash = false;
+            statModule.moveSpeed += 10;
+            trailRenderer.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+
+            statModule.moveSpeed -= 10;
+            trailRenderer.enabled = false;
+
+        }
+    }
+
+    public void Recall()
+    {
+
+
+
+
     }
 
     public void Interact(InputAction.CallbackContext _context)
