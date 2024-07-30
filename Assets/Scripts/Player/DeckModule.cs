@@ -29,17 +29,12 @@ public class DeckModule : MonoBehaviour
         runeDeck = new List<Rune>();
         runeHand = new List<Rune>();
         activeRunes = new List<Rune>();
-
-
-        RandomFillRuneDeck();
-        RandomFillRuneHand();
-
-
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        RandomFillRuneDeck();
+        RandomFillRuneHand();
     }
 
     // Update is called once per frame

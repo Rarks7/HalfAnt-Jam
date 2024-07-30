@@ -19,6 +19,11 @@ public class VoidSceneController : SceneController
     protected override void Start()
     {
         base.Start();
+        CombatBegin();
+    }
+
+    private void OnDestroy()
+    {
         EventManager.OnCombatCompleted -= RoomIsComplete;
         EventManager.OnPlayerCharacterDied -= PlayerDied;
     }

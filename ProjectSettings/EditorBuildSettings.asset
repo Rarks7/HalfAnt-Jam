@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VoidScenes/VoidHallway.unity
     guid: 4af6200d16b1e584a840120d0524a983
+  - enabled: 1
+    path: Assets/Scenes/VoidScenes/Void_LogCabin.unity
+    guid: a3bac487239938b43b45fbd857366421
   m_configObjects: {}

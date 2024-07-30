@@ -174,7 +174,7 @@ public class EnemySpawner : MonoBehaviour
         enemy.SetCombatType(enemyData.combatType);
         enemy.SetStats(1, 0, 0);
         
-        
+        spawnedEnemies.Add(enemy);
 
         AIManager.Instance.activeEnemies.Add(enemy);
     }
