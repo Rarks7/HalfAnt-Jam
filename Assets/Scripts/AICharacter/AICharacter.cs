@@ -597,45 +597,8 @@ public class AICharacter : Character
     public void SetCombatType(CombatType _type)
     {
 
-        statModule.combatType = _type;
-
-
-        switch (statModule.combatType)
-        {
-            case CombatType.Empty:
-                break;
-            case CombatType.Fighter:
-                statModule.attackRange = statModule.meleeAttackRange;
-
-                break;
-            case CombatType.Ranger:
-                statModule.attackRange = statModule.rangedAttackRange;
-
-                break;
-            case CombatType.Mage:
-                statModule.attackRange = statModule.mageAttackRange;
-
-                break;
-            case CombatType.Enchanter:
-                statModule.attackRange = statModule.meleeAttackRange;
-
-
-                break;
-            case CombatType.Thief:
-                statModule.attackRange = statModule.meleeAttackRange;
-
-                break;
-            case CombatType.Tank:
-                statModule.attackRange = statModule.mageAttackRange;
-
-                break;
-            case CombatType.Healer:
-                statModule.attackRange = statModule.mageAttackRange;
-
-                break;
-            default:
-                break;
-        }
+        statModule.IngestStats(GameManager.Instance.masterStatData.GetStatData(_type));
+        
 
     }
 

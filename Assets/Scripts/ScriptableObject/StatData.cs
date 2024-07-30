@@ -1,26 +1,31 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatModule : MonoBehaviour
+
+[CreateAssetMenu(fileName = "NewStatData", menuName = "Data/StatData")]
+
+[Serializable]
+public class StatData : ScriptableObject
 {
+
     [Header("Health")]
-    public float health = 0;
-    public float maxHealth = 0;
+    public float health = 20;
+    public float maxHealth = 20;
 
     [Header("Movement")]
     public float moveSpeed = 10;
-    public float dashCooldown;
+    public float dashCooldown = 1;
 
     [Header("Recall")]
-    public float recallCooldown = 5.0f;
+    public float recallCooldown = 3.0f;
+
 
     [Header("AI ONLY")]
     public ElementType runeType;
     public CombatType combatType;
 
-    public float attackRange = 0;
+    public float attackRange = 2;
 
     public float detectRange = 10;
 
@@ -58,41 +63,5 @@ public class StatModule : MonoBehaviour
 
     }
 
-    public void IngestStats(StatData _data)
-    {
 
-
-        health = _data.health;
-        maxHealth = _data.maxHealth;
-
-
-        moveSpeed = _data.moveSpeed;
-        dashCooldown = _data.dashCooldown;
-
-        recallCooldown = _data.recallCooldown;
-
-
-        combatType = _data.combatType;
-
-        attackRange = _data.attackRange;
-
-        detectRange = _data.detectRange;
-
-        fireInterval = _data.fireInterval;
-
-        damage = _data.damage;
-        projectileSpeed = _data.projectileSpeed;
-
-        healAmount = _data.healAmount;
-        enchantAmount = _data.enchantAmount;
-
-    }
-
-        
-
-
-
- }
-
-
-
+}

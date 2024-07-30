@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0b9cf5ba4ec6b47b316396becb3de1, type: 3}
+  m_Name: MasterStatData
+  m_EditorClassIdentifier: 
+  fighterStats: {fileID: 11400000, guid: b22f129e42edc15459ef8bbf3ff62d64, type: 2}
+  rangerStats: {fileID: 11400000, guid: 4060fce34faedd54785d63f12e6e5876, type: 2}
+  mageStats: {fileID: 11400000, guid: 543946b7140723242bfd3578e7d88f51, type: 2}
+  thiefStats: {fileID: 11400000, guid: cf8ee03df069d9a41808e34745b5e980, type: 2}
+  enchanterStats: {fileID: 11400000, guid: 2a1946fe5b8e7084db2fb129740367a1, type: 2}
+  tankStats: {fileID: 11400000, guid: db87ae4e887dc7a46b82a134ee98fd26, type: 2}
+  healerStats: {fileID: 11400000, guid: 90adf4fc3b533ba4ebd174fd1f938e26, type: 2}
