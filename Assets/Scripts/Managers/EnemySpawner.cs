@@ -22,30 +22,19 @@ public class WaveData
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    public int currentWave;
-    public int maxWaves;
-    public float waveInterval;
-    public float waveTimer;
-
-
     public List<Enemy> spawnedEnemies;
     public List<Transform> spawnLocations;
 
     public GameObject EnemyPrefab;
 
-    public float spawnInterval;
-    public float spawnTimer;
-
-
     private const int baseNumElementInWave = 1;
     private const int baseNumTypeInWave = 1;
-    private const int baseNumEnemiesInWaveMax = 3;
-    private const int baseNumEnemiesInWaveMin = 5;
+    private const int baseNumEnemiesInWaveMin = 1;
+    private const int baseNumEnemiesInWaveMax = 5;
+    
     private const int baseNumWaves = 1;
 
-
-    private List<WaveData> currentWaves;
+    private List<WaveData> currentWaves; 
 
     // Start is called before the first frame update
     private void Awake()
@@ -84,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
 
 
         //Randomise the Lists
-        combatTypes = combatTypes.OrderBy(_x => Guid.NewGuid()).ToList();
+        //combatTypes = combatTypes.OrderBy(_x => Guid.NewGuid()).ToList();
         elementTypes = elementTypes.OrderBy(_y => Guid.NewGuid()).ToList();
 
         elementTypes = elementTypes.Take(elementTypesInWave).ToList();
@@ -161,9 +150,11 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
                 ValidateSpawnedEnemies();
             }
+            Debug.Log("Wave is Over");
         }
 
         EventManager.CombatCompleted();
+        Debug.Log("Combat is Over");
     }
 
     private void SpawnWave(WaveData waveData)
@@ -183,14 +174,16 @@ public class EnemySpawner : MonoBehaviour
         enemy.SetCombatType(enemyData.combatType);
         enemy.SetStats(1, 0, 0);
         
-        spawnTimer = spawnInterval;
+        
 
         AIManager.Instance.activeEnemies.Add(enemy);
     }
 
     private void ValidateSpawnedEnemies()
     {
-        spawnedEnemies = spawnedEnemies.Where(_x => !_x.isDead).ToList();
+        spawnedEnemies = spawnedEnemies.Where(_x => !_x.isDead && _x != null).ToList();
+    
+
     }
 }
 public static class ListExtensions
