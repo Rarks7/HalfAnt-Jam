@@ -145,6 +145,7 @@ public class DeckModule : MonoBehaviour
 
             }
 
+            rune.selected = false;
         }
         
     }
