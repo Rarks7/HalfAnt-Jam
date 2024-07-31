@@ -55,22 +55,17 @@ public class DeckModule : MonoBehaviour
 
     void FillHand()
     {
-
-
         for (int i = 0; i < runeHandSize; i++)
         {
-
             runeHand.Add(runeDeck[i]);
 
             runeDeck.RemoveAt(i);
-
-
-
         }
 
         RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
     }
 
+    //Testing Functions
     public void RandomFillRuneDeck()
     {
 
@@ -98,7 +93,7 @@ public class DeckModule : MonoBehaviour
 
     }
 
-
+    //Testing Function
     public void RandomFillRuneHand()
     {
 
@@ -118,26 +113,26 @@ public class DeckModule : MonoBehaviour
 
     }
 
-    public void Cast(List<RuneHolder> _runeHolderHand)
+    public void ReturnHandToDeck(List<RuneHolder> _runeHolderHand)
     {
-
-        Deal();
-
-        foreach (var rune in _runeHolderHand)
+        foreach (var runeHolder in _runeHolderHand)
         {
 
-            if (!rune.selected)
+            if (!runeHolder.selected)
             {
 
-
-                AddToDeck(rune.rune);
-
+                AddToDeck(runeHolder.rune);
 
             }
 
-            rune.selected = false;
+            runeHolder.Clear();
         }
+
+        runeHand.Clear();
         
+        
+        DealPlayerHand();
+
     }
 
     public void AddToDeck(Rune _rune) 
@@ -151,39 +146,28 @@ public class DeckModule : MonoBehaviour
     }
 
 
-    public void Deal()
+    public void DealPlayerHand()
     {
         int trueHandSize = 0;
-
-        runeHand.Clear();
-
 
         for (int i = 0; i < runeHandSize; i++)
         {
             if (runeDeck.Count > i)
             {
-
                 trueHandSize++;
 
-
                 runeHand.Add(runeDeck[i]);
-
-
-
             }
             else
             {
 
                 Rune emptyRune = new Rune();
-                emptyRune.SetRuneElementType(0);
-                emptyRune.SetRuneCombatType(0);
-
+                emptyRune.SetRuneElementType(ElementType.Empty);
+                emptyRune.SetRuneCombatType(CombatType.Empty);
 
                 runeHand.Add(emptyRune);
 
             }
-
-
         }
 
         runeDeck.RemoveRange(0, trueHandSize);

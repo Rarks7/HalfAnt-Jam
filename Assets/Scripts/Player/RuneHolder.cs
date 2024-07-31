@@ -54,6 +54,12 @@ public class RuneHolder : MonoBehaviour
 
     }
 
+    public void Clear()
+    {
+        selected = false;
+        rune = null;
+    }
+
     public void StartCantSelect()
     {
 

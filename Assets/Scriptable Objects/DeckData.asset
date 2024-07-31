@@ -40,6 +40,6 @@ MonoBehaviour:
   - runeElementType: 3
     runeCombatType: 3
     runeSpecial: 0
-  - runeElementType: 3
-    runeCombatType: 3
+  - runeElementType: 1
+    runeCombatType: 1
     runeSpecial: 0

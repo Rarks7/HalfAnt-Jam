@@ -266,7 +266,7 @@ public class Player : Character
                 || runeModule.activeRunes[1].GetRuneElementType() != ElementType.Empty 
                 || runeModule.activeRunes[2].GetRuneElementType() != ElementType.Empty))
             {
-                deckModule.Cast(RuneDeckUI.Instance.runeHandUI);
+                deckModule.ReturnHandToDeck(RuneDeckUI.Instance.runeHandUI);
                 runeModule.Summon();
             }
             
@@ -317,7 +317,7 @@ public class Player : Character
         {
             if (canShuffle)
             {
-                deckModule.Cast(RuneDeckUI.Instance.runeHandUI);
+                deckModule.ReturnHandToDeck(RuneDeckUI.Instance.runeHandUI);
                 canShuffle = false;
                 playerUI.SetShuffleDulled(true);
                 AudioManager.instance.Play("Shuffle");
