@@ -44,7 +44,7 @@ public class VoidManager : MonoBehaviour
 
     private void RunEnds()
     {
-
+        VoidLevelsActiveRun.Clear();
     }
 
     private void GenerateRandomRun()
