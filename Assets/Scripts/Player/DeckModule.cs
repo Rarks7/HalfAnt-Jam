@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeckModule : MonoBehaviour
@@ -16,7 +17,10 @@ public class DeckModule : MonoBehaviour
     [SerializeField]
     public List<Rune> activeRunes;
 
-    
+
+
+    [SerializeField]
+    DeckData deckdata;
 
 
     int runeHandSize = 5;
@@ -33,8 +37,8 @@ public class DeckModule : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RandomFillRuneDeck();
-        RandomFillRuneHand();
+        FillDeck();
+        FillHand();
     }
 
     // Update is called once per frame
@@ -43,6 +47,35 @@ public class DeckModule : MonoBehaviour
         
     }
 
+    void FillDeck()
+    {
+
+        foreach (var rune in deckdata.playerDeck) 
+        { 
+        
+            AddToDeck(rune);
+            runeDeck = runeDeck.OrderBy(_y => Guid.NewGuid()).ToList();
+        }
+
+    }
+
+    void FillHand()
+    {
+
+
+        for (int i = 0; i < runeHandSize; i++)
+        {
+
+            runeHand.Add(runeDeck[i]);
+
+            runeDeck.RemoveAt(i);
+
+
+
+        }
+
+        RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
+    }
 
     public void RandomFillRuneDeck()
     {
@@ -71,24 +104,6 @@ public class DeckModule : MonoBehaviour
 
     }
 
-
-    public void RandomFillRuneHand()
-    {
-
-        for (int i = 0; i < runeHandSize; i++)
-        {
-
-            runeHand.Add(runeDeck[i]);
-            
-            runeDeck.RemoveAt(i);
-
-
-
-        }
-
-        RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
-
-    }
 
     public void Cast(List<RuneHolder> _runeHolderHand)
     {

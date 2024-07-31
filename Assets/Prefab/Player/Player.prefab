@@ -129,7 +129,7 @@ Transform:
   - {fileID: 4229790276639720686}
   - {fileID: 1710808818786288131}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4073319335373391488
 MonoBehaviour:
@@ -223,6 +223,7 @@ MonoBehaviour:
   runeHand: []
   runeDeck: []
   activeRunes: []
+  deckdata: {fileID: 11400000, guid: 1ff28d82dab1ecb47a8f462038d56094, type: 2}
 --- !u!114 &743257142186768589
 MonoBehaviour:
   m_ObjectHideFlags: 0

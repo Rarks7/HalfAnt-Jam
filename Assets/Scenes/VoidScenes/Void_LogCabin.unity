@@ -2573,6 +2573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5343604728483154392, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
+      propertyPath: deckdata
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ff28d82dab1ecb47a8f462038d56094, type: 2}
     - target: {fileID: 6247942158397417843, guid: 49a273e83c26f0341ab1adb63fab4a3e, type: 3}
       propertyPath: m_RootOrder
       value: 13

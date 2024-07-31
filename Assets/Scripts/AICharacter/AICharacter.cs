@@ -1,4 +1,5 @@
 using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public enum AIState
     Attack
 
 }
+[Serializable]
 
 public enum CombatType
 {
@@ -503,7 +505,7 @@ public class AICharacter : Character
         Vector2 strafeDirection = new Vector2(-targetDirection.y, targetDirection.x);  // Perpendicular to target direction
 
         // Alternate the direction to strafe back and forth (use a sine wave or other function)
-        float randomStrafeSpeed = Random.Range(1.0f, 1.1f);
+        float randomStrafeSpeed = UnityEngine.Random.Range(1.0f, 1.1f);
         float strafeAmount = Mathf.Sin(Time.time * randomStrafeSpeed) * statModule.moveSpeed;
 
         // Calculate the force to apply

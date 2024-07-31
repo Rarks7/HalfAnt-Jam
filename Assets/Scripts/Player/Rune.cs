@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
 
+[Serializable]
 
 public enum ElementType
 {
@@ -17,7 +18,7 @@ public enum ElementType
     Shadow
 
 }
-
+[Serializable]
 public enum RuneSpecial
 {
     Empty,
@@ -33,9 +34,9 @@ public enum RuneSpecial
 public class Rune
 {
 
-    ElementType runeElementType = ElementType.Empty;
-    CombatType runeCombatType = CombatType.Empty;
-    RuneSpecial runeSpecial = RuneSpecial.Empty;
+    public ElementType runeElementType = ElementType.Empty;
+    public CombatType runeCombatType = CombatType.Empty;
+    public RuneSpecial runeSpecial = RuneSpecial.Empty;
 
     
 

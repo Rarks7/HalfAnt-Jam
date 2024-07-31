@@ -476,8 +476,8 @@ public class Player : Character
 
     public override void Die()
     {
+        EventManager.PlayerCharacterDied();
         playerUI.SetHealthText(0);
-        
         base.Die();
     }
 }
