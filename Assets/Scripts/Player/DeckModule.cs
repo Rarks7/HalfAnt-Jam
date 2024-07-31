@@ -85,6 +85,7 @@ public class DeckModule : MonoBehaviour
 
 
         }
+        if(RuneDeckUI.Instance == null) { return; }
 
         RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
 

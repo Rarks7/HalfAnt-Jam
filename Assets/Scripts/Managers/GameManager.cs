@@ -1,4 +1,5 @@
 using Constants;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     public MasterStatData masterStatData;
 
-    public bool VoidRoomActivated = false;
-    public bool FirstRunCompleted = false;
+    [NonSerialized] public bool Flag_VoidRoomActivated = true;
+    [NonSerialized] public bool Flag_FirstRunCompleted = false;
     
 
     private void Awake()
@@ -46,10 +47,10 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Overworld;
 
         PreviousScene = SceneName.None;
-        Debug.Log("Set Previous Scene to " + PreviousScene);
+        //Debug.Log("Set Previous Scene to " + PreviousScene);
 
         CurrentScene = SceneName.None;
-        Debug.Log("Set Current Scene to " + CurrentScene);
+        //Debug.Log("Set Current Scene to " + CurrentScene);
 
     }
 
