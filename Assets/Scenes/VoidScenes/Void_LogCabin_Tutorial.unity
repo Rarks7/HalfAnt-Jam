@@ -6502,8 +6502,12 @@ MonoBehaviour:
 
 
     There
-    is also abilities for dashing, recalling your slimes and shuffle you deck of
-    runes.
+    is also abilities for dashing, recalling your slimes
+
+
+    If your hand is empty
+    and you have runes in the deck you can shuffle them back into your hand with
+    the S Key.
 
 
 '
@@ -6533,8 +6537,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
