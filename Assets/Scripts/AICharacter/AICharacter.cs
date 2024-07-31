@@ -161,11 +161,20 @@ public class AICharacter : Character
 
 
         Move();
+        if (target != null)
+        {
+            if (Vector2.Distance(target.position, (Vector2)transform.position) <= statModule.attackRange)
+            {
 
-        if (Vector2.Distance(target.position, (Vector2)transform.position) <= statModule.attackRange)
+                state = AIState.Attack;
+
+            }
+        }
+        else
         {
 
-            state = AIState.Attack;
+
+            Detect();
 
         }
 
