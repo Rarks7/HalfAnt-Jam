@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VoidScenes/Void_LogCabin.unity
     guid: a3bac487239938b43b45fbd857366421
+  - enabled: 1
+    path: Assets/Scenes/VoidScenes/Void_LogCabin_Tutorial.unity
+    guid: 1eaaad2f7bbe7454d884224591d1e3de
   m_configObjects: {}
