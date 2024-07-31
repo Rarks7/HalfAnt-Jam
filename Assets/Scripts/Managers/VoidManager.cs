@@ -45,6 +45,7 @@ public class VoidManager : MonoBehaviour
     private void RunEnds()
     {
         VoidLevelsActiveRun.Clear();
+        GameManager.Instance.Flag_FirstRunCompleted = true;
     }
 
     private void GenerateRandomRun()
