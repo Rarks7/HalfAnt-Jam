@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5805405490340242979
 MonoBehaviour:
@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: f1f0dafab6b21c34c8b09e0f9e98d92a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Heal
     clip: {fileID: 8300000, guid: 4851939fe03065641878bc2d90af7f01, type: 3}
     volume: 1

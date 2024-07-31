@@ -246,7 +246,10 @@ public class Player : Character
         if (_context.performed)
         {
 
-            if (runeModule.activeRunes.Count > 0)
+            if (runeModule.activeRunes.Count > 0 && 
+                (runeModule.activeRunes[0].GetRuneElementType() != ElementType.Empty 
+                || runeModule.activeRunes[1].GetRuneElementType() != ElementType.Empty 
+                || runeModule.activeRunes[2].GetRuneElementType() != ElementType.Empty))
             {
                 deckModule.Cast(RuneDeckUI.Instance.runeHandUI);
                 runeModule.Summon();

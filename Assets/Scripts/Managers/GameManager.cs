@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+
         EventManager.OnChangeGameState += StateChange;
         EventManager.OnRevertToPreviousGameState += RevertState;
 
