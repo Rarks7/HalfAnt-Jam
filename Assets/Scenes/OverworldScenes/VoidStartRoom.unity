@@ -218,6 +218,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9883847, y: 0.8838463}
   m_EdgeRadius: 0
+--- !u!1 &17598707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4623271495689542894, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+  m_PrefabInstance: {fileID: 562209981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &61977527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +1990,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+--- !u!1 &608382935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5219730503095139377, guid: 5218c6c570b8b55468d3660600b1270b, type: 3}
+  m_PrefabInstance: {fileID: 2125987395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &668202537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2305,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoidDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 1921247379246934790, guid: 636b9d4ce86d1b0438f31dd047531162, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921247379246934790, guid: 636b9d4ce86d1b0438f31dd047531162, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509854989787872202, guid: 636b9d4ce86d1b0438f31dd047531162, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2464,6 +2486,11 @@ Transform:
   m_Father: {fileID: 697745080}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &892514621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4459062005884909316, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+  m_PrefabInstance: {fileID: 562209981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931831649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4613,7 +4640,10 @@ MonoBehaviour:
   Doors:
   - {fileID: 5617848850969800416}
   DefaultSpawn: {fileID: 842249040327405048}
-  MagicUIElements: []
+  MagicUIElements:
+  - {fileID: 608382935}
+  - {fileID: 17598707}
+  - {fileID: 892514621}
   animators:
   - {fileID: 736930205}
   - {fileID: 736930206}

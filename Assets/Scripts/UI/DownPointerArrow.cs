@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class DownPointerArrow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Coroutine BobCoro;
+    [SerializeField] float bobHeight = 0.5f;
+    [SerializeField] float bobDuration = 0.5f;
+
+
+
+    private void OnEnable()
     {
-        
+        BobCoro = StartCoroutine(GetBobbing());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
+        StopCoroutine(BobCoro);
+    }
+
+    private IEnumerator GetBobbing()
+    {
+        bool up = true;
         
+        
+        while(true)
+        {
+            if(up)
+            {
+                transform.position = transform.position + new Vector3(0, bobHeight, 0);
+            }
+            else
+            {
+                transform.position = transform.position + new Vector3(0, -bobHeight, 0);
+            }
+            
+            up = !up;
+            yield return new WaitForSeconds(bobDuration);
+        }
+
+
     }
 }

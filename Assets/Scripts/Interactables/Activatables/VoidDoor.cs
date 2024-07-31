@@ -13,6 +13,7 @@ public class VoidDoor : Activatable
     private const string TransformDoorString = "Transform";
 
     [SerializeField] private GameObject DoorPoint;
+    [SerializeField] private DownPointerArrow arrow;
 
     private void Awake()
     {
@@ -34,6 +35,8 @@ public class VoidDoor : Activatable
 
     private IEnumerator DoorAppears()
     {
+        arrow.gameObject.SetActive(false);
+
         circleAnimator.SetBool(ActivateCircleString, true);
 
         yield return new WaitForSeconds(2.0f);
@@ -45,6 +48,8 @@ public class VoidDoor : Activatable
         doorAnimator.SetTrigger(TransformDoorString);
 
         DoorPoint.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        arrow.gameObject.SetActive(true);
     }
 
 

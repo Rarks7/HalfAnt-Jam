@@ -13,6 +13,11 @@ public class VoidStartSceneController : SceneController
     {
         base.Start();
         CheckIfVisited();
+
+        foreach (var item in MagicUIElements)
+        {
+            item.SetActive(false);
+        }
     }
 
     protected void CheckIfVisited()
