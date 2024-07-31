@@ -30,12 +30,32 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        EventManager.OnCombatCompleted += PlayDoorSummon;
+
     }
 
     public void Start()
     {
         Play("MainTheme");
         
+    }
+
+    public void PlayEnemySpawn()
+    {
+
+
+        Play("EnemySpawn");
+
+
+    }
+    public void PlayDoorSummon()
+    {
+
+
+        Play("DoorSummon");
+
+
     }
 
     public void Play(string name)

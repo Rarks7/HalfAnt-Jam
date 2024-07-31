@@ -182,6 +182,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy(item);
         }
+        AudioManager.instance.Play("EnemySpawn");
     }
 
     private void SpawnEnemy(EnemySpawnData enemyData)
