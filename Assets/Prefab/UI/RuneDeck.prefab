@@ -613,8 +613,24 @@ PrefabInstance:
       value: RuneHolder (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743327286, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -730,8 +746,24 @@ PrefabInstance:
       value: RuneHolder (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743327286, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -847,8 +879,24 @@ PrefabInstance:
       value: RuneHolder (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743327286, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -964,8 +1012,24 @@ PrefabInstance:
       value: RuneHolder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743327286, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1081,8 +1145,24 @@ PrefabInstance:
       value: RuneHolder (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743327286, guid: 835e84d9db1c20e4eae771e5d85b42ef, type: 3}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6475508488978665181, guid: ac537c322eb1f3f4bb5b24de1d63c679, type: 3}
       propertyPath: m_Materials.Array.data[0]
