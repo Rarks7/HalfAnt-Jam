@@ -181,8 +181,6 @@ public class AICharacter : Character
         {
 
 
-
-
             if (fireTimer <= 0)
             {
                 Player targetCheck = target.GetComponent<Player>();
