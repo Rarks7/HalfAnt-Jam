@@ -17,16 +17,6 @@ public class DeckModule : MonoBehaviour
     [SerializeField]
     public List<Rune> activeRunes;
 
-
-
-    [SerializeField]
-    DeckData deckdata;
-
-    [SerializeField]
-    DeckData starterDeckdata;
-
-
-
     int runeHandSize = 5;
 
     int runeDeckSize = 20;
@@ -54,7 +44,7 @@ public class DeckModule : MonoBehaviour
     void FillDeck()
     {
 
-        foreach (var rune in deckdata.playerDeck) 
+        foreach (var rune in GameManager.Instance.deckdata.playerDeck) 
         { 
         
             AddToDeck(rune);

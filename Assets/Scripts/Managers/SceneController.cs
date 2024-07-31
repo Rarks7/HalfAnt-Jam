@@ -13,6 +13,8 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] protected Transform DefaultSpawn;
 
+    [SerializeField] protected List<GameObject> MagicUIElements;
+
     protected bool openingScene;
     
     protected virtual void Awake()

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5646186361967802073
 MonoBehaviour:
@@ -47,3 +47,5 @@ MonoBehaviour:
   PreviousScene: 0
   CurrentScene: 0
   masterStatData: {fileID: 11400000, guid: 21cd749844e63144eba195ebad68ad4c, type: 2}
+  deckdata: {fileID: 11400000, guid: 1ff28d82dab1ecb47a8f462038d56094, type: 2}
+  starterDeckdata: {fileID: 11400000, guid: 149d03ed0e64324468ec94f4d1766600, type: 2}

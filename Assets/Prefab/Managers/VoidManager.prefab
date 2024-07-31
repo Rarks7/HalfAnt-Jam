@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfLevelsInARun: 10
-  VoidLevelsFirstRun: 090000000a000000
+  VoidLevelsFirstRun: 09000000040000000a00000004000000
   AllVoidLevels: 090000000a000000

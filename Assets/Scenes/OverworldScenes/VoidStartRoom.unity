@@ -3955,10 +3955,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoidManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7433647154942664365, guid: f2f16002c1436794d83400056c0014c6, type: 3}
-      propertyPath: NumberOfLevelsInARun
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8145205994965939066, guid: f2f16002c1436794d83400056c0014c6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4298,6 +4294,7 @@ MonoBehaviour:
   Doors:
   - {fileID: 5617848850969800416}
   DefaultSpawn: {fileID: 842249040327405048}
+  MagicUIElements: []
   animators:
   - {fileID: 736930205}
   - {fileID: 736930206}

@@ -27,7 +27,12 @@ public class GameManager : MonoBehaviour
 
     [NonSerialized] public bool Flag_VoidRoomActivated = true;
     [NonSerialized] public bool Flag_FirstRunCompleted = false;
-    
+
+
+    [SerializeField] public DeckData deckdata;
+
+    [SerializeField] public DeckData starterDeckdata;
+
 
     private void Awake()
     {
@@ -53,12 +58,19 @@ public class GameManager : MonoBehaviour
         CurrentScene = SceneName.None;
         //Debug.Log("Set Current Scene to " + CurrentScene);
 
+        EventManager.OnPlayerCharacterDied += RunEnded;
     }
 
     private void OnDestroy()
     {
         EventManager.OnChangeGameState -= StateChange;
         EventManager.OnRevertToPreviousGameState -= RevertState;
+        EventManager.OnPlayerCharacterDied += RunEnded;
+    }
+
+    private void RunEnded()
+    {
+        deckdata.playerDeck = new List<Rune>(starterDeckdata.playerDeck);
     }
 
     private void StateChange(GameState newState)
