@@ -17,8 +17,10 @@ public class StatData : ScriptableObject
     public float moveSpeed = 10;
     public float dashCooldown = 1;
 
-    [Header("Recall")]
+    [Header("Abilities")]
     public float recallCooldown = 3.0f;
+    public float shuffleCooldown = 3.0f;
+
 
 
     [Header("AI ONLY")]
@@ -39,7 +41,8 @@ public class StatData : ScriptableObject
     [Header("Buffs")]
     public float healAmount = 5;
     public float enchantAmount = 5;
-
+    public float stunDuration = 5;
+    public float shieldDuration = 5;
 
 
     public Dictionary<ElementType, float> damageResistances;

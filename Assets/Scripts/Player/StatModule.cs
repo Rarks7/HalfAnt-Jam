@@ -11,10 +11,14 @@ public class StatModule : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 10;
-    public float dashCooldown;
+    public float dashCooldown = 1.0f;
 
-    [Header("Recall")]
+
+
+    [Header("Abilities")]
     public float recallCooldown = 5.0f;
+    public float shuffleCooldown = 5.0f;
+
 
     [Header("AI ONLY")]
     public ElementType runeType;
@@ -34,6 +38,9 @@ public class StatModule : MonoBehaviour
     [Header("Buffs")]
     public float healAmount = 5;
     public float enchantAmount = 5;
+    public float stunDuration = 5;
+    public float shieldDuration = 5;
+
 
 
 
@@ -70,6 +77,7 @@ public class StatModule : MonoBehaviour
         dashCooldown = _data.dashCooldown;
 
         recallCooldown = _data.recallCooldown;
+        shuffleCooldown = _data.shuffleCooldown;
 
 
         combatType = _data.combatType;
@@ -85,6 +93,8 @@ public class StatModule : MonoBehaviour
 
         healAmount = _data.healAmount;
         enchantAmount = _data.enchantAmount;
+        stunDuration = _data.stunDuration;
+        shieldDuration  = _data.shieldDuration;
 
     }
 

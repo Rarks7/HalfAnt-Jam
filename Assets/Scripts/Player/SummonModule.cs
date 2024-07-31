@@ -9,6 +9,9 @@ public class SummonModule : MonoBehaviour
 
     [SerializeField] GameObject recall;
 
+    [SerializeField] GameObject castSummon;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class SummonModule : MonoBehaviour
     public void CreateSummon(List<Rune> _runes, int _fire, int _ice, int _lightning, int _melee, int _range, int _mage)
     {
         GameObject newSummon = Instantiate(summon, transform.position, Quaternion.identity);
+        GameObject newCastSummon = Instantiate(castSummon, newSummon.transform.position, Quaternion.identity);
 
         SetSummonElement(newSummon, _fire, _ice,_lightning);
         SetSummonCombatType(newSummon, _melee, _range, _mage);

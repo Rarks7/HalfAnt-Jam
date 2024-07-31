@@ -44,7 +44,7 @@ public class Shield : MonoBehaviour
             // Ensure that the collided object has an AICharacter component
             if (AI != null && AI.transform != owner.transform)
             {
-                AI.Shield();
+                AI.Shield(owner.statModule.shieldDuration);
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Shield);
                 AI.vfxModule.ShieldVFX(true);
                 AudioManager.instance.Play("Shield");

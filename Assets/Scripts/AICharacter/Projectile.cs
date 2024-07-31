@@ -96,12 +96,12 @@ public class Projectile : MonoBehaviour
         // Check if the collision object's layer is included in the targetLayerMask
         if ((owner.targetLayerMask.value & (1 << collision.gameObject.layer)) != 0)
         {
-            AICharacter AI = collision.gameObject.GetComponent<AICharacter>();
+            Character character = collision.gameObject.GetComponent<Character>();
 
             // Ensure that the collided object has an AICharacter component
-            if (AI != null)
+            if (character != null)
             {
-                AI.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
+                character.TakeDamage(owner.statModule.damage, owner.statModule.runeType);
                 Destroy(gameObject);
             }
         }

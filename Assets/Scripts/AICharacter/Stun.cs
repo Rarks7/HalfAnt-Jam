@@ -47,7 +47,7 @@ public class Stun : MonoBehaviour
             // Ensure that the collided object has an AICharacter component
             if (AI != null)
             {
-                AI.Stun();
+                AI.Stun(owner.statModule.stunDuration);
                 AI.vfxModule.CreateFloatingText(AI.transform, "", TextType.Stun);
                 AI.vfxModule.StunnedVFX(true);
                 AudioManager.instance.Play("Stun");

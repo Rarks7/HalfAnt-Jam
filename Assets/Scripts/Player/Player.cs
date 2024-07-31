@@ -14,6 +14,7 @@ public class Player : Character
     public DeckModule deckModule;
     StatModule statModule;
     [SerializeField] Animator ani;
+    PlayerUI playerUI;
 
     [NonSerialized] public InteractModule interactModule;
 
@@ -37,6 +38,10 @@ public class Player : Character
     float recallTimer;
     bool canRecall;
 
+    //Shuffle
+    bool canShuffle;
+    float shuffleTimer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +53,8 @@ public class Player : Character
         statModule = GetComponent<StatModule>();
         summonModule = GetComponent<SummonModule>();
         deckModule = GetComponent<DeckModule>();
-
-
+        playerUI = FindObjectOfType<PlayerUI>();
+        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
         interactModule = GetComponent<InteractModule>();
 
         trailRenderer = GetComponentInChildren<TrailRenderer>();
@@ -62,7 +67,11 @@ public class Player : Character
     {
         DashTimer();
         RecallTimer();
+        ShuffleTimer();
         AnimateCharacter();
+        playerUI.SetHealthText(statModule.health);
+        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+
     }
 
 
@@ -273,6 +282,8 @@ public class Player : Character
             {
                 summonModule.RecallSummon();
                 canRecall = false;
+                playerUI.SetRecallDulled(true);
+
             }
 
 
@@ -281,6 +292,24 @@ public class Player : Character
 
     }
 
+    public void Shuffle(InputAction.CallbackContext _context)
+    {
+
+        if (_context.performed)
+        {
+            if (canShuffle)
+            {
+                deckModule.Cast(RuneDeckUI.Instance.runeHandUI);
+                canShuffle = false;
+                playerUI.SetShuffleDulled(true);
+                AudioManager.instance.Play("Shuffle");
+
+
+            }
+
+        }
+
+    }
 
     public void Move(InputAction.CallbackContext _context)
     {
@@ -319,7 +348,26 @@ public class Player : Character
     }
 
 
+    public void ShuffleTimer()
+    {
 
+        if (!canShuffle)
+        {
+
+            shuffleTimer -= Time.deltaTime;
+
+
+        }
+
+        if (shuffleTimer <= 0)
+        {
+            canShuffle = true;
+            playerUI.SetShuffleDulled(false);
+            shuffleTimer = statModule.shuffleCooldown;
+
+        }
+
+    }
 
     public void DashTimer()
     {
@@ -336,6 +384,7 @@ public class Player : Character
         {
             canDash = true;
             dashTimer = statModule.dashCooldown;
+            playerUI.SetDashDulled(false);
         }
 
     }
@@ -346,8 +395,11 @@ public class Player : Character
         {
 
             canDash = false;
+            playerUI.SetDashDulled(true);
+
             statModule.moveSpeed += 10;
             trailRenderer.enabled = true;
+            AudioManager.instance.Play("Dash");
             yield return new WaitForSeconds(0.1f);
 
             statModule.moveSpeed -= 10;
@@ -374,6 +426,7 @@ public class Player : Character
         if (recallTimer <= 0)
         {
             canRecall = true;
+            playerUI.SetRecallDulled(false);
             recallTimer = statModule.recallCooldown;
         }
 
@@ -419,4 +472,12 @@ public class Player : Character
         Spawn();
     }
 
+
+
+    public override void Die()
+    {
+        playerUI.SetHealthText(0);
+        
+        base.Die();
+    }
 }
