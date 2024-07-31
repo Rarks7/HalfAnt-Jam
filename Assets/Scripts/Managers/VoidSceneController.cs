@@ -10,10 +10,17 @@ public class VoidSceneController : SceneController
     public GameObject GameOverScreen;
 
     private Coroutine EndgameCoro;
+
+    public bool IsTutorialScene;
     
     protected override void Awake()
     {
         base.Awake();
+
+        if(IsTutorialScene)
+        {
+            EventManager.OnLaunchTutorialCombat += CombatBegin;
+        }
 
         EventManager.OnCombatCompleted += RoomIsComplete;
         EventManager.OnPlayerCharacterDied += PlayerDied;
@@ -23,13 +30,19 @@ public class VoidSceneController : SceneController
     protected override void Start()
     {
         base.Start();
-        CombatBegin();
+
+        if(!IsTutorialScene)
+        {
+            CombatBegin();
+        }
+        
     }
 
     private void OnDestroy()
     {
         EventManager.OnCombatCompleted -= RoomIsComplete;
         EventManager.OnPlayerCharacterDied -= PlayerDied;
+        EventManager.OnLaunchTutorialCombat -= CombatBegin;
     }
 
     [Button]

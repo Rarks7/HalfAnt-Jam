@@ -89,4 +89,10 @@ public class EventManager : MonoBehaviour
     {
         OnAddRuneToDeck?.Invoke(_rune);
     }
+
+    public static Action OnLaunchTutorialCombat;
+    public static void LaunchTutorialCombat()
+    {
+        OnLaunchTutorialCombat?.Invoke();
+    }
 }

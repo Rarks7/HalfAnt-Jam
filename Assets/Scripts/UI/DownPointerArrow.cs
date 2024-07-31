@@ -20,6 +20,8 @@ public class DownPointerArrow : MonoBehaviour
         StopCoroutine(BobCoro);
     }
 
+
+
     private IEnumerator GetBobbing()
     {
         bool up = true;

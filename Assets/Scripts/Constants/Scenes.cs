@@ -19,6 +19,7 @@ namespace Constants
         Void_Apartment,
         Void_LogCabin,
         Void_Hallway,
+        Void_LogCabin_Tutorial,
         
     }
 

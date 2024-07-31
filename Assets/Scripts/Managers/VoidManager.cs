@@ -61,7 +61,7 @@ public class VoidManager : MonoBehaviour
 
     public SceneName GetVoidLevel()
     {
-        if(!GameManager.Instance.Flag_FirstRunCompleted)
+        if(GameManager.Instance.Flag_FirstRunCompleted)
         {
             if(VoidLevelsActiveRun.Count <= 0)
             {

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7433647154942664365
 MonoBehaviour:
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfLevelsInARun: 10
-  VoidLevelsFirstRun: 09000000040000000a00000004000000
+  VoidLevelsFirstRun: 0c0000000400000009000000040000000a000000
   AllVoidLevels: 090000000a000000
