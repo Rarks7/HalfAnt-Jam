@@ -8,10 +8,6 @@ public class VoidManager : MonoBehaviour
 {
     public static VoidManager Instance;
     
-    
-    [NonSerialized] public bool HasEnteredTheVoidBefore;
-    private const string enteredTheVoidSaveString = "entered_the_void";
-
     [SerializeField] private int NumberOfLevelsInARun;
 
     [SerializeField] private List<SceneName> VoidLevelsFirstRun;
@@ -32,12 +28,23 @@ public class VoidManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        EventManager.OnPlayerCharacterDied += RunEnds;
     }
 
     private void Start()
     {
-        HasEnteredTheVoidBefore = GameManager.Instance.GetSavedBool(enteredTheVoidSaveString);
         VoidLevelsActiveRun = new List<SceneName>();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerCharacterDied -= RunEnds;
+    }
+
+    private void RunEnds()
+    {
+
     }
 
     private void GenerateRandomRun()
@@ -54,7 +61,7 @@ public class VoidManager : MonoBehaviour
 
     public SceneName GetVoidLevel()
     {
-        if(HasEnteredTheVoidBefore)
+        if(!GameManager.Instance.Flag_FirstRunCompleted)
         {
             if(VoidLevelsActiveRun.Count <= 0)
             {
@@ -66,8 +73,6 @@ public class VoidManager : MonoBehaviour
             if(VoidLevelsActiveRun.Count <= 0)
             {
                 VoidLevelsActiveRun = new List<SceneName>(VoidLevelsFirstRun);
-                HasEnteredTheVoidBefore = true;
-                GameManager.Instance.SaveBool(enteredTheVoidSaveString, true);
             }
         }
 
