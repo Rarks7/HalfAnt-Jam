@@ -970,6 +970,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.size
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[29].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 48a91688472d4df489b028b05576db72, type: 3}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[29].name
+      value: DoorSummon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[30].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ab149162c92c3e40afe70b45f675c2b, type: 3}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[30].name
+      value: EnemySpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[29].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[30].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[29].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805405490340242979, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
+      propertyPath: sounds.Array.data[30].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5980428149419447516, guid: 3bd55a69f5341954c88fa0aa37325580, type: 3}
       propertyPath: m_RootOrder
       value: 3
