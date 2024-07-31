@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public List<Enemy> spawnedEnemies;
     public List<Transform> spawnLocations;
+    public List<Animator> spawnAnimators;
+
 
     public GameObject EnemyPrefab;
 
@@ -144,8 +146,25 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < currentWaves.Count; i++)
         {
+            yield return new WaitForSeconds(2.0f);
+
+            foreach (var item in spawnAnimators)
+            {
+                item.SetBool("Activated", true);
+            }
+
+            yield return new WaitForSeconds(1.0f);
+
+
             SpawnWave(currentWaves[i]);
-            while(spawnedEnemies.Count > 0)
+
+            yield return new WaitForSeconds(1.0f);
+
+            foreach (var item in spawnAnimators)
+            {
+                item.SetBool("Activated", false);
+            }
+            while (spawnedEnemies.Count > 0)
             {
                 yield return new WaitForSeconds(0.1f);
                 ValidateSpawnedEnemies();
