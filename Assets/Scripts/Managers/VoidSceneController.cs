@@ -6,6 +6,10 @@ using UnityEngine;
 public class VoidSceneController : SceneController
 {
     public static int RoomCount = 0;
+
+    public GameObject GameOverScreen;
+
+    private Coroutine EndgameCoro;
     
     protected override void Awake()
     {
@@ -43,6 +47,29 @@ public class VoidSceneController : SceneController
     private void PlayerDied()
     {
         RoomCount = 0;
+        EndgameCoro = StartCoroutine(PlayerDeathSequence());
+    }
+
+    
+
+    private IEnumerator PlayerDeathSequence()
+    {
+        GameOverScreen.SetActive(true);
+
+        EventManager.OnPlayerPressedInteract += SkipDeathScreen;
+
+        yield return new WaitForSeconds(5.0f);
+        EventManager.OnPlayerPressedInteract -= SkipDeathScreen;
         GameManager.Instance.GoToScene(Constants.SceneName.PlayersRoom);
+        EndgameCoro = null;
+    }
+
+    private void SkipDeathScreen()
+    {
+        StopCoroutine(EndgameCoro);
+        GameOverScreen.SetActive(false);
+        EventManager.OnPlayerPressedInteract -= SkipDeathScreen;
+        GameManager.Instance.GoToScene(Constants.SceneName.PlayersRoom);
+
     }
 }

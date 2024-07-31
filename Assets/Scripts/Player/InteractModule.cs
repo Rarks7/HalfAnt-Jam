@@ -26,7 +26,8 @@ public class InteractModule : MonoBehaviour
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if(interactable != null )
             {
-                interactable.Interact();
+                if(interactable.isInteractable)
+                    interactable.Interact();
             }
             else
             {

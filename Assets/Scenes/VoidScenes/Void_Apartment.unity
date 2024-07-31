@@ -2087,6 +2087,10 @@ PrefabInstance:
       value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 1530352034873314090, guid: 92e5877e348e58c488e6d8adcf54f578, type: 3}
+      propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 1369382020}
+    - target: {fileID: 1530352034873314090, guid: 92e5877e348e58c488e6d8adcf54f578, type: 3}
       propertyPath: Doors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2573,14 +2577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4459062005884909316, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4623271495689542894, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4659817477225306634, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2670,6 +2666,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+--- !u!1 &1369382020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8123667967043589782, guid: 0ba7e98c071f66f4c9784524eed2c972, type: 3}
+  m_PrefabInstance: {fileID: 1369382019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1386294024
 PrefabInstance:
   m_ObjectHideFlags: 0

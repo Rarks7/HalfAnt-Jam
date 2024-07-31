@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public MasterStatData masterStatData;
 
-    [NonSerialized] public bool Flag_VoidRoomActivated = true;
+    [NonSerialized] public bool Flag_VoidRoomActivated = false;
     [NonSerialized] public bool Flag_FirstRunCompleted = false;
 
 
@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Set Current Scene to " + CurrentScene);
 
         EventManager.OnPlayerCharacterDied += RunEnded;
+
+        EventManager.OnAddRuneToDeck += AddRuneToDeck;
     }
 
     private void OnDestroy()
@@ -67,6 +69,12 @@ public class GameManager : MonoBehaviour
         EventManager.OnRevertToPreviousGameState -= RevertState;
         EventManager.OnPlayerCharacterDied += RunEnded;
     }
+
+    private void AddRuneToDeck(Rune _rune)
+    {
+        deckdata.playerDeck.Add(_rune);
+    }
+
 
     private void RunEnded()
     {

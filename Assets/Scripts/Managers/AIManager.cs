@@ -25,16 +25,21 @@ public class AIManager : MonoBehaviour
         }
 
         EventManager.OnCombatCompleted += KillAllSlimes;
+        EventManager.OnPlayerCharacterDied += KillAllSlimes;
     }
     private void OnDestroy()
     {
         EventManager.OnCombatCompleted -= KillAllSlimes;
+        EventManager.OnPlayerCharacterDied -= KillAllSlimes;
     }
     private void KillAllSlimes()
     {
         foreach (var item in activeSummons)
         {
-            item.Die();
+            if(item != null)
+                item.Die();
         }
+
+        activeSummons.Clear();
     }
 }

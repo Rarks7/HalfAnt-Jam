@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OverworldScenes/Overworld.unity
-    guid: 74cc24decf365f744b89dce023c584e7
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 5313d2f9dc5b41b48b3e38ecc64b7be6
   - enabled: 1
     path: Assets/Scenes/OverworldScenes/Lobby.unity
     guid: 59104ed67e7c82947a32604fa45e9cc7
@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: c0c5ca0afcf97de4ea85540ca1785df0
   - enabled: 1
     path: Assets/Scenes/VoidScenes/Void_Apartment.unity
-    guid: 87a1e070656935741b7d36ca076e8abf
+    guid: 7619cd977a0d99440b51a43b152c0a58
   - enabled: 1
     path: Assets/Scenes/VoidScenes/VoidHallway.unity
     guid: 4af6200d16b1e584a840120d0524a983
