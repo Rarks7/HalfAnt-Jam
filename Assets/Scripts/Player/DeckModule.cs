@@ -105,6 +105,25 @@ public class DeckModule : MonoBehaviour
     }
 
 
+    public void RandomFillRuneHand()
+    {
+
+        for (int i = 0; i < runeHandSize; i++)
+        {
+
+            runeHand.Add(runeDeck[i]);
+            
+            runeDeck.RemoveAt(i);
+
+
+
+        }
+        if(RuneDeckUI.Instance == null) { return; }
+
+        RuneDeckUI.Instance.FillRuneDeckUI(runeHand);
+
+    }
+
     public void Cast(List<RuneHolder> _runeHolderHand)
     {
 

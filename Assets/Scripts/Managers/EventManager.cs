@@ -83,4 +83,10 @@ public class EventManager : MonoBehaviour
     {
         OnPlayerCharacterDied?.Invoke();
     }
+
+    public static Action<Rune> OnAddRuneToDeck;
+    public static void AddRuneToDeck(Rune _rune)
+    {
+        OnAddRuneToDeck?.Invoke(_rune);
+    }
 }

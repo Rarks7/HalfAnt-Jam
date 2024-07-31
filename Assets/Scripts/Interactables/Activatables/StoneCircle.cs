@@ -20,5 +20,6 @@ public class StoneCircle : Activatable
     {
         ani.SetBool(ActivateString, true);
         TurnOnInteractable.SetActive(true);
+        GameManager.Instance.Flag_VoidRoomActivated = true;
     }
 }
