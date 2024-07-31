@@ -22,6 +22,10 @@ public class DeckModule : MonoBehaviour
     [SerializeField]
     DeckData deckdata;
 
+    [SerializeField]
+    DeckData starterDeckdata;
+
+
 
     int runeHandSize = 5;
 
