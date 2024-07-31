@@ -7,6 +7,8 @@ public class VoidStartSceneController : SceneController
     [SerializeField] List<Animator> animators;
     [SerializeField] List<GameObject> OtherThingsToTurnOn;
 
+    [SerializeField] List<Interactable> InteractablesToCancel;
+
     private const string ForceStateString = "ForceFinalState";
     
     protected override void Start()
@@ -36,6 +38,11 @@ public class VoidStartSceneController : SceneController
         foreach (var item in OtherThingsToTurnOn)
         {
             item.SetActive(true);
+        }
+
+        foreach (var item in InteractablesToCancel)
+        {
+            item.isInteractable = false;
         }
 
     }

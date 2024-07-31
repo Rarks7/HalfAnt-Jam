@@ -45,7 +45,7 @@ public class VoidManager : MonoBehaviour
     private void RunEnds()
     {
         VoidLevelsActiveRun.Clear();
-        GameManager.Instance.Flag_FirstRunCompleted = true;
+        
     }
 
     private void GenerateRandomRun()
@@ -75,6 +75,7 @@ public class VoidManager : MonoBehaviour
             {
                 VoidLevelsActiveRun = new List<SceneName>(VoidLevelsFirstRun);
             }
+            GameManager.Instance.Flag_FirstRunCompleted = true;
         }
 
         SceneName Level = VoidLevelsActiveRun[0];

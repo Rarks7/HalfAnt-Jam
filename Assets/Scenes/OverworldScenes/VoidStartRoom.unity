@@ -4650,3 +4650,6 @@ MonoBehaviour:
   - {fileID: 668202538}
   OtherThingsToTurnOn:
   - {fileID: 303271161}
+  InteractablesToCancel:
+  - {fileID: 1948029564}
+  - {fileID: 15442102}
