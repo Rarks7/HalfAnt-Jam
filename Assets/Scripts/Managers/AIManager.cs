@@ -24,18 +24,17 @@ public class AIManager : MonoBehaviour
             Instance = this;
         }
 
-
+        EventManager.OnCombatCompleted += KillAllSlimes;
     }
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnDestroy()
     {
-        
+        EventManager.OnCombatCompleted -= KillAllSlimes;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void KillAllSlimes()
     {
-        
+        foreach (var item in activeSummons)
+        {
+            item.Die();
+        }
     }
 }

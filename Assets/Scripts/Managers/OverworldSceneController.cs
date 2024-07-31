@@ -8,15 +8,10 @@ public class OverworldSceneController : SceneController
     protected override void Start()
     {
         base.Start();
-        //foreach (var item in MagicUIElements)
-        //{
-        //    item.SetActive(false);
-        //}
+        foreach (var item in MagicUIElements)
+        {
+            item.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -54,7 +54,13 @@ public class Player : Character
         summonModule = GetComponent<SummonModule>();
         deckModule = GetComponent<DeckModule>();
         playerUI = FindObjectOfType<PlayerUI>();
-        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+
+
+        if(playerUI != null )
+        {
+            playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+        }
+        
         interactModule = GetComponent<InteractModule>();
 
         trailRenderer = GetComponentInChildren<TrailRenderer>();
@@ -65,12 +71,21 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
-        DashTimer();
-        RecallTimer();
-        ShuffleTimer();
+        if(playerUI != null)
+        {
+            DashTimer();
+            RecallTimer();
+            ShuffleTimer();
+            playerUI.SetHealthText(statModule.health);
+            playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+        }
+        
+        
+
+
+
         AnimateCharacter();
-        playerUI.SetHealthText(statModule.health);
-        playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+
 
     }
 
