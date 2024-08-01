@@ -699,5 +699,13 @@ public class AICharacter : Character
 
     }
 
+    public override void Die()
+    {
+
+
+        base.Die();
+
+    }
+
 
 }
