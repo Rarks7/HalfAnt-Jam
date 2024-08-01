@@ -26,6 +26,8 @@ public class VFXModule : MonoBehaviour
     [SerializeField] GameObject floatingText;
     [SerializeField] GameObject stunnedVFX;
     [SerializeField] GameObject shieldVFX;
+    [SerializeField] GameObject runeReturnVFX;
+
 
 
     private void Awake()
@@ -119,6 +121,17 @@ public class VFXModule : MonoBehaviour
         newFloatingText.GetComponentInChildren<FloatingText>().SetText(_string, _type);
         newFloatingText.transform.parent = transform;
     }
+
+
+    public void CreateReturnRuneVFX()
+    {
+        float offset = Random.Range(-0.1f,0.1f);
+
+        GameObject newruneReturnVFX = Instantiate(runeReturnVFX, transform.position, Quaternion.identity);
+
+    
+    }
+
 
     public void StunnedVFX(bool _show)
     {

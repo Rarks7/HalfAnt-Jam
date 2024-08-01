@@ -38,5 +38,19 @@ public class Summon : AICharacter
         
     }
 
+    public override void Die()
+    {
+
+        foreach (var rune in runes)
+        {
+
+            vfxModule.CreateReturnRuneVFX();
+
+        }
+
+        base.Die();
+
+    }
+
 
 }

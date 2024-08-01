@@ -84,18 +84,20 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   moveSpeed: 100
+  dashCooldown: 1
+  recallCooldown: 5
+  shuffleCooldown: 5
   runeType: 0
   combatType: 0
   attackRange: 0
-  rangedAttackRange: 5
-  meleeAttackRange: 2
-  mageAttackRange: 3
   detectRange: 10
   fireInterval: 4
   damage: 3
   projectileSpeed: 500
   healAmount: 5
   enchantAmount: 5
+  stunDuration: 5
+  shieldDuration: 5
 --- !u!114 &3625453293682402108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +122,7 @@ MonoBehaviour:
   floatingText: {fileID: 5924928741871832189, guid: 7a3a0e37bb130ee42a58afa6ca31e8cb, type: 3}
   stunnedVFX: {fileID: 8527346662120978468}
   shieldVFX: {fileID: 6455620186432813392}
+  runeReturnVFX: {fileID: 3165498243700907087, guid: 08e296b5698517a4bbae86e093384b4e, type: 3}
 --- !u!114 &6016672800380449188
 MonoBehaviour:
   m_ObjectHideFlags: 0
