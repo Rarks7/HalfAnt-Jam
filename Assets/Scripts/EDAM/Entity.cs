@@ -15,12 +15,20 @@ namespace EDAM
 
             private void Awake()
             {
-                AttackAction = new AttackAction();
+                AttackAction = new AttackAction(this);
                 
                 AttackAction.AddModule(new SingleAttackModule());
                 AttackAction.AddModule(new MultiAttackModule(2));
                 AttackAction.AddModule(new ElementAttackModule(ElementType.Fire));
+
             }
+
+            private void Update()
+            {
+                AttackAction.ActivateAction();
+            }
+
+
         }
 
     }

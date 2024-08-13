@@ -13,6 +13,13 @@ namespace EDAM
             [SerializeReference] public List<T> Modules = new ();
             protected Entity.Entity Owner;
 
+            public float ActivationDelay = 0;
+            
+            public EntityAction(Entity.Entity owner)
+            {
+                Owner = owner;
+            }
+
             public void AddModule(T _module)
             {
                 Modules.Add(_module);
@@ -39,7 +46,7 @@ namespace EDAM
             /// Perform the Actions function with the module processed data
             /// </summary>
             /// <param name="data">The module modified data</param>
-            protected abstract void ActionActivate(ref U data);
+            protected abstract void ActionExecute(ref U data);
 
             /// <summary>
             /// Wrap up the action, do anything needed to finish up the action
@@ -49,13 +56,31 @@ namespace EDAM
             /// <summary>
             /// Launch the given action
             /// </summary>
-            public void ProcessAction()
-            {
+            public void ActivateAction()
+            {              
                 U data = new();
                 ValidateModules(); // Ensure all the modules are correct
-                ActionAwake(ref data);
-                ProcessModules(ref data);
-                ActionActivate(ref data);
+                ActionAwake(ref data);//Do any initilization needed
+                ProcessModules(ref data); //Pass the data through the modules
+
+                if(data.DontExecute) //Check to make sure none of the modules set DontExecute
+                {
+                    return;
+                }
+
+                if (ActivationDelay > 0)
+                {
+                    ActivationDelay -= Time.deltaTime;
+                    if (ActivationDelay < 0)
+                    {
+                        ActivationDelay = 0;
+                    }
+                    return;
+                }
+
+                ActionExecute(ref data); //Actually do the action
+
+                ActionComplete(ref data); //Wrap up the action
             }
 
             protected void ProcessModules(ref U data)
