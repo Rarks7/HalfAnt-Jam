@@ -7,12 +7,15 @@ using UnityEngine.InputSystem;
 public class Player : Character
 {
 
-
     [NonSerialized]
     public SummonModule summonModule;
-    RuneModule runeModule;
-    public DeckModule deckModule;
+
+    [NonSerialized]
+    public RuneDeckModule runeDeckModule;
+
     StatModule statModule;
+
+
     [SerializeField] Animator ani;
     PlayerUI playerUI;
 
@@ -49,16 +52,15 @@ public class Player : Character
         rb = GetComponent<Rigidbody2D>();
         coll = rb.GetComponent<BoxCollider2D>();
 
-        runeModule = GetComponent<RuneModule>();
         statModule = GetComponent<StatModule>();
         summonModule = GetComponent<SummonModule>();
-        deckModule = GetComponent<DeckModule>();
+        runeDeckModule = GetComponent<RuneDeckModule>();
         playerUI = FindObjectOfType<PlayerUI>();
 
 
         if(playerUI != null )
         {
-            playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+            playerUI.SetRemainingDeckNumber(runeDeckModule.runeDeck.Count);
         }
         
         interactModule = GetComponent<InteractModule>();
@@ -77,7 +79,7 @@ public class Player : Character
             RecallTimer();
             ShuffleTimer();
             playerUI.SetHealthText(statModule.health);
-            playerUI.SetRemainingDeckNumber(deckModule.runeDeck.Count);
+            playerUI.SetRemainingDeckNumber(runeDeckModule.runeDeck.Count);
         }
         
         
@@ -141,18 +143,9 @@ public class Player : Character
 
         if (_context.performed)
         {
-            if (!RuneDeckUI.Instance.runeHandUI[0].selected && runeModule.activeRunes.Count < 3)
-            {
-                runeModule.Cast(deckModule.runeHand[0]);
-                RuneDeckUI.Instance.runeHandUI[0].Select();
 
-            }
-            else
-            {
-                RuneDeckUI.Instance.runeHandUI[0].StartCantSelect();
+            runeDeckModule.Cast(runeDeckModule.runeHand[0], 0);
 
-
-            }
 
 
         }
@@ -164,18 +157,7 @@ public class Player : Character
 
         if (_context.performed)
         {
-            if (!RuneDeckUI.Instance.runeHandUI[1].selected && runeModule.activeRunes.Count < 3)
-            {
-                runeModule.Cast(deckModule.runeHand[1]);
-                RuneDeckUI.Instance.runeHandUI[1].Select();
-
-            }
-            else
-            {
-                RuneDeckUI.Instance.runeHandUI[1].StartCantSelect();
-
-
-            }
+            runeDeckModule.Cast(runeDeckModule.runeHand[1], 1);
 
 
         }
@@ -187,20 +169,7 @@ public class Player : Character
 
         if (_context.performed)
         {
-            if (!RuneDeckUI.Instance.runeHandUI[2].selected && runeModule.activeRunes.Count < 3)
-            {
-                runeModule.Cast(deckModule.runeHand[2]);
-                RuneDeckUI.Instance.runeHandUI[2].Select();
-
-            }
-            else
-            {
-                RuneDeckUI.Instance.runeHandUI[2].StartCantSelect();
-
-
-            }
-
-
+            runeDeckModule.Cast(runeDeckModule.runeHand[2], 2);
 
         }
 
@@ -211,19 +180,7 @@ public class Player : Character
 
         if (_context.performed)
         {
-            if (!RuneDeckUI.Instance.runeHandUI[3].selected && runeModule.activeRunes.Count < 3)
-            {
-                runeModule.Cast(deckModule.runeHand[3]);
-                RuneDeckUI.Instance.runeHandUI[3].Select();
-
-            }
-            else
-            {
-                RuneDeckUI.Instance.runeHandUI[3].StartCantSelect();
-
-
-            }
-
+            runeDeckModule.Cast(runeDeckModule.runeHand[3], 3);
 
         }
 
@@ -235,21 +192,7 @@ public class Player : Character
         if (_context.performed)
         {
 
-
-
-            if (!RuneDeckUI.Instance.runeHandUI[4].selected && runeModule.activeRunes.Count < 3)
-            {
-                runeModule.Cast(deckModule.runeHand[4]);
-                RuneDeckUI.Instance.runeHandUI[4].Select();
-
-            }
-            else
-            {
-                RuneDeckUI.Instance.runeHandUI[4].StartCantSelect();
-
-
-            }
-
+            runeDeckModule.Cast(runeDeckModule.runeHand[4], 4);
 
         }
 
@@ -261,16 +204,8 @@ public class Player : Character
         if (_context.performed)
         {
 
-            if (runeModule.activeRunes.Count > 0 && 
-                (runeModule.activeRunes[0].GetRuneElementType() != ElementType.Empty 
-                || runeModule.activeRunes[1].GetRuneElementType() != ElementType.Empty 
-                || runeModule.activeRunes[2].GetRuneElementType() != ElementType.Empty))
-            {
-                deckModule.ReturnHandToDeck(RuneDeckUI.Instance.runeHandUI);
-                runeModule.Summon();
-            }
+            runeDeckModule.Summon();
             
-
 
         }
 
@@ -317,7 +252,7 @@ public class Player : Character
         {
             if (canShuffle)
             {
-                deckModule.ReturnHandToDeck(RuneDeckUI.Instance.runeHandUI);
+                //runeDeckModule.ReturnHandToDeck(runeHandUI.runeHandUI);
                 canShuffle = false;
                 playerUI.SetShuffleDulled(true);
                 AudioManager.instance.Play("Shuffle");

@@ -95,9 +95,8 @@ GameObject:
   - component: {fileID: 6247942158397417843}
   - component: {fileID: 4073319335373391488}
   - component: {fileID: 5844910755432838049}
-  - component: {fileID: 8366209560971972258}
+  - component: {fileID: 9009642842449046351}
   - component: {fileID: 819067148587643396}
-  - component: {fileID: 5343604728483154392}
   - component: {fileID: 743257142186768589}
   - component: {fileID: 4964773277426774365}
   - component: {fileID: 4516342597519210390}
@@ -143,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c53f49e43fe2dc43946a650757ffd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckModule: {fileID: 0}
   ani: {fileID: 4303355610470134719}
   walkLayerMask:
     serializedVersion: 2
@@ -177,7 +175,7 @@ MonoBehaviour:
   enchantAmount: 5
   stunDuration: 5
   shieldDuration: 5
---- !u!114 &8366209560971972258
+--- !u!114 &9009642842449046351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,13 +184,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2891555977643533669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f960441dad38f94eace9e33b21de46e, type: 3}
+  m_Script: {fileID: 11500000, guid: cead065e3d7709e47ad3689eb0f3102e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runeDeck: []
+  runeHand: []
+  activeRunes: []
   rune1: {fileID: 8534052356550627039}
   rune2: {fileID: 6034579938501278993}
   rune3: {fileID: 6588244083780109082}
-  activeRunes: []
 --- !u!114 &819067148587643396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,23 +208,6 @@ MonoBehaviour:
   summon: {fileID: 2891555977643533669, guid: 816ee416979158a4a898f23e28c63ad6, type: 3}
   recall: {fileID: 9004145259910006715, guid: 2e132dadc70335d47b1eab2d7a420c81, type: 3}
   castSummon: {fileID: 7182244602332720106, guid: e19c0303908c5d2439cd1115e0898009, type: 3}
---- !u!114 &5343604728483154392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2891555977643533669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0438baf7716da0c47b6922b04156df58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runeHand: []
-  runeDeck: []
-  activeRunes: []
-  deckdata: {fileID: 11400000, guid: 1ff28d82dab1ecb47a8f462038d56094, type: 2}
-  starterDeckdata: {fileID: 11400000, guid: 149d03ed0e64324468ec94f4d1766600, type: 2}
 --- !u!114 &743257142186768589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +232,7 @@ MonoBehaviour:
   floatingText: {fileID: 5924928741871832189, guid: 7a3a0e37bb130ee42a58afa6ca31e8cb, type: 3}
   stunnedVFX: {fileID: 0}
   shieldVFX: {fileID: 0}
+  runeReturnVFX: {fileID: 0}
 --- !u!114 &4964773277426774365
 MonoBehaviour:
   m_ObjectHideFlags: 0

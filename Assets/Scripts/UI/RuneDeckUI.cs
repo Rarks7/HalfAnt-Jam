@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class RuneDeckUI : MonoBehaviour
 {
-    public static RuneDeckUI Instance { get; private set; }
-
-
     public List<RuneHolder> runeHandUI;
 
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+
     }
 
     // Start is called before the first frame update

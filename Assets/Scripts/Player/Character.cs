@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
                 foreach (var rune in summon.runes)
                 {
                     Player player = FindAnyObjectByType<Player>();
-                        player.deckModule.AddToDeck(rune);
+                        player.runeDeckModule.AddToDeck(rune);
 
                 }
             }
